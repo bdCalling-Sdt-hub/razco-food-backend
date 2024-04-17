@@ -7,6 +7,7 @@ export type IUser = {
   phone: string;
   password: string;
   verified: boolean;
+  oneTimeCode: number;
   gender?: "male" | "female";
   address?: string;
   profile?: string;

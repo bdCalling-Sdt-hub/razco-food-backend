@@ -8,7 +8,10 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
   const result = await UserService.createUserToDB(userData);
 
   res.json({
-    message: "User created successfully",
+    statusCode: StatusCodes.OK,
+    success: true,
+    message:
+      "Account created successfully. Please check your email to verify your account",
     data: result,
   });
 });
