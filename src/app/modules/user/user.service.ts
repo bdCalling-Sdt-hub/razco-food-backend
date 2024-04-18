@@ -4,8 +4,9 @@ import jwt, { Secret } from "jsonwebtoken";
 import config from "../../../config";
 import ApiError from "../../../errors/ApiErrors";
 import sendMail from "../../../helpers/emailHelper";
-import generateOTP from "../../../helpers/otpHelper";
+
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
+import generateOTP from "../../../util/generateOtp";
 import { IUser } from "./user.interface";
 import { User } from "./user.model";
 
@@ -13,17 +14,14 @@ const createUserToDB = async (payload: IUser) => {
   //set role
   payload.role = "user";
 
+  //generate otp
+  const otp = generateOTP();
+  payload.oneTimeCode = otp;
+
   const createUser = await User.create(payload);
   if (!createUser) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "Failed to create user");
   }
-
-  //generate otp
-  const otp = generateOTP();
-
-  // // OTP save to DB
-  // createUser.oneTimeCode = otp;
-  // await createUser.save();
 
   //send mail
   const data = {
@@ -33,6 +31,16 @@ const createUserToDB = async (payload: IUser) => {
   };
   const mailData = accountActivationTemplate(data);
   sendMail(mailData);
+
+  // Schedule the task to set oneTimeCode to null after 3 minutes
+  setTimeout(async () => {
+    await User.updateOne(
+      { _id: createUser._id },
+      { $set: { oneTimeCode: null } }
+    );
+  }, 3 * 60 * 1000); // 3 minutes in milliseconds
+
+  return createUser;
 };
 
 const loginUserFromDB = async (payload: any) => {
@@ -46,7 +54,6 @@ const loginUserFromDB = async (payload: any) => {
 
   //password match
   const isMatchPass = await bcrypt.compare(password, isUserExist.password);
-  console.log(isMatchPass);
   if (!isMatchPass) {
     throw new ApiError(StatusCodes.UNAUTHORIZED, "Password is incorrect!");
   }

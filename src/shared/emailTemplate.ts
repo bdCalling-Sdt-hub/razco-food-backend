@@ -7,9 +7,12 @@ export const accountActivationTemplate = (
     email: values.email,
     subject: "Account activation mail",
     html: `
-      <h1>Hey! ${values.name}</h1>
-      <p>Your email verified code is <h2>${values.otp}</h2> to verify your email</p>
-      <small>This code valid for 3minutes</small>
+      <div style="font-family: Arial, sans-serif;">
+      <h1 style="color: #333;">Hi, ${values.name}!</h1>
+      <p style="color: #555; font-size: 16px; line-height: 1.5; margin-bottom: 20px;">Your single-use code is:</p>
+      <div style="background: #4CAF50; width: 80px; padding: 5px; text-align: center; border-radius: 8px; color: #fff; font-size: 25px; letter-spacing: 2px; margin-bottom: 20px;">${values.otp}</div>
+      <p style="color: #555; font-size: 16px; line-height: 1.5; margin-bottom: 20px;">This code is valid for 3 minutes.</p>
+      </div>
     `,
   };
   return data;
