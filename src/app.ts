@@ -10,6 +10,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//get static file
+app.use(express.static("uploads"));
+
 //route handle
 app.use("/api/v1", routes);
 
