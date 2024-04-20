@@ -1,12 +1,10 @@
-import bcrypt from "bcrypt";
 import { StatusCodes } from "http-status-codes";
-import jwt, { Secret } from "jsonwebtoken";
-import config from "../../../config";
 import ApiError from "../../../errors/ApiErrors";
 import sendMail from "../../../helpers/emailHelper";
 
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
 import generateOTP from "../../../util/generateOtp";
+import { IVerifyEmail } from "../auth/auth.interface";
 import { IUser } from "./user.interface";
 import { User } from "./user.model";
 
@@ -43,34 +41,29 @@ const createUserToDB = async (payload: IUser) => {
   return createUser;
 };
 
-const loginUserFromDB = async (payload: any) => {
-  const { email, password } = payload;
-
-  //check user
-  const isUserExist = await User.findOne({ email });
+const verifyEmailToDB = async (payload: IVerifyEmail): Promise<void> => {
+  const { email, code } = payload;
+  const isUserExist = await User.isUserExist(email);
   if (!isUserExist) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
   }
 
-  //password match
-  const isMatchPass = await bcrypt.compare(password, isUserExist.password);
-  if (!isMatchPass) {
-    throw new ApiError(StatusCodes.UNAUTHORIZED, "Password is incorrect!");
+  //check otp here
+  if (isUserExist.oneTimeCode !== code) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "You provided wrong otp!");
   }
 
-  //access token
-  const accessToken = jwt.sign(
-    { role: isUserExist.role, email: isUserExist.email },
-    config.jwt.secret as Secret,
-    {
-      expiresIn: config.jwt.expire_in,
-    }
-  );
-
-  return { accessToken };
+  //verified true here
+  const updateData = {
+    verified: true,
+    oneTimeCode: null,
+  };
+  await User.findOneAndUpdate({ _id: isUserExist._id }, updateData, {
+    new: true,
+  });
 };
 
 export const UserService = {
   createUserToDB,
-  loginUserFromDB,
+  verifyEmailToDB,
 };

@@ -10,4 +10,10 @@ router.post(
   UserController.createUser
 );
 
+router.post(
+  "/verify-email",
+  validateRequest(UserValidation.createVerifyEmailZodSchema),
+  UserController.verifyEmail
+);
+
 export const UserRoutes = router;

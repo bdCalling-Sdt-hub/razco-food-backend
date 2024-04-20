@@ -28,6 +28,9 @@ const userSchema = new Schema<IUser, UserModel>(
       type: String,
       required: true,
     },
+    passwordChangeAt: {
+      type: Date,
+    },
     verified: {
       type: Boolean,
       default: false,

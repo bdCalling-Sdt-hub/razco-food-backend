@@ -13,14 +13,14 @@ const createUserZodSchema = z.object({
   }),
 });
 
-const loginUserZodSchema = z.object({
+const createVerifyEmailZodSchema = z.object({
   body: z.object({
     email: z.string({ required_error: "Email is required" }).email(),
-    password: z.string({ required_error: "Password is required" }),
+    code: z.number({ required_error: "Code is required" }),
   }),
 });
 
 export const UserValidation = {
   createUserZodSchema,
-  loginUserZodSchema,
+  createVerifyEmailZodSchema,
 };

@@ -9,3 +9,8 @@ export type IAccountActivationTemplate = {
   email: string;
   name: string;
 };
+
+export type IForgetPasswordTemplate = {
+  otp: number;
+  email: string;
+};

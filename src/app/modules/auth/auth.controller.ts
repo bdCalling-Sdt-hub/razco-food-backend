@@ -17,18 +17,32 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const verifyEmail = catchAsync(async (req: Request, res: Response) => {
-  const { ...verifyData } = req.body;
-  await AuthService.verifyEmailToDB(verifyData);
+const forgetPassword = catchAsync(async (req: Request, res: Response) => {
+  const email = req.body.email;
+  await AuthService.forgetPasswordToDB(email);
 
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: "Email verified successfully",
+    message: "Please check your email, we send a Otp!",
+  });
+});
+
+const changePassword = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const { ...passwordData } = req.body;
+  await AuthService.changePasswordToDB(user, passwordData);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Password changed successfully",
   });
 });
 
 export const AuthController = {
   loginUser,
-  verifyEmail,
+
+  changePassword,
+  forgetPassword,
 };

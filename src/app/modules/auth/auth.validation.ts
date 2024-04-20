@@ -7,14 +7,21 @@ const createLoginZodSchema = z.object({
   }),
 });
 
-const createVerifyEmailZodSchema = z.object({
+const createChangePasswordZodSchema = z.object({
+  body: z.object({
+    oldPassword: z.string({ required_error: "Old password is required" }),
+    newPassword: z.string({ required_error: "New password is required" }),
+  }),
+});
+
+const createForgetPasswordZodSchema = z.object({
   body: z.object({
     email: z.string({ required_error: "Email is required" }).email(),
-    code: z.number({ required_error: "Code is required" }),
   }),
 });
 
 export const AuthValidation = {
   createLoginZodSchema,
-  createVerifyEmailZodSchema,
+  createChangePasswordZodSchema,
+  createForgetPasswordZodSchema,
 };
