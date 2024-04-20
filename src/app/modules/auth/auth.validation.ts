@@ -20,8 +20,16 @@ const createForgetPasswordZodSchema = z.object({
   }),
 });
 
+const createOtpVerifyZodSchema = z.object({
+  body: z.object({
+    email: z.string({ required_error: "Email is required" }).email(),
+    code: z.number({ required_error: "Code is required" }),
+  }),
+});
+
 export const AuthValidation = {
   createLoginZodSchema,
   createChangePasswordZodSchema,
   createForgetPasswordZodSchema,
+  createOtpVerifyZodSchema,
 };

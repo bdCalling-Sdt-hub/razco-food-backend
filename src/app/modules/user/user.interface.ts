@@ -7,6 +7,7 @@ export type IUser = {
   phone: string;
   password: string;
   passwordChangeAt: Date;
+  resetPasswordToken: boolean;
   verified: boolean;
   oneTimeCode: number;
   gender?: "male" | "female";

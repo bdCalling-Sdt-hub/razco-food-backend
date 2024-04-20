@@ -28,6 +28,19 @@ const forgetPassword = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const otpVerify = catchAsync(async (req: Request, res: Response) => {
+  const { ...otpData } = req.body;
+  const result = await AuthService.otpVerifyToDB(otpData);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message:
+      "Verification Successful: Please securely store and utilize this code for password reset purposes",
+    data: result,
+  });
+});
+
 const changePassword = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
   const { ...passwordData } = req.body;
@@ -42,7 +55,7 @@ const changePassword = catchAsync(async (req: Request, res: Response) => {
 
 export const AuthController = {
   loginUser,
-
+  otpVerify,
   changePassword,
   forgetPassword,
 };

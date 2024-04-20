@@ -19,6 +19,12 @@ router.post(
 );
 
 router.post(
+  "/otp-verify",
+  validateRequest(AuthValidation.createOtpVerifyZodSchema),
+  AuthController.otpVerify
+);
+
+router.post(
   "/change-password",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
   validateRequest(AuthValidation.createChangePasswordZodSchema),

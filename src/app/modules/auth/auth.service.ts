@@ -6,9 +6,11 @@ import ApiError from "../../../errors/ApiErrors";
 import sendMail from "../../../helpers/emailHelper";
 import { jwtHelper } from "../../../helpers/jwtHelper";
 import { forgetPasswordTemplate } from "../../../shared/emailTemplate";
+import cryptoHexToken from "../../../util/cryptoToken";
 import generateOTP from "../../../util/generateOtp";
+import { Token } from "../token/token.model";
 import { User } from "../user/user.model";
-import { IAuth, IChangePassword } from "./auth.interface";
+import { IAuth, IChangePassword, IVerifyEmail } from "./auth.interface";
 
 const loginUserFromDB = async (payload: IAuth) => {
   const { email, password } = payload;
@@ -78,10 +80,13 @@ const forgetPasswordToDB = async (email: string): Promise<void> => {
 
   //generate otp
   const otp = generateOTP();
-  isUserExist.oneTimeCode = otp;
-  //await isUserExist.save();
 
-  console.log(isUserExist);
+  //save otp to db
+  await User.findOneAndUpdate(
+    { _id: isUserExist._id },
+    { oneTimeCode: otp },
+    { new: true }
+  );
 
   //send email
   const data = {
@@ -100,8 +105,50 @@ const forgetPasswordToDB = async (email: string): Promise<void> => {
   }, 3 * 60 * 1000); // 3minute
 };
 
+const otpVerifyToDB = async (payload: IVerifyEmail) => {
+  const { email, code } = payload;
+  //check user
+  const isUserExist = await User.isUserExist(email);
+  if (!isUserExist) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist");
+  }
+  //check otp
+  if (isUserExist.oneTimeCode !== code) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "You provided wrong otp!");
+  }
+
+  const token = cryptoHexToken();
+  const createToken = await Token.create({
+    token: token,
+    user: isUserExist._id,
+  });
+
+  console.log(createToken);
+
+  //delete token
+  setTimeout(async () => {
+    await Token.findByIdAndDelete(createToken._id);
+    await User.findOneAndUpdate(
+      { _id: isUserExist._id },
+      { resetPasswordToken: false }
+    );
+  }, 10 * 60 * 1000); //10minutes
+
+  //verified true here
+  const updateData = {
+    oneTimeCode: null,
+    resetPasswordToken: true,
+  };
+  await User.findOneAndUpdate({ _id: isUserExist._id }, updateData, {
+    new: true,
+  });
+
+  return createToken.token;
+};
+
 export const AuthService = {
   loginUserFromDB,
   changePasswordToDB,
   forgetPasswordToDB,
+  otpVerifyToDB,
 };

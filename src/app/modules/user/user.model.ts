@@ -31,6 +31,10 @@ const userSchema = new Schema<IUser, UserModel>(
     passwordChangeAt: {
       type: Date,
     },
+    resetPasswordToken: {
+      type: Boolean,
+      default: false,
+    },
     verified: {
       type: Boolean,
       default: false,
