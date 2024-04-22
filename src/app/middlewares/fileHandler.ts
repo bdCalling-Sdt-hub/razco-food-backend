@@ -67,6 +67,8 @@ const fileHandler = () => {
   }).fields([
     { name: "categoryImage", maxCount: 1 },
     { name: "subCategoryImage", maxCount: 1 },
+    { name: "offerImage", maxCount: 1 },
+    { name: "image", maxCount: 1 },
   ]);
 
   return upload;

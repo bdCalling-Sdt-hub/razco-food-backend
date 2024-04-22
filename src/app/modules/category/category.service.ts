@@ -27,7 +27,14 @@ const createSubCategoryToDB = async (payload: any): Promise<ICategory> => {
   return subCategory;
 };
 
+const getCategoriesToDB = async (): Promise<ICategory[]> => {
+  const result = await Category.find();
+
+  return result;
+};
+
 export const CategoryService = {
   createCategoryToDB,
   createSubCategoryToDB,
+  getCategoriesToDB,
 };

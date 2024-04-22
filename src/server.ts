@@ -11,7 +11,7 @@ async function main() {
     const port =
       typeof config.port === "number" ? config.port : parseInt(config.port!);
     //app listening here
-    app.listen(port, "192.168.10.16", () => {
+    app.listen(port, config.ip_address as string, () => {
       console.log(colors.bold.yellow(`🚀 Application Running on port:${port}`));
     });
   } catch (error) {
