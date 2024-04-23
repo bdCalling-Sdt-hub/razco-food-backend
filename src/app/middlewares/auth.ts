@@ -30,7 +30,7 @@ const auth =
         if (roles.length && !roles.includes(verifyUser.role)) {
           throw new ApiError(
             StatusCodes.FORBIDDEN,
-            "You don't have permission to access"
+            "You don't have permission to access this api"
           );
         }
         next();

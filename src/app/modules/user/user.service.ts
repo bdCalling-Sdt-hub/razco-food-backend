@@ -1,7 +1,9 @@
+import bcrypt from "bcrypt";
 import { StatusCodes } from "http-status-codes";
 import ApiError from "../../../errors/ApiErrors";
 import sendMail from "../../../helpers/emailHelper";
 
+import config from "../../../config";
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
 import generateOTP from "../../../util/generateOtp";
 import { IVerifyEmail } from "../auth/auth.interface";
@@ -79,7 +81,40 @@ const verifyEmailToDB = async (payload: IVerifyEmail): Promise<void> => {
   await User.create(userForCreation);
 };
 
+const createAdminToDB = async (payload: IUser): Promise<void> => {
+  //set role
+  payload.role = "admin";
+  payload.verified = true;
+  payload.password = await bcrypt.hash(
+    payload.password,
+    Number(config.bcrypt_salt_rounds)
+  );
+
+  const createUser = await User.create(payload);
+  if (!createUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Failed to create admin");
+  }
+};
+
+const deleteAdminToDB = async (id: string): Promise<void> => {
+  const isExistUser = await User.findById(id);
+  if (!isExistUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
+  //delete admin
+  if (isExistUser.role !== "admin") {
+    throw new ApiError(
+      StatusCodes.BAD_REQUEST,
+      "Check properly this is not admin!"
+    );
+  }
+  await User.findByIdAndDelete(id);
+};
+
 export const UserService = {
   createUserToDB,
   verifyEmailToDB,
+  createAdminToDB,
+  deleteAdminToDB,
 };
