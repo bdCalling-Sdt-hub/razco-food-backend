@@ -3,16 +3,16 @@ import { Response } from "express";
 type IApiResponse<T> = {
   statusCode: number;
   success: boolean;
-  message?: string | null;
-  data?: T | null;
+  message?: string;
+  data?: T;
 };
 
 const sendResponse = <T>(res: Response, data: IApiResponse<T>) => {
   const resData = {
     statusCode: data.statusCode,
     success: data.success,
-    message: data.message || null,
-    data: data.data || null,
+    message: data.message,
+    data: data.data,
   };
   res.status(data.statusCode).json(resData);
 };

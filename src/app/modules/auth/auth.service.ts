@@ -37,40 +37,6 @@ const loginUserFromDB = async (payload: IAuth) => {
   return { accessToken };
 };
 
-const changePasswordToDB = async (
-  user: JwtPayload,
-  payload: IChangePassword
-): Promise<void> => {
-  const { oldPassword, newPassword } = payload;
-  const isUserExist = await User.isUserExist(user.email);
-  if (!isUserExist) {
-    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist");
-  }
-
-  //check password
-  const isMatchPassword = await User.isMatchPassword(
-    oldPassword,
-    isUserExist.password
-  );
-  if (isUserExist.password && !isMatchPassword) {
-    throw new ApiError(StatusCodes.UNAUTHORIZED, "Password is incorrect");
-  }
-
-  //hash password
-  const hashPassword = await bcrypt.hash(
-    newPassword,
-    Number(config.bcrypt_salt_rounds)
-  );
-
-  const updateData = {
-    password: hashPassword,
-    passwordChangeAt: new Date(),
-  };
-
-  //update to db
-  await User.findOneAndUpdate({ _id: user.id }, updateData, { new: true });
-};
-
 const forgetPasswordToDB = async (email: string): Promise<void> => {
   //check user
   const isUserExist = await User.isUserExist(email);
@@ -123,15 +89,13 @@ const otpVerifyToDB = async (payload: IVerifyEmail) => {
     user: isUserExist._id,
   });
 
-  console.log(createToken);
-
   //delete token
   setTimeout(async () => {
-    await Token.findByIdAndDelete(createToken._id);
     await User.findOneAndUpdate(
       { _id: isUserExist._id },
       { resetPasswordToken: false }
     );
+    await Token.findByIdAndDelete(createToken._id);
   }, 10 * 60 * 1000); //10minutes
 
   //verified true here
@@ -146,9 +110,96 @@ const otpVerifyToDB = async (payload: IVerifyEmail) => {
   return createToken.token;
 };
 
+const resetPasswordToDB = async (
+  token: string,
+  payload: IChangePassword
+): Promise<void> => {
+  const { newPassword, confirmPassword } = payload;
+
+  //check token
+  const isExistToken = await Token.findOne({ token }, { token: 0 }).populate(
+    "user"
+  );
+  if (!isExistToken) {
+    throw new ApiError(StatusCodes.UNAUTHORIZED, "You are not authorized!");
+  }
+
+  //check user
+  const isUserExist = await User.isUserExist(isExistToken.user.email);
+  if (!isUserExist) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
+  if (isUserExist.resetPasswordToken) {
+    //check given password
+    if (newPassword !== confirmPassword) {
+      throw new ApiError(
+        StatusCodes.BAD_REQUEST,
+        "The passwords you entered do not match. Please ensure both fields contain the same password."
+      );
+    }
+
+    //hash password
+    const hashPassword = await bcrypt.hash(
+      newPassword,
+      Number(config.bcrypt_salt_rounds)
+    );
+
+    isUserExist.password = hashPassword;
+    isUserExist.resetPasswordToken = false;
+    isUserExist.save();
+  }
+};
+
+const changePasswordToDB = async (
+  user: JwtPayload,
+  payload: IChangePassword
+): Promise<void> => {
+  const { currentPassword, newPassword, confirmPassword } = payload;
+  const isUserExist = await User.isUserExist(user.email);
+  if (!isUserExist) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist");
+  }
+
+  //check password
+  const isMatchPassword = await User.isMatchPassword(
+    currentPassword,
+    isUserExist.password
+  );
+  if (isUserExist.password && !isMatchPassword) {
+    throw new ApiError(
+      StatusCodes.UNAUTHORIZED,
+      "Current password is incorrect"
+    );
+  }
+
+  //check given password
+  if (newPassword !== confirmPassword) {
+    throw new ApiError(
+      StatusCodes.BAD_REQUEST,
+      "The passwords you entered do not match. Please ensure both fields contain the same password."
+    );
+  }
+
+  //hash password
+  const hashPassword = await bcrypt.hash(
+    newPassword,
+    Number(config.bcrypt_salt_rounds)
+  );
+
+  const updateData = {
+    password: hashPassword,
+    passwordChangeAt: new Date(),
+  };
+
+  //update to db
+  await User.findOneAndUpdate({ _id: user.id }, updateData, { new: true });
+};
+
 export const AuthService = {
   loginUserFromDB,
   changePasswordToDB,
   forgetPasswordToDB,
   otpVerifyToDB,
+  resetPasswordToDB,
 };

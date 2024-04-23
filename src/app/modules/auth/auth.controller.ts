@@ -41,6 +41,19 @@ const otpVerify = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const resetPassword = catchAsync(async (req: Request, res: Response) => {
+  const token = req.headers.authorization;
+  console.log(token);
+  const { ...passwordData } = req.body;
+  await AuthService.resetPasswordToDB(token!, passwordData);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Password changed successfully",
+  });
+});
+
 const changePassword = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
   const { ...passwordData } = req.body;
@@ -58,4 +71,5 @@ export const AuthController = {
   otpVerify,
   changePassword,
   forgetPassword,
+  resetPassword,
 };

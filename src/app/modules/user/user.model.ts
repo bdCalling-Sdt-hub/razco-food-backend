@@ -1,6 +1,5 @@
 import bcrypt from "bcrypt";
 import { model, Schema } from "mongoose";
-import config from "../../../config";
 import { gender } from "../../../shared/constant";
 import { IUser, UserModel } from "./user.interface";
 
@@ -72,13 +71,13 @@ userSchema.statics.isMatchPassword = async function (
 };
 
 //hash password
-userSchema.pre("save", async function (next) {
-  const user = this;
-  user.password = await bcrypt.hash(
-    user.password,
-    Number(config.bcrypt_salt_rounds)
-  );
-  next();
-});
+// userSchema.pre("save", async function (next) {
+//   const user = this;
+//   user.password = await bcrypt.hash(
+//     user.password,
+//     Number(config.bcrypt_salt_rounds)
+//   );
+//   next();
+// });
 
 export const User = model<IUser, UserModel>("User", userSchema);

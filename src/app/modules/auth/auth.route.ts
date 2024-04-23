@@ -25,6 +25,12 @@ router.post(
 );
 
 router.post(
+  "/reset-password",
+  validateRequest(AuthValidation.createResetPasswordZodSchema),
+  AuthController.resetPassword
+);
+
+router.post(
   "/change-password",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
   validateRequest(AuthValidation.createChangePasswordZodSchema),
