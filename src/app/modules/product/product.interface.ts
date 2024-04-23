@@ -10,7 +10,7 @@ export type IProduct = {
   sealPrice?: string | number;
   category: Types.ObjectId;
   subCategory: string;
-  validate: Date;
+  expireDate: Date;
   store: number;
   weight: string;
   brand?: string;

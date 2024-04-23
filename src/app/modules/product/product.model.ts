@@ -34,7 +34,7 @@ const productSchema = new Schema<IProduct, ProductModel>({
     type: String,
     required: true,
   },
-  validate: {
+  expireDate: {
     type: Date,
     required: true,
   },
