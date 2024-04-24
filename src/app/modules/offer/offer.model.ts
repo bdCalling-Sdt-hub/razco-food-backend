@@ -8,6 +8,10 @@ const offerSchema = new Schema<IOffer, OfferModel>(
       required: true,
       unique: true,
     },
+    setPercentage: {
+      type: Number,
+      required: true,
+    },
     offerImage: {
       type: String,
       required: true,

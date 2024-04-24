@@ -1,6 +1,8 @@
 import express from "express";
 import { AuthRoutes } from "../app/modules/auth/auth.route";
+import { BannerRoutes } from "../app/modules/banner/banner.route";
 import { CategoryRoutes } from "../app/modules/category/category.route";
+import { CouponRoutes } from "../app/modules/coupon/coupon.route";
 import { OfferRoutes } from "../app/modules/offer/offer.route";
 import { ProductRoutes } from "../app/modules/product/product.route";
 import { RuleRoutes } from "../app/modules/rule/rule.route";
@@ -31,6 +33,14 @@ const appRouteList = [
   {
     path: "/rules",
     route: RuleRoutes,
+  },
+  {
+    path: "/coupon",
+    route: CouponRoutes,
+  },
+  {
+    path: "/banner",
+    route: BannerRoutes,
   },
 ];
 

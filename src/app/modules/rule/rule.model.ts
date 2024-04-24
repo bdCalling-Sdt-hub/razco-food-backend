@@ -9,8 +9,9 @@ const ruleSchema = new Schema<IRule, RuleModel>(
     },
     type: {
       type: String,
-      enum: ["privacy_policy", "terms_conditions", "about"],
+      enum: ["privacy-policy", "terms-and-conditions", "about"],
       required: true,
+      select: 0,
     },
   },
   { timestamps: true }

@@ -6,14 +6,14 @@ import { IOffer } from "./offer.interface";
 import { OfferService } from "./offer.service";
 
 const createOffer = catchAsync(async (req: Request, res: Response) => {
-  const { offerName } = req.body;
+  const { ...offerData } = req.body;
 
   let offerImage = "";
   if (req.files && req.files.offerImage && req.files.offerImage[0]) {
     offerImage = `/images/${req.files.offerImage[0].filename}`;
   }
   const data = {
-    offerName,
+    ...offerData,
     offerImage,
   };
 
@@ -38,26 +38,15 @@ const getAllOffer = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const deleteOffer = catchAsync(async (req: Request, res: Response) => {
-  const id = req.params.id;
-  const result = await OfferService.deleteOfferFromDB(id);
-
-  sendResponse<IOffer>(res, {
-    statusCode: StatusCodes.OK,
-    success: true,
-    message: "Offer deleted successfully",
-    data: result,
-  });
-});
-
 const updateOffer = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
+  const offerData = req.body;
   let offerImage;
   if (req.files && req.files.offerImage && req.files.offerImage[0]) {
     offerImage = `/images/${req.files.offerImage[0].filename}`;
   }
 
-  const payload = {};
+  const payload = { ...offerData, offerImage };
   const result = await OfferService.updateOfferFromDB(id, payload);
 
   sendResponse<IOffer>(res, {
@@ -68,6 +57,16 @@ const updateOffer = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deleteOffer = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  await OfferService.deleteOfferFromDB(id);
+
+  sendResponse<IOffer>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Offer deleted successfully",
+  });
+});
 export const OfferController = {
   createOffer,
   getAllOffer,

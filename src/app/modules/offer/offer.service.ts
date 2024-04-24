@@ -1,5 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import ApiError from "../../../errors/ApiErrors";
+import unlinkFile from "../../../util/unlinkFile";
 import { IOffer } from "./offer.interface";
 import { Offer } from "./offer.model";
 
@@ -20,6 +21,12 @@ const updateOfferFromDB = async (
   id: string,
   payload: Partial<IOffer>
 ): Promise<IOffer | null> => {
+  const existingOffer = await Offer.findById(id);
+
+  if (payload.offerImage) {
+    unlinkFile(existingOffer?.offerImage);
+  }
+
   const createOffer = await Offer.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });
@@ -27,8 +34,13 @@ const updateOfferFromDB = async (
 };
 
 const deleteOfferFromDB = async (id: string): Promise<IOffer | null> => {
-  const createOffer = await Offer.findByIdAndDelete(id);
-  return createOffer;
+  //delete from local folder
+  const existingOffer = await Offer.findById(id);
+  unlinkFile(existingOffer?.offerImage);
+
+  //delete from database
+  const result = await Offer.findByIdAndDelete(id);
+  return result;
 };
 
 export const OfferService = {
