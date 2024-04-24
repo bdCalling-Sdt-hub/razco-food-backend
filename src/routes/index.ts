@@ -3,6 +3,7 @@ import { AuthRoutes } from "../app/modules/auth/auth.route";
 import { BannerRoutes } from "../app/modules/banner/banner.route";
 import { CategoryRoutes } from "../app/modules/category/category.route";
 import { CouponRoutes } from "../app/modules/coupon/coupon.route";
+import { FeedbackRoutes } from "../app/modules/feedback/feedback.route";
 import { OfferRoutes } from "../app/modules/offer/offer.route";
 import { ProductRoutes } from "../app/modules/product/product.route";
 import { RuleRoutes } from "../app/modules/rule/rule.route";
@@ -41,6 +42,10 @@ const appRouteList = [
   {
     path: "/banner",
     route: BannerRoutes,
+  },
+  {
+    path: "/feedback",
+    route: FeedbackRoutes,
   },
 ];
 
