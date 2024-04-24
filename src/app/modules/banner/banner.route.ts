@@ -1,5 +1,5 @@
 import express from "express";
-import { userType } from "../../../shared/constant";
+import { USER_TYPE } from "../../../enums/user";
 import auth from "../../middlewares/auth";
 import fileHandler from "../../middlewares/fileHandler";
 import validateRequest from "../../middlewares/validateRequest";
@@ -10,26 +10,26 @@ const router = express();
 router.post(
   "/create-banner",
   fileHandler(),
-  auth(userType.SUPER_ADMIN, userType.ADMIN),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   //validateRequest(BannerValidation.createBannerZodSchema),
   BannerController.createBanner
 );
 router.patch(
   "/:id",
   fileHandler(),
-  auth(userType.SUPER_ADMIN, userType.ADMIN),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   validateRequest(BannerValidation.updateBannerZodSchema),
   BannerController.updateBanner
 );
 
 router.delete(
   "/:id",
-  auth(userType.SUPER_ADMIN, userType.ADMIN),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   BannerController.deleteBanner
 );
 router.get(
   "/",
-  auth(userType.SUPER_ADMIN, userType.ADMIN),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   BannerController.getAllBanner
 );
 

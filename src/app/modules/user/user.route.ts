@@ -1,5 +1,5 @@
 import express from "express";
-import { userType } from "../../../shared/constant";
+import { USER_TYPE } from "../../../enums/user";
 import auth from "../../middlewares/auth";
 import validateRequest from "../../middlewares/validateRequest";
 import { UserController } from "./user.controller";
@@ -14,14 +14,14 @@ router.post(
 
 router.post(
   "/create-admin",
-  auth(userType.SUPER_ADMIN),
+  auth(USER_TYPE.SUPER_ADMIN),
   validateRequest(UserValidation.createUserZodSchema),
   UserController.createAdmin
 );
 
 router.delete(
   "/delete-admin/:id",
-  auth(userType.SUPER_ADMIN),
+  auth(USER_TYPE.SUPER_ADMIN),
   UserController.deleteAdmin
 );
 

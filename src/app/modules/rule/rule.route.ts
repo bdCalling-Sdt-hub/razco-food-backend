@@ -1,5 +1,5 @@
 import express from "express";
-import { userType } from "../../../shared/constant";
+import { USER_TYPE } from "../../../enums/user";
 import auth from "../../middlewares/auth";
 import validateRequest from "../../middlewares/validateRequest";
 import { RuleController } from "./rule.controller";
@@ -10,16 +10,16 @@ const router = express.Router();
 router
   .route("/about")
   .get(
-    auth(userType.SUPER_ADMIN, userType.ADMIN, userType.USER),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
     RuleController.getAbout
   )
   .post(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     validateRequest(RuleValidation.createRuleZodSchema),
     RuleController.createAbout
   )
   .patch(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     validateRequest(RuleValidation.updateRuleZodSchema),
     RuleController.updateAbout
   );
@@ -28,16 +28,16 @@ router
 router
   .route("/terms-and-conditions")
   .get(
-    auth(userType.SUPER_ADMIN, userType.ADMIN, userType.USER),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
     RuleController.getTermsAndConditions
   )
   .post(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     validateRequest(RuleValidation.createRuleZodSchema),
     RuleController.createTermsAndConditions
   )
   .patch(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     validateRequest(RuleValidation.updateRuleZodSchema),
     RuleController.updateTermsAndConditions
   );
@@ -46,16 +46,16 @@ router
 router
   .route("/privacy-policy")
   .get(
-    auth(userType.SUPER_ADMIN, userType.ADMIN, userType.USER),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
     RuleController.getPrivacyPolicy
   )
   .post(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     validateRequest(RuleValidation.createRuleZodSchema),
     RuleController.createPrivacyPolicy
   )
   .patch(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     validateRequest(RuleValidation.updateRuleZodSchema),
     RuleController.updatePrivacyPolicy
   );

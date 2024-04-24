@@ -1,5 +1,6 @@
 import express from "express";
-import { userType } from "../../../shared/constant";
+
+import { USER_TYPE } from "../../../enums/user";
 import auth from "../../middlewares/auth";
 import validateRequest from "../../middlewares/validateRequest";
 import { FeedbackController } from "./feedback.controller";
@@ -9,11 +10,11 @@ const router = express.Router();
 router
   .route("/")
   .get(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     FeedbackController.getAllFeedback
   )
   .post(
-    auth(userType.SUPER_ADMIN, userType.ADMIN, userType.USER),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
     validateRequest(FeedbackValidation.createFeedbackZodSchema),
     FeedbackController.createFeedback
   );
@@ -21,11 +22,11 @@ router
 router
   .route("/:id")
   .patch(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     FeedbackController.replyFeedback
   )
   .delete(
-    auth(userType.SUPER_ADMIN, userType.ADMIN),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     FeedbackController.deleteFeedback
   );
 export const FeedbackRoutes = router;
