@@ -12,7 +12,7 @@ export type ITempUser = {
   oneTimeCode: number;
   gender?: "male" | "female";
   address?: string;
-  profile?: string;
+  profileImage?: string;
 };
 
 export type TempUserModel = {

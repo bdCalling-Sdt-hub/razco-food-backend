@@ -3,6 +3,7 @@ import { StatusCodes } from "http-status-codes";
 import ApiError from "../../../errors/ApiErrors";
 import sendMail from "../../../helpers/emailHelper";
 
+import { JwtPayload } from "jsonwebtoken";
 import config from "../../../config";
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
 import generateOTP from "../../../util/generateOtp";
@@ -11,6 +12,7 @@ import { TempUser } from "../tempUser/tempUser.model";
 import { IUser } from "./user.interface";
 import { User } from "./user.model";
 
+//create user and verify
 const createUserToDB = async (payload: IUser): Promise<void> => {
   //set role
   payload.role = "user";
@@ -81,6 +83,7 @@ const verifyEmailToDB = async (payload: IVerifyEmail): Promise<void> => {
   await User.create(userForCreation);
 };
 
+//create admin and delete
 const createAdminToDB = async (payload: IUser): Promise<void> => {
   //set role
   payload.role = "admin";
@@ -112,9 +115,30 @@ const deleteAdminToDB = async (id: string): Promise<void> => {
   await User.findByIdAndDelete(id);
 };
 
+//get profile and update
+const getProfileFromDB = async (user: JwtPayload) => {
+  const getUser = await User.findOne({ email: user.email }).select([
+    "_id",
+    "name",
+    "role",
+    "email",
+    "phone",
+    "gender",
+    "address",
+    "profileImage",
+    "verified",
+  ]);
+  if (!getUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
+  return getUser;
+};
+
 export const UserService = {
   createUserToDB,
   verifyEmailToDB,
   createAdminToDB,
   deleteAdminToDB,
+  getProfileFromDB,
 };

@@ -49,7 +49,7 @@ const userSchema = new Schema<IUser, UserModel>(
     address: {
       type: String,
     },
-    profile: {
+    profileImage: {
       type: String,
       default: "https://i.ibb.co/sgvmVjj/icons8-customer-80.png",
     },

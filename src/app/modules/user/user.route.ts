@@ -6,12 +6,20 @@ import { UserController } from "./user.controller";
 import { UserValidation } from "./user.validation";
 const router = express.Router();
 
+//user account create and verify
 router.post(
   "/create-user",
   validateRequest(UserValidation.createUserZodSchema),
   UserController.createUser
 );
 
+router.post(
+  "/verify-email",
+  validateRequest(UserValidation.createVerifyEmailZodSchema),
+  UserController.verifyEmail
+);
+
+//admin account create and delete here
 router.post(
   "/create-admin",
   auth(USER_TYPE.SUPER_ADMIN),
@@ -25,10 +33,13 @@ router.delete(
   UserController.deleteAdmin
 );
 
-router.post(
-  "/verify-email",
-  validateRequest(UserValidation.createVerifyEmailZodSchema),
-  UserController.verifyEmail
+//get profile
+router.get(
+  "/profile",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  UserController.getProfile
 );
+
+//update profile
 
 export const UserRoutes = router;
