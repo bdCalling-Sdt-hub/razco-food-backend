@@ -51,7 +51,7 @@ const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-//get profile and update
+//get profile, update and delete
 const getProfile = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
   const result = await UserService.getProfileFromDB(user);
@@ -64,10 +64,45 @@ const getProfile = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updateProfile = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const updateData = req.body;
+  let profileImage;
+  if (req.files && req.files.profileImage && req.files.profileImage[0]) {
+    profileImage = `/images/${req.files.profileImage[0].filename}`;
+  }
+  const data = {
+    ...updateData,
+    profileImage,
+  };
+  const result = await UserService.updateProfileToDB(user, data);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Profile data updated successfully!",
+    data: result,
+  });
+});
+
+const deleteAccount = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const data = req.body;
+  await UserService.deleteAccountToDB(user, data);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Account deleted successfully!",
+  });
+});
+
 export const UserController = {
   createUser,
   verifyEmail,
   createAdmin,
   deleteAdmin,
   getProfile,
+  updateProfile,
+  deleteAccount,
 };

@@ -5,8 +5,10 @@ import sendMail from "../../../helpers/emailHelper";
 
 import { JwtPayload } from "jsonwebtoken";
 import config from "../../../config";
+import { userFiledShow } from "../../../shared/constant";
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
 import generateOTP from "../../../util/generateOtp";
+import unlinkFile from "../../../util/unlinkFile";
 import { IVerifyEmail } from "../auth/auth.interface";
 import { TempUser } from "../tempUser/tempUser.model";
 import { IUser } from "./user.interface";
@@ -115,24 +117,83 @@ const deleteAdminToDB = async (id: string): Promise<void> => {
   await User.findByIdAndDelete(id);
 };
 
-//get profile and update
+//get profile and update and delete
 const getProfileFromDB = async (user: JwtPayload) => {
-  const getUser = await User.findOne({ email: user.email }).select([
-    "_id",
-    "name",
-    "role",
-    "email",
-    "phone",
-    "gender",
-    "address",
-    "profileImage",
-    "verified",
-  ]);
+  const getUser = await User.findOne({ email: user.email }).select(
+    userFiledShow
+  );
   if (!getUser) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
   }
 
   return getUser;
+};
+
+const updateProfileToDB = async (
+  user: JwtPayload,
+  payload: Partial<IUser>
+): Promise<IUser | null> => {
+  const isUserExist = await User.isUserExist(user.email);
+  if (!isUserExist) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
+  //unlink from local folder
+  if (payload.profileImage) {
+    unlinkFile(isUserExist?.profileImage);
+  }
+
+  //email and role
+  if (payload.email || payload.role || payload.password) {
+    throw new ApiError(
+      StatusCodes.BAD_REQUEST,
+      "Changes to email, role, or password are not allowed. Please ensure these fields remain unchanged to proceed."
+    );
+  }
+
+  const { name, phone, gender, address, profileImage } = payload;
+  const updatedData = {
+    name,
+    phone,
+    gender,
+    address,
+    profileImage,
+  };
+
+  //update here
+  const result = await User.findOneAndUpdate(
+    { _id: isUserExist._id },
+    updatedData,
+    { new: true }
+  ).select(userFiledShow);
+
+  return result;
+};
+
+const deleteAccountToDB = async (
+  user: JwtPayload,
+  payload: { password: string }
+) => {
+  const { password } = payload;
+  const isExistUser = await User.isUserExist(user.email);
+  if (!isExistUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
+  //password check
+  const isMatchPassword = await User.isMatchPassword(
+    password,
+    isExistUser.password
+  );
+  if (isExistUser.password && !isMatchPassword) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Password is incorrect!");
+  }
+
+  //delete local file
+  unlinkFile(isExistUser.profileImage);
+
+  //delete to DB
+  await User.findByIdAndDelete(user.id);
 };
 
 export const UserService = {
@@ -141,4 +202,6 @@ export const UserService = {
   createAdminToDB,
   deleteAdminToDB,
   getProfileFromDB,
+  updateProfileToDB,
+  deleteAccountToDB,
 };

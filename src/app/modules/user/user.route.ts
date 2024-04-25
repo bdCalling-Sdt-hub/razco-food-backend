@@ -1,6 +1,7 @@
 import express from "express";
 import { USER_TYPE } from "../../../enums/user";
 import auth from "../../middlewares/auth";
+import fileHandler from "../../middlewares/fileHandler";
 import validateRequest from "../../middlewares/validateRequest";
 import { UserController } from "./user.controller";
 import { UserValidation } from "./user.validation";
@@ -33,13 +34,25 @@ router.delete(
   UserController.deleteAdmin
 );
 
-//get profile
+//get profile,update and delete
 router.get(
   "/profile",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
   UserController.getProfile
 );
 
-//update profile
+router.patch(
+  "/profile-update",
+  fileHandler(),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  UserController.updateProfile
+);
+
+router.delete(
+  "/account-delete",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  validateRequest(UserValidation.deleteAccountZodSchema),
+  UserController.deleteAccount
+);
 
 export const UserRoutes = router;

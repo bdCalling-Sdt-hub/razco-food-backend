@@ -9,7 +9,7 @@ const createUserZodSchema = z.object({
     password: z.string({ required_error: "Password is required" }),
     gender: z.enum([...gender] as [string, ...string[]]).optional(),
     address: z.string().optional(),
-    profile: z.string().optional(),
+    profileImage: z.string().optional(),
   }),
 });
 
@@ -20,7 +20,27 @@ const createVerifyEmailZodSchema = z.object({
   }),
 });
 
+const updateUserZodSchema = z.object({
+  body: z.object({
+    name: z.string().optional(),
+    email: z.string().email().optional(),
+    phone: z.string().optional(),
+    password: z.string().optional(),
+    gender: z.enum([...gender] as [string, ...string[]]).optional(),
+    address: z.string().optional(),
+    profileImage: z.string().optional(),
+  }),
+});
+
+const deleteAccountZodSchema = z.object({
+  body: z.object({
+    password: z.string({ required_error: "Password is required" }),
+  }),
+});
+
 export const UserValidation = {
   createUserZodSchema,
   createVerifyEmailZodSchema,
+  updateUserZodSchema,
+  deleteAccountZodSchema,
 };

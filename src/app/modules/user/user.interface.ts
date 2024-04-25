@@ -2,7 +2,7 @@ import { Model } from "mongoose";
 
 export type IUser = {
   name: string;
-  role: string;
+  role: "super_admin" | "admin" | "user";
   email: string;
   phone: string;
   password: string;

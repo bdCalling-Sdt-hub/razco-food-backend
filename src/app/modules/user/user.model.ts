@@ -11,6 +11,7 @@ const userSchema = new Schema<IUser, UserModel>(
     },
     role: {
       type: String,
+      enum: ["super_admin", "admin", "user"],
       required: true,
     },
     email: {
