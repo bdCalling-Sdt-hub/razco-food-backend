@@ -1,20 +1,24 @@
-import { Model, Types } from "mongoose";
+import { Model } from "mongoose";
 
 export type IProduct = {
-  name: string;
-  image: string;
-  id: string;
+  productId: string;
+  productName: string;
+  productImage: string;
+  barcode: string;
   price: string | number;
-  offer: Types.ObjectId;
+  offer: string;
   discount?: string;
-  sealPrice?: string | number;
-  category: Types.ObjectId;
+  discountPrice?: string | number;
+  category: string;
   subCategory: string;
   expireDate: Date;
   store: number;
   weight: string;
   brand?: string;
   description: string;
+  status: "available" | "unavailable" | "short stock";
 };
 
-export type ProductModel = Model<IProduct, Record<string, unknown>>;
+export type ProductModel = {
+  isProductExist(id: string): Promise<IProduct>;
+} & Model<IProduct>;

@@ -7,13 +7,13 @@ import { ProductService } from "./product.service";
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const productData = req.body;
-  let image;
-  if (req.files && req.files.image && req.files.image[0]) {
-    image = `/image/${req.files.image[0].filename}`;
+  let productImage;
+  if (req.files && req.files.productImage && req.files.productImage[0]) {
+    productImage = `/images/${req.files.productImage[0].filename}`;
   }
   const payload = {
     ...productData,
-    image,
+    productImage,
   };
   const result = await ProductService.createProductToDB(payload);
 
@@ -25,6 +25,80 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllProduct = catchAsync(async (req: Request, res: Response) => {
+  const result = await ProductService.getAllProductFromDB();
+
+  sendResponse<IProduct[]>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Product retrieved successfully",
+    data: result,
+  });
+});
+
+const getSingleProduct = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await ProductService.getSingleProductFromDB(id);
+
+  sendResponse<IProduct>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Single product retrieved successfully",
+    data: result,
+  });
+});
+
+const updateProduct = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const productData = req.body;
+  let productImage;
+  if (req.files && req.files.productImage && req.files.productImage[0]) {
+    productImage = `/images/${req.files.productImage[0].filename}`;
+  }
+  const payload = {
+    ...productData,
+    productImage,
+  };
+  const result = await ProductService.updateProductToDB(id, payload);
+
+  sendResponse<IProduct>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Product updated successfully",
+    data: result,
+  });
+});
+
+const deleteProduct = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await ProductService.deleteProductToDB(id);
+
+  sendResponse<IProduct>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Product deleted successfully",
+    data: result,
+  });
+});
+
+//barcode product
+const getBarcodeProduct = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await ProductService.getBarcodeProductFromDB(id);
+
+  sendResponse<IProduct[]>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Scan product retrieved successfully",
+    data: result,
+  });
+});
+
 export const ProductController = {
   createProduct,
+  getAllProduct,
+  deleteProduct,
+  updateProduct,
+  getSingleProduct,
+  getBarcodeProduct,
 };

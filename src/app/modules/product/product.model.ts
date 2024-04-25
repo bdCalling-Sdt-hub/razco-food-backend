@@ -2,15 +2,19 @@ import { model, Schema } from "mongoose";
 import { IProduct, ProductModel } from "./product.interface";
 
 const productSchema = new Schema<IProduct, ProductModel>({
-  name: {
+  productName: {
     type: String,
     required: true,
   },
-  image: {
+  productImage: {
     type: String,
     required: true,
   },
-  id: {
+  productId: {
+    type: String,
+    required: true,
+  },
+  barcode: {
     type: String,
     required: true,
   },
@@ -19,16 +23,15 @@ const productSchema = new Schema<IProduct, ProductModel>({
     required: true,
   },
   offer: {
-    type: Schema.Types.ObjectId,
-    ref: "Offer",
+    type: String,
   },
   discount: { type: String },
-  sealPrice: {
+  discountPrice: {
     type: Number,
   },
   category: {
-    type: Schema.Types.ObjectId,
-    ref: "Category",
+    type: String,
+    required: true,
   },
   subCategory: {
     type: String,
@@ -53,6 +56,19 @@ const productSchema = new Schema<IProduct, ProductModel>({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+    enum: ["available", "unavailable", "short stock"],
+    default: "available",
+  },
 });
+
+//isExist product
+productSchema.statics.isProductExist = async function (
+  id: string
+): Promise<IProduct | null> {
+  return await Product.findById(id);
+};
 
 export const Product = model<IProduct, ProductModel>("Product", productSchema);
