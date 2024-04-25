@@ -2,7 +2,7 @@ import { Model } from "mongoose";
 
 export type ITempUser = {
   name: string;
-  role: string;
+  role: "super_admin" | "admin" | "user";
   email: string;
   phone: string;
   password: string;
@@ -12,6 +12,11 @@ export type ITempUser = {
   oneTimeCode: number;
   gender?: "male" | "female";
   address?: string;
+  status: "active" | "deActive";
+  points?: {
+    available: number;
+    used: number;
+  };
   profileImage?: string;
 };
 

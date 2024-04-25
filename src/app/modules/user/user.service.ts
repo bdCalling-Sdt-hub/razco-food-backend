@@ -144,10 +144,10 @@ const updateProfileToDB = async (
   }
 
   //email and role
-  if (payload.email || payload.role || payload.password) {
+  if (payload.email || payload.role || payload.password || payload.status) {
     throw new ApiError(
       StatusCodes.BAD_REQUEST,
-      "Changes to email, role, or password are not allowed. Please ensure these fields remain unchanged to proceed."
+      "Changes to email, role, or password,status are not allowed. Please ensure these fields remain unchanged to proceed."
     );
   }
 

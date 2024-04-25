@@ -1,4 +1,4 @@
-export const gender = ["male", "female"];
+export const gender = ["male", "female", ""];
 export const userFiledShow = [
   "_id",
   "name",
@@ -7,5 +7,6 @@ export const userFiledShow = [
   "phone",
   "gender",
   "address",
+  "status",
   "profileImage",
 ];

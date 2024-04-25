@@ -52,6 +52,24 @@ const userSchema = new Schema<IUser, UserModel>(
       type: String,
       default: "",
     },
+    status: {
+      type: String,
+      enum: ["active", "deActive"],
+      required: true,
+      default: "active",
+    },
+    points: {
+      type: {
+        available: {
+          type: Number,
+          default: 0,
+        },
+        used: {
+          type: Number,
+          default: 0,
+        },
+      },
+    },
     profileImage: {
       type: String,
       default: "https://i.ibb.co/sgvmVjj/icons8-customer-80.png",

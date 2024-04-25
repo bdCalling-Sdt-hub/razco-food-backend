@@ -12,6 +12,11 @@ export type IUser = {
   oneTimeCode: number;
   gender?: "male" | "female";
   address?: string;
+  status: "active" | "deActive";
+  points?: {
+    available: number;
+    used: number;
+  };
   profileImage?: string;
 };
 
