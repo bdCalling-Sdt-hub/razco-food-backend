@@ -46,9 +46,11 @@ const userSchema = new Schema<IUser, UserModel>(
     gender: {
       type: String,
       enum: gender,
+      default: "",
     },
     address: {
       type: String,
+      default: "",
     },
     profileImage: {
       type: String,
