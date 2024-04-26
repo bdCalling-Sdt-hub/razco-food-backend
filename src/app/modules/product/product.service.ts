@@ -1,7 +1,11 @@
 import { StatusCodes } from "http-status-codes";
+import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
+import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IGenericResponse } from "../../../types/common";
+import { IPaginationOptions } from "../../../types/pagination";
 import unlinkFile from "../../../util/unlinkFile";
-import { IProduct } from "./product.interface";
+import { IProduct, IProductFilters } from "./product.interface";
 import { Product } from "./product.model";
 
 const createProductToDB = async (payload: IProduct): Promise<IProduct> => {
@@ -12,9 +16,70 @@ const createProductToDB = async (payload: IProduct): Promise<IProduct> => {
   return createProduct;
 };
 
-const getAllProductFromDB = async (): Promise<IProduct[]> => {
-  const result = await Product.find();
-  return result;
+const getAllProductFromDB = async (
+  filters: IProductFilters,
+  pagination: IPaginationOptions
+): Promise<IGenericResponse<IProduct[]>> => {
+  const { skip, limit, page, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(pagination);
+  const { search, minPrice, maxPrice, ...filterData } = filters;
+
+  const anyConditions = [];
+  //product search here
+  if (search) {
+    anyConditions.push({
+      $or: ["productName", "category", "brand"].map((field) => ({
+        [field]: {
+          $regex: search,
+          $options: "i",
+        },
+      })),
+    });
+  }
+
+  //product filter here
+  if (Object.keys(filterData).length) {
+    anyConditions.push({
+      $and: Object.entries(filterData).map(([filed, value]) => ({
+        [filed]: value,
+      })),
+    });
+  }
+
+  //product filter with price range
+  if (minPrice && maxPrice) {
+    anyConditions.push({
+      price: {
+        $gte: minPrice,
+        $lte: maxPrice,
+      },
+    });
+  }
+
+  //product sort here
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+
+  const whereConditions =
+    anyConditions.length > 0 ? { $and: anyConditions } : {};
+  console.log("where", whereConditions);
+
+  const result = await Product.find(whereConditions)
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit);
+
+  const total = await Product.countDocuments(whereConditions);
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
 };
 
 const getSingleProductFromDB = async (id: string): Promise<IProduct> => {

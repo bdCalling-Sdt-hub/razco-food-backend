@@ -22,3 +22,11 @@ export type IProduct = {
 export type ProductModel = {
   isProductExist(id: string): Promise<IProduct>;
 } & Model<IProduct>;
+
+export type IProductFilters = {
+  search?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  category?: string;
+  subCategory?: string;
+};

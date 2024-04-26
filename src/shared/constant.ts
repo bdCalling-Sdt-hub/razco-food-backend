@@ -10,3 +10,6 @@ export const userFiledShow = [
   "status",
   "profileImage",
 ];
+
+//pagination field
+export const paginationField = ["page", "limit", "sortBy", "sortOrder"];

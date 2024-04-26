@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
+import { paginationField } from "../../../shared/constant";
+import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
 import { IProduct } from "./product.interface";
 import { ProductService } from "./product.service";
@@ -26,13 +28,25 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllProduct = catchAsync(async (req: Request, res: Response) => {
-  const result = await ProductService.getAllProductFromDB();
+  const filters = pick(req.query, [
+    "search",
+    "minPrice",
+    "maxPrice",
+    "category",
+    "subCategory",
+  ]);
+  const paginationOptions = pick(req.query, paginationField);
+  const result = await ProductService.getAllProductFromDB(
+    filters,
+    paginationOptions
+  );
 
   sendResponse<IProduct[]>(res, {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Product retrieved successfully",
-    data: result,
+    meta: result.meta,
+    data: result.data,
   });
 });
 
