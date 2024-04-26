@@ -9,7 +9,7 @@ const router = express.Router();
 // frequently ask question (faq);
 router.post(
   "/create-faq",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   validateRequest(FaqValidation.createFaqZodSchema),
   FaqController.createFaq
 );
@@ -17,12 +17,12 @@ router.post(
 router
   .route("/:id")
   .patch(
-    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     validateRequest(FaqValidation.updateFaqZodSchema),
     FaqController.updateFaq
   )
   .delete(
-    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     FaqController.deleteFaq
   );
 

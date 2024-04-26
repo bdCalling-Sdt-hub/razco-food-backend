@@ -11,6 +11,10 @@ const categorySchema = new Schema<ICategory, CategoryModel>(
       type: String,
       required: true,
     },
+    subcategoryCreated: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

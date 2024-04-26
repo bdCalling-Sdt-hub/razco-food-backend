@@ -31,6 +31,59 @@ const createSubcategory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllSubcategory = catchAsync(async (req: Request, res: Response) => {
+  const result = await SubcategoryService.getAllSubcategoryToDB();
+
+  sendResponse<ISubcategory[]>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Subcategory retrieved successfully",
+    data: result,
+  });
+});
+
+const updateSubcategory = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const subcategoryData = req.body;
+  let subcategoryImage;
+  if (
+    req.files &&
+    req.files.subcategoryImage &&
+    req.files.subcategoryImage[0]
+  ) {
+    subcategoryImage = `/images/${req.files.subcategoryImage[0].filename}`;
+  }
+
+  const payload = {
+    ...subcategoryData,
+    subcategoryImage,
+  };
+
+  const result = await SubcategoryService.updateSubcategoryToDB(id, payload);
+
+  sendResponse<ISubcategory>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Subcategory updated successfully",
+    data: result,
+  });
+});
+
+const deleteSubcategory = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await SubcategoryService.deleteSubcategoryToDB(id);
+
+  sendResponse<ISubcategory>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Subcategory deleted successfully",
+    data: result,
+  });
+});
+
 export const SubcategoryController = {
   createSubcategory,
+  getAllSubcategory,
+  deleteSubcategory,
+  updateSubcategory,
 };

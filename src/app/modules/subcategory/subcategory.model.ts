@@ -12,6 +12,10 @@ const subcategorySchema = new Schema<ISubcategory, SubcategoryModel>(
       type: String,
       required: true,
     },
+    clickedCount: {
+      type: Number,
+      default: 0,
+    },
     category: {
       type: Schema.Types.ObjectId,
       ref: "Category",

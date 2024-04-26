@@ -10,8 +10,26 @@ const router = express.Router();
 router.post(
   "/create-subcategory",
   fileHandler(),
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   SubcategoryController.createSubcategory
+);
+
+router
+  .route("/:id")
+  .patch(
+    fileHandler(),
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+    SubcategoryController.updateSubcategory
+  )
+  .delete(
+    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+    SubcategoryController.deleteSubcategory
+  );
+
+router.get(
+  "/",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  SubcategoryController.getAllSubcategory
 );
 
 export const SubcategoryRoutes = router;

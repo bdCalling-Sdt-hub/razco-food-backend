@@ -19,6 +19,7 @@ router.patch(
   validateRequest(CouponValidation.updateCouponZodSchema),
   CouponController.updateCoupon
 );
+
 router.delete(
   "/:id",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
