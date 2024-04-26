@@ -55,4 +55,11 @@ router.delete(
   UserController.deleteAccount
 );
 
+//my points
+router.get(
+  "/my-points",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  UserController.getMyPoints
+);
+
 export const UserRoutes = router;

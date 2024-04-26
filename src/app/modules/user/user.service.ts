@@ -196,6 +196,17 @@ const deleteAccountToDB = async (
   await User.findByIdAndDelete(user.id);
 };
 
+//my points
+const getMyPointsFromDB = async (user: JwtPayload) => {
+  const getUser = await User.isUserExist(user.email);
+  if (!getUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+  const { points } = getUser;
+
+  return points;
+};
+
 export const UserService = {
   createUserToDB,
   verifyEmailToDB,
@@ -204,4 +215,5 @@ export const UserService = {
   getProfileFromDB,
   updateProfileToDB,
   deleteAccountToDB,
+  getMyPointsFromDB,
 };

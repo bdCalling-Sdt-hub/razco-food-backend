@@ -97,6 +97,19 @@ const deleteAccount = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//my points
+const getMyPoints = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const result = await UserService.getMyPointsFromDB(user);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Points retrieved successfully!",
+    data: result,
+  });
+});
+
 export const UserController = {
   createUser,
   verifyEmail,
@@ -105,4 +118,5 @@ export const UserController = {
   getProfile,
   updateProfile,
   deleteAccount,
+  getMyPoints,
 };

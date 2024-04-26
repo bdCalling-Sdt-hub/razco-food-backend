@@ -29,7 +29,7 @@ router.delete(
 );
 router.get(
   "/",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
   BannerController.getAllBanner
 );
 
