@@ -10,6 +10,7 @@ import { ProductRoutes } from "../app/modules/product/product.route";
 import { RuleRoutes } from "../app/modules/rule/rule.route";
 import { SubcategoryRoutes } from "../app/modules/subcategory/subcategory.route";
 import { UserRoutes } from "../app/modules/user/user.route";
+import { WishlistRoutes } from "../app/modules/wishlist/wishlist.route";
 const router = express.Router();
 
 const appRouteList = [
@@ -56,6 +57,10 @@ const appRouteList = [
   {
     path: "/faq",
     route: FaqRoutes,
+  },
+  {
+    path: "/wishlist",
+    route: WishlistRoutes,
   },
 ];
 
