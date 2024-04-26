@@ -33,7 +33,7 @@ const getAllProduct = catchAsync(async (req: Request, res: Response) => {
     "minPrice",
     "maxPrice",
     "category",
-    "subCategory",
+    "subcategory",
   ]);
   const paginationOptions = pick(req.query, paginationField);
   const result = await ProductService.getAllProductFromDB(

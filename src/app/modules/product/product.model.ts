@@ -33,7 +33,7 @@ const productSchema = new Schema<IProduct, ProductModel>({
     type: String,
     required: true,
   },
-  subCategory: {
+  subcategory: {
     type: String,
     required: true,
   },

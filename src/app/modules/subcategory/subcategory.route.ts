@@ -1,0 +1,17 @@
+import express from "express";
+import { USER_TYPE } from "../../../enums/user";
+import auth from "../../middlewares/auth";
+
+import fileHandler from "../../middlewares/fileHandler";
+import { SubcategoryController } from "./subcategory.controller";
+
+const router = express.Router();
+
+router.post(
+  "/create-subcategory",
+  fileHandler(),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  SubcategoryController.createSubcategory
+);
+
+export const SubcategoryRoutes = router;

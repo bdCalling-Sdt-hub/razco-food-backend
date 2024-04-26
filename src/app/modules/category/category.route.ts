@@ -5,17 +5,8 @@ const router = express.Router();
 
 router.post(
   "/create-category",
-
   fileHandler(),
   CategoryController.createCategory
 );
-
-router.post(
-  "/create-subcategory",
-  fileHandler(),
-  CategoryController.createSubCategory
-);
-
-router.get("/", CategoryController.getCategories);
 
 export const CategoryRoutes = router;

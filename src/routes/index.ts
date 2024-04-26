@@ -8,6 +8,7 @@ import { FeedbackRoutes } from "../app/modules/feedback/feedback.route";
 import { OfferRoutes } from "../app/modules/offer/offer.route";
 import { ProductRoutes } from "../app/modules/product/product.route";
 import { RuleRoutes } from "../app/modules/rule/rule.route";
+import { SubcategoryRoutes } from "../app/modules/subcategory/subcategory.route";
 import { UserRoutes } from "../app/modules/user/user.route";
 const router = express.Router();
 
@@ -23,6 +24,10 @@ const appRouteList = [
   {
     path: "/category",
     route: CategoryRoutes,
+  },
+  {
+    path: "/subcategory",
+    route: SubcategoryRoutes,
   },
   {
     path: "/offer",

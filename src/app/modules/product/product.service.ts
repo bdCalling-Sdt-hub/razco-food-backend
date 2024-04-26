@@ -64,7 +64,6 @@ const getAllProductFromDB = async (
 
   const whereConditions =
     anyConditions.length > 0 ? { $and: anyConditions } : {};
-  console.log("where", whereConditions);
 
   const result = await Product.find(whereConditions)
     .sort(sortCondition)

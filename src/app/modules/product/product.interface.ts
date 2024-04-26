@@ -10,7 +10,7 @@ export type IProduct = {
   discount?: string;
   discountPrice?: string | number;
   category: string;
-  subCategory: string;
+  subcategory: string;
   expireDate: Date;
   store: number;
   weight: string;
@@ -28,5 +28,5 @@ export type IProductFilters = {
   minPrice?: number;
   maxPrice?: number;
   category?: string;
-  subCategory?: string;
+  subcategory?: string;
 };
