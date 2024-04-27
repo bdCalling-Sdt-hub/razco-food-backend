@@ -1,9 +1,13 @@
 import cors from "cors";
 import express, { Application, NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import morgan from "morgan";
 import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 import routes from "./routes";
 const app: Application = express();
+
+//morgen
+app.use(morgan("tiny"));
 
 //parser
 app.use(cors());

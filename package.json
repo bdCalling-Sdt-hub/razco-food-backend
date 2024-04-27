@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/morgan": "^1.9.9",
     "bcrypt": "^5.1.1",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
@@ -19,6 +20,7 @@
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.0",
+    "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.13",
     "ts-node-dev": "^2.0.0",

@@ -10,4 +10,10 @@ router.post(
   WishlistController.addToWishlist
 );
 
+router.get(
+  "/products",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  WishlistController.getProductsFromWishlist
+);
+
 export const WishlistRoutes = router;
