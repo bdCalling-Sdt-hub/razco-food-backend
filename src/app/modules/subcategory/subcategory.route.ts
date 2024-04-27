@@ -14,6 +14,12 @@ router.post(
   SubcategoryController.createSubcategory
 );
 
+router.patch(
+  "/popularity/:id",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  SubcategoryController.makePopularSubcategory
+);
+
 router
   .route("/:id")
   .patch(

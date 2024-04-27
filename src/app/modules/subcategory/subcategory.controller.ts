@@ -69,6 +69,20 @@ const updateSubcategory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const makePopularSubcategory = catchAsync(
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+
+    await SubcategoryService.makePopularSubcategoryToDB(id);
+
+    sendResponse<ISubcategory>(res, {
+      statusCode: StatusCodes.OK,
+      success: true,
+      message: "The popularity of this subcategory has increased.",
+    });
+  }
+);
+
 const deleteSubcategory = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await SubcategoryService.deleteSubcategoryToDB(id);
@@ -86,4 +100,5 @@ export const SubcategoryController = {
   getAllSubcategory,
   deleteSubcategory,
   updateSubcategory,
+  makePopularSubcategory,
 };

@@ -12,7 +12,7 @@ const createSubcategoryToDB = async (payload: any): Promise<ISubcategory> => {
     throw new ApiError(StatusCodes.BAD_REQUEST, "Category doesn't exist!");
   }
   //save subcategory created by category
-  isExistCategory.subcategoryCreated = isExistCategory.subcategoryCreated + 1;
+  isExistCategory.subcategoryCreated = isExistCategory.subcategoryCreated! + 1;
   isExistCategory.save();
 
   const createSubcategory = await Subcategory.create(payload);
@@ -62,9 +62,21 @@ const deleteSubcategoryToDB = async (
   return isExistCategory;
 };
 
+//make popular
+const makePopularSubcategoryToDB = async (id: string) => {
+  const isExistCategory = await Subcategory.findById(id);
+  if (!isExistCategory) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Subcategory doesn't exist");
+  }
+
+  isExistCategory.clickedCount = isExistCategory.clickedCount + 1;
+  isExistCategory.save();
+};
+
 export const SubcategoryService = {
   createSubcategoryToDB,
   deleteSubcategoryToDB,
   getAllSubcategoryToDB,
   updateSubcategoryToDB,
+  makePopularSubcategoryToDB,
 };
