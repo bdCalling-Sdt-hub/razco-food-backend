@@ -9,7 +9,7 @@ const createOffer = catchAsync(async (req: Request, res: Response) => {
   const { ...offerData } = req.body;
 
   let offerImage = "";
-  if (req.files && req.files.offerImage && req.files.offerImage[0]) {
+  if (req.files && "offerImage" in req.files && req.files.offerImage[0]) {
     offerImage = `/images/${req.files.offerImage[0].filename}`;
   }
   const data = {
@@ -42,7 +42,7 @@ const updateOffer = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const offerData = req.body;
   let offerImage;
-  if (req.files && req.files.offerImage && req.files.offerImage[0]) {
+  if (req.files && "offerImage" in req.files && req.files.offerImage[0]) {
     offerImage = `/images/${req.files.offerImage[0].filename}`;
   }
 

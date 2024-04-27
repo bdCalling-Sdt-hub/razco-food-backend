@@ -7,7 +7,7 @@ import { BannerService } from "./banner.service";
 const createBanner = catchAsync(async (req: Request, res: Response) => {
   const bannerData = req.body;
   let bannerImage = "";
-  if (req.files && req.files.bannerImage && req.files.bannerImage[0]) {
+  if (req.files && "bannerImage" in req.files && req.files.bannerImage[0]) {
     bannerImage = `/images/${req.files.bannerImage[0].filename}`;
   }
   const data = {
@@ -40,7 +40,7 @@ const updateBanner = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const updateData = req.body;
   let bannerImage;
-  if (req.files && req.files.bannerImage && req.files.bannerImage[0]) {
+  if (req.files && "bannerImage" in req.files && req.files.bannerImage[0]) {
     bannerImage = `/images/${req.files.bannerImage[0].filename}`;
   }
   const data = {

@@ -10,7 +10,7 @@ const createSubcategory = catchAsync(async (req: Request, res: Response) => {
   let subcategoryImage = "";
   if (
     req.files &&
-    req.files.subcategoryImage &&
+    "subcategoryImage" in req.files &&
     req.files.subcategoryImage[0]
   ) {
     subcategoryImage = `/images/${req.files.subcategoryImage[0].filename}`;
@@ -48,7 +48,7 @@ const updateSubcategory = catchAsync(async (req: Request, res: Response) => {
   let subcategoryImage;
   if (
     req.files &&
-    req.files.subcategoryImage &&
+    "subcategoryImage" in req.files &&
     req.files.subcategoryImage[0]
   ) {
     subcategoryImage = `/images/${req.files.subcategoryImage[0].filename}`;

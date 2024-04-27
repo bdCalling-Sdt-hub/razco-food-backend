@@ -9,7 +9,7 @@ const createCategory = catchAsync(async (req: Request, res: Response) => {
   const { categoryName } = req.body;
 
   let categoryImage = "";
-  if (req.files && req.files.categoryImage && req.files.categoryImage[0]) {
+  if (req.files && "categoryImage" in req.files && req.files.categoryImage[0]) {
     categoryImage = `/images/${req.files.categoryImage[0].filename}`;
   }
 
@@ -44,7 +44,7 @@ const updateCategory = catchAsync(async (req: Request, res: Response) => {
   const { categoryName } = req.body;
 
   let categoryImage;
-  if (req.files && req.files.categoryImage && req.files.categoryImage[0]) {
+  if (req.files && "categoryImage" in req.files && req.files.categoryImage[0]) {
     categoryImage = `/images/${req.files.categoryImage[0].filename}`;
   }
 

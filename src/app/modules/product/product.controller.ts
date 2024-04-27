@@ -10,7 +10,7 @@ import { ProductService } from "./product.service";
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const productData = req.body;
   let productImage;
-  if (req.files && req.files.productImage && req.files.productImage[0]) {
+  if (req.files && "productImage" in req.files && req.files.productImage[0]) {
     productImage = `/images/${req.files.productImage[0].filename}`;
   }
   const payload = {
@@ -66,7 +66,7 @@ const updateProduct = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const productData = req.body;
   let productImage;
-  if (req.files && req.files.productImage && req.files.productImage[0]) {
+  if (req.files && "productImage" in req.files && req.files.productImage[0]) {
     productImage = `/images/${req.files.productImage[0].filename}`;
   }
   const payload = {
