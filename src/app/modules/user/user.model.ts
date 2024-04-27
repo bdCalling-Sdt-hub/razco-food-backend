@@ -59,15 +59,13 @@ const userSchema = new Schema<IUser, UserModel>(
       default: "active",
     },
     points: {
-      type: {
-        available: {
-          type: Number,
-          default: 0,
-        },
-        used: {
-          type: Number,
-          default: 0,
-        },
+      available: {
+        type: Number,
+        default: 0,
+      },
+      used: {
+        type: Number,
+        default: 0,
       },
     },
     profileImage: {
