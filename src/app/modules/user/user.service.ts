@@ -5,6 +5,7 @@ import sendMail from "../../../helpers/emailHelper";
 
 import { JwtPayload } from "jsonwebtoken";
 import config from "../../../config";
+import { USER_TYPE } from "../../../enums/user";
 import { userFiledShow } from "../../../shared/constant";
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
 import generateOTP from "../../../util/generateOtp";
@@ -101,6 +102,13 @@ const createAdminToDB = async (payload: IUser): Promise<void> => {
   }
 };
 
+const getAllAdminFromDB = async (): Promise<IUser[]> => {
+  const result = await User.find({ role: USER_TYPE.ADMIN }).select(
+    userFiledShow
+  );
+  return result;
+};
+
 const deleteAdminToDB = async (id: string): Promise<void> => {
   const isExistUser = await User.findById(id);
   if (!isExistUser) {
@@ -115,6 +123,27 @@ const deleteAdminToDB = async (id: string): Promise<void> => {
     );
   }
   await User.findByIdAndDelete(id);
+};
+
+//users and active, deActive user
+const getAllUsersFromDB = async (): Promise<IUser[]> => {
+  const result = await User.find({ role: USER_TYPE.USER }).select(
+    userFiledShow
+  );
+  return result;
+};
+
+const activeDeactiveUserToDB = async (
+  id: string,
+  status: string
+): Promise<IUser | null> => {
+  const isExistUser = await User.findOneAndUpdate(
+    { _id: id },
+    { status },
+    { new: true }
+  );
+
+  return isExistUser;
 };
 
 //get profile and update and delete
@@ -216,4 +245,7 @@ export const UserService = {
   updateProfileToDB,
   deleteAccountToDB,
   getMyPointsFromDB,
+  getAllAdminFromDB,
+  getAllUsersFromDB,
+  activeDeactiveUserToDB,
 };

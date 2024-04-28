@@ -34,6 +34,21 @@ router.delete(
   UserController.deleteAdmin
 );
 
+router.get(
+  "/all-admin",
+  auth(USER_TYPE.SUPER_ADMIN),
+  UserController.getAllAdmin
+);
+
+//get all user and active, deActive user
+router.get("/", UserController.getAllUsers);
+
+router.patch(
+  "/active-deactive/:id",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+  UserController.activeDeactiveUser
+);
+
 //get profile,update and delete
 router.get(
   "/profile",

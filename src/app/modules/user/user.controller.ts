@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
+import { IUser } from "./user.interface";
 import { UserService } from "./user.service";
 
 //create user and verify
@@ -40,6 +41,17 @@ const createAdmin = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllAdmin = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserService.getAllAdminFromDB();
+
+  sendResponse<IUser[]>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "All Admin data retrieved successfully",
+    data: result,
+  });
+});
+
 const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   await UserService.deleteAdminToDB(id);
@@ -48,6 +60,33 @@ const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Admin account deleted successfully",
+  });
+});
+
+//retrieved user and active, deActive action
+const getAllUsers = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserService.getAllUsersFromDB();
+
+  sendResponse<IUser[]>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "All users data retrieved successfully",
+    data: result,
+  });
+});
+
+const activeDeactiveUser = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const data = req.body.status;
+  const result = await UserService.activeDeactiveUserToDB(id, data);
+
+  console.log("result", result);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Successfully active user",
+    data: result,
   });
 });
 
@@ -119,4 +158,7 @@ export const UserController = {
   updateProfile,
   deleteAccount,
   getMyPoints,
+  activeDeactiveUser,
+  getAllAdmin,
+  getAllUsers,
 };
