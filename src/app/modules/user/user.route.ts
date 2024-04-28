@@ -41,7 +41,11 @@ router.get(
 );
 
 //get all user and active, deActive user
-router.get("/", UserController.getAllUsers);
+router.get(
+  "/",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+  UserController.getAllUsers
+);
 
 router.patch(
   "/active-deactive/:id",
