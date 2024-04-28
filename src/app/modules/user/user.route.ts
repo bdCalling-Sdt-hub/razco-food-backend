@@ -42,6 +42,12 @@ router.get(
 
 //get all user and active, deActive user
 router.get(
+  "/:id",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+  UserController.getSingleUser
+);
+
+router.get(
   "/",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   UserController.getAllUsers

@@ -75,6 +75,18 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getSingleUser = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await UserService.getSingleUserFromDB(id);
+
+  sendResponse<IUser>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Single user data retrieved successfully",
+    data: result,
+  });
+});
+
 const activeDeactiveUser = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const data = req.body.status;
@@ -161,4 +173,5 @@ export const UserController = {
   activeDeactiveUser,
   getAllAdmin,
   getAllUsers,
+  getSingleUser,
 };

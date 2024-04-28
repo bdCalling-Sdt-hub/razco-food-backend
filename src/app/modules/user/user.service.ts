@@ -133,17 +133,26 @@ const getAllUsersFromDB = async (): Promise<IUser[]> => {
   return result;
 };
 
+const getSingleUserFromDB = async (id: string): Promise<IUser | null> => {
+  const result = await User.findById(id).select(userFiledShow);
+  return result;
+};
+
 const activeDeactiveUserToDB = async (
   id: string,
   status: string
 ): Promise<IUser | null> => {
-  const isExistUser = await User.findOneAndUpdate(
+  const isExistUser = await User.findOne({ _id: id });
+  if (!isExistUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+  const result = await User.findOneAndUpdate(
     { _id: id },
     { status },
     { new: true }
   );
 
-  return isExistUser;
+  return result;
 };
 
 //get profile and update and delete
@@ -248,4 +257,5 @@ export const UserService = {
   getAllAdminFromDB,
   getAllUsersFromDB,
   activeDeactiveUserToDB,
+  getSingleUserFromDB,
 };
