@@ -11,11 +11,25 @@ const addToCart = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: "Add to cart",
+    message: "Successfully product store on cart",
+    data: result,
+  });
+});
+
+const getCartProducts = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+
+  const result = await CartService.getCartProducts(user);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Cart product retrieve successfully!",
     data: result,
   });
 });
 
 export const CartController = {
   addToCart,
+  getCartProducts,
 };

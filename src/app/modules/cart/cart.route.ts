@@ -7,8 +7,13 @@ const router = express.Router();
 router.post(
   "/add-to-cart",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
-
   CartController.addToCart
+);
+
+router.get(
+  "/products",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  CartController.getCartProducts
 );
 
 export const CartRoutes = router;

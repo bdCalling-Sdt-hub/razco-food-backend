@@ -7,4 +7,5 @@ export type ICart = {
 
 export type CartModel = {
   isUserExistOnCart(id: string): Promise<ICart>;
+  isProductOnCart(id: string): Promise<ICart>;
 } & Model<ICart>;
