@@ -8,6 +8,7 @@ export default {
   ip_address: process.env.IP_ADDRESS,
   database_url: process.env.DATABASE_URL,
   bcrypt_salt_rounds: process.env.BCRYPT_SALT_ROUNDS,
+  stripe_api_secret: process.env.STRIPE_API_SECRET,
   jwt: {
     secret: process.env.JWT_SECRET,
     expire_in: process.env.JWT_EXPIRE_IN,

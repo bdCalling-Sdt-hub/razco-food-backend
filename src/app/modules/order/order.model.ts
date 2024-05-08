@@ -12,6 +12,11 @@ const orderSchema = new Schema<IOrder, OrderModel>(
       ref: "User",
       required: true,
     },
+    cart: {
+      type: Schema.Types.ObjectId,
+      ref: "Cart",
+      required: true,
+    },
     totalItem: {
       type: Number,
     },
@@ -21,6 +26,10 @@ const orderSchema = new Schema<IOrder, OrderModel>(
     },
     deliveryDate: {
       type: String,
+      required: true,
+    },
+    deliveryFee: {
+      type: Number,
       required: true,
     },
     transactionId: {

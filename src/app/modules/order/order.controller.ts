@@ -1,8 +1,18 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import Stripe from "stripe";
+import config from "../../../config";
+import ApiError from "../../../errors/ApiErrors";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import { OrderService } from "./order.service";
+
+//create stripe instance
+const stripe = new Stripe(config.stripe_api_secret as string);
+
+// const stripe = new Stripe(config.stripeApiSecret, {
+//   apiVersion: "2022-11-15",
+// });
 
 const createOrder = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
@@ -46,8 +56,45 @@ const getSingleUserOrderHistory = catchAsync(
   }
 );
 
+const updateOrderStatus = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const status = req.body;
+  const result = await OrderService.updateOrderStatusToDB(id, status);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Order status updated successfully",
+    data: result,
+  });
+});
+
+//stripe payment intent
+const createPaymentIntent = catchAsync(async (req: Request, res: Response) => {
+  const { price } = req.body;
+
+  if (typeof price !== "number" || price <= 0) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Invalid price amount");
+  }
+  const amount = Math.trunc(price * 100);
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: amount,
+    currency: "usd",
+    payment_method_types: ["card"],
+  });
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Payment intent created successfully",
+    data: paymentIntent.client_secret,
+  });
+});
+
 export const OrderController = {
   createOrder,
   getAllOrders,
   getSingleUserOrderHistory,
+  updateOrderStatus,
+  createPaymentIntent,
 };

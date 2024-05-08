@@ -4,16 +4,12 @@ import auth from "../../middlewares/auth";
 import { WishlistController } from "./wishlist.controller";
 const router = express.Router();
 
-router.post(
-  "/add-to-wishlist",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
-  WishlistController.addToWishlist
-);
-
 router.get(
   "/products",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  auth(USER_TYPE.USER),
   WishlistController.getProductsFromWishlist
 );
+
+router.post("/", auth(USER_TYPE.USER), WishlistController.addToWishlist);
 
 export const WishlistRoutes = router;
