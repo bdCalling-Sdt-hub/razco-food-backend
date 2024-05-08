@@ -1,4 +1,5 @@
 import { Request } from "express";
+import fs from "fs";
 import { StatusCodes } from "http-status-codes";
 import multer, { FileFilterCallback } from "multer";
 import path from "path";
@@ -18,9 +19,14 @@ interface MulterFile {
 
 const fileHandler = () => {
   //access storage for customize file name
+  const uploadDir = path.join(process.cwd(), "uploads", "images");
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, "./uploads/images");
+      cb(null, uploadDir);
     },
     filename: (req, file, cb) => {
       const fileExt = path.extname(file.originalname);
@@ -70,7 +76,7 @@ const fileHandler = () => {
     { name: "offerImage", maxCount: 1 },
     { name: "bannerImage", maxCount: 1 },
     { name: "profileImage", maxCount: 1 },
-    { name: "productImage", maxCount: 1 },
+    { name: "productImage", maxCount: 3 },
   ]);
 
   return upload;

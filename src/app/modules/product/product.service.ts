@@ -94,13 +94,22 @@ const updateProductToDB = async (
   if (!isExistProduct) {
     throw new ApiError(StatusCodes.OK, "Product doesn't exist!");
   }
+  const updateData = {
+    ...payload,
+    productImage:
+      payload.productImage.length > 0
+        ? payload.productImage
+        : isExistProduct.productImage,
+  };
   //remove file
-  if (payload.productImage) {
-    unlinkFile(isExistProduct?.productImage);
+  if (payload.productImage.length) {
+    for (let image of isExistProduct?.productImage) {
+      unlinkFile(image);
+    }
   }
 
   //update product
-  const result = await Product.findOneAndUpdate({ _id: id }, payload, {
+  const result = await Product.findOneAndUpdate({ _id: id }, updateData, {
     new: true,
   });
   return result;
@@ -113,7 +122,9 @@ const deleteProductToDB = async (id: string): Promise<IProduct | null> => {
   }
 
   //delete product image from local files
-  unlinkFile(isExistProduct.productImage);
+  for (let image of isExistProduct?.productImage) {
+    unlinkFile(image);
+  }
 
   //delete from db
   const result = await Product.findByIdAndDelete(id);

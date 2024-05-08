@@ -3,7 +3,7 @@ import { Model } from "mongoose";
 export type IProduct = {
   productId: string;
   productName: string;
-  productImage: string;
+  productImage: string[];
   barcode: string;
   price: string | number;
   offer: string;

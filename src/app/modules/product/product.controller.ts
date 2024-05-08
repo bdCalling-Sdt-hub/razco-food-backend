@@ -9,14 +9,22 @@ import { ProductService } from "./product.service";
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const productData = req.body;
-  let productImage;
-  if (req.files && "productImage" in req.files && req.files.productImage[0]) {
-    productImage = `/images/${req.files.productImage[0].filename}`;
+  let productImage = [];
+  if (
+    req.files &&
+    "productImage" in req.files &&
+    req.files.productImage.length
+  ) {
+    for (let image of req.files.productImage) {
+      productImage.push(`/images/${image.filename}`);
+    }
   }
   const payload = {
     ...productData,
     productImage,
   };
+
+  console.log(payload);
   const result = await ProductService.createProductToDB(payload);
 
   sendResponse<IProduct>(res, {
@@ -65,9 +73,15 @@ const getSingleProduct = catchAsync(async (req: Request, res: Response) => {
 const updateProduct = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const productData = req.body;
-  let productImage;
-  if (req.files && "productImage" in req.files && req.files.productImage[0]) {
-    productImage = `/images/${req.files.productImage[0].filename}`;
+  let productImage = [];
+  if (
+    req.files &&
+    "productImage" in req.files &&
+    req.files.productImage.length
+  ) {
+    for (let image of req.files.productImage) {
+      productImage.push(`/images/${image.filename}`);
+    }
   }
   const payload = {
     ...productData,

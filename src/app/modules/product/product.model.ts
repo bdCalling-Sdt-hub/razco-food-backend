@@ -8,7 +8,7 @@ const productSchema = new Schema<IProduct, ProductModel>(
       required: true,
     },
     productImage: {
-      type: String,
+      type: [String],
       required: true,
     },
     productId: {
