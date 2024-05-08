@@ -3,9 +3,14 @@ import config from "../../config";
 import ApiError from "../../errors/ApiErrors";
 import handleValidationError from "../../errors/handleValidationError";
 import handleZodError from "../../errors/handleZodError";
+import { errorLogger } from "../../shared/logger";
 import { IErrorMessages } from "../../types/errors";
 
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+  config.env === "development"
+    ? console.log("🚨 globalErrorHandler ~~", error)
+    : errorLogger.error("🚨 globalErrorHandler ~~", error);
+
   let statusCode = 500;
   let message = "Something went wrong!";
   let errorMessages: IErrorMessages[] = [];

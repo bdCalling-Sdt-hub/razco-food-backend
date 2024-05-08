@@ -1,0 +1,13 @@
+Wed May 08 2024 17:7:3 [RAZCO-FOOD] error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+Wed May 08 2024 17:19:44 [RAZCO-FOOD] error: 🚨 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "body",
+      "price"
+    ],
+    "message": "Price is required"
+  }
+]
