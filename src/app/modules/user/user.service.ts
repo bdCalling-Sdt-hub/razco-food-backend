@@ -245,6 +245,20 @@ const getMyPointsFromDB = async (user: JwtPayload) => {
   return points;
 };
 
+//Edit address
+const editAddressToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
+  const getUser = await User.isUserExist(user.email);
+  if (!getUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
+  const result = await User.findOneAndUpdate({ _id: user.id }, payload, {
+    new: true,
+  }).select(userFiledShow);
+
+  return result;
+};
+
 export const UserService = {
   createUserToDB,
   verifyEmailToDB,
@@ -258,4 +272,5 @@ export const UserService = {
   getAllUsersFromDB,
   activeDeactiveUserToDB,
   getSingleUserFromDB,
+  editAddressToDB,
 };

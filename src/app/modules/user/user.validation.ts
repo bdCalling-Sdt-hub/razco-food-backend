@@ -38,9 +38,18 @@ const deleteAccountZodSchema = z.object({
   }),
 });
 
+const editAddressZodSchema = z.object({
+  body: z.object({
+    name: z.string().optional(),
+    phone: z.string().optional(),
+    address: z.string().optional(),
+  }),
+});
+
 export const UserValidation = {
   createUserZodSchema,
   createVerifyEmailZodSchema,
   updateUserZodSchema,
   deleteAccountZodSchema,
+  editAddressZodSchema,
 };

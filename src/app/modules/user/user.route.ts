@@ -56,17 +56,13 @@ router.patch(
 
 router.delete(
   "/account-delete",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  auth(USER_TYPE.USER),
   validateRequest(UserValidation.deleteAccountZodSchema),
   UserController.deleteAccount
 );
 
 //my points
-router.get(
-  "/my-points",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
-  UserController.getMyPoints
-);
+router.get("/my-points", auth(USER_TYPE.USER), UserController.getMyPoints);
 
 //get all user and active, deActive user
 router.get(
@@ -85,6 +81,14 @@ router.patch(
   "/active-deactive/:id",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   UserController.activeDeactiveUser
+);
+
+//edit address
+router.patch(
+  "/edit-address",
+  auth(USER_TYPE.USER),
+  validateRequest(UserValidation.editAddressZodSchema),
+  UserController.editAddress
 );
 
 export const UserRoutes = router;

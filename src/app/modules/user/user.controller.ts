@@ -161,6 +161,20 @@ const getMyPoints = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//edit address
+const editAddress = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const { ...editAddressData } = req.body;
+  const result = await UserService.editAddressToDB(user, editAddressData);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Address updated successfully!",
+    data: result,
+  });
+});
+
 export const UserController = {
   createUser,
   verifyEmail,
@@ -174,4 +188,5 @@ export const UserController = {
   getAllAdmin,
   getAllUsers,
   getSingleUser,
+  editAddress,
 };

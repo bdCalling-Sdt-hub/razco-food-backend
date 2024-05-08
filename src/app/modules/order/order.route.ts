@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get(
   "/history",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  auth(USER_TYPE.USER),
   OrderController.getSingleUserOrderHistory
 );
 
@@ -16,9 +16,6 @@ router
     auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     OrderController.getAllOrders
   )
-  .post(
-    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
-    OrderController.createOrder
-  );
+  .post(auth(USER_TYPE.USER), OrderController.createOrder);
 
 export const OrderRoutes = router;

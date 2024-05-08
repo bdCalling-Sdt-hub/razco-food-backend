@@ -6,7 +6,7 @@ export type IOrder = {
   totalItem: number;
   price: number;
   transactionId?: string;
-  paymentMethod: "online" | "cash on delivery";
+  paymentMethod: "online" | "cashOnDelivery";
   status: "pending" | "packing" | "processing" | "shipping" | "shipped";
 };
 
