@@ -11,7 +11,6 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
     user: user.id,
     ...orderData,
   };
-  console.log(data);
   const result = await OrderService.createOrderToDB(data);
 
   sendResponse(res, {
@@ -41,7 +40,7 @@ const getSingleUserOrderHistory = catchAsync(
     sendResponse(res, {
       statusCode: StatusCodes.OK,
       success: true,
-      message: "Single order history retrieved successfully",
+      message: "Order history retrieved successfully",
       data: result,
     });
   }

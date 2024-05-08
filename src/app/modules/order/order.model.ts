@@ -19,12 +19,16 @@ const orderSchema = new Schema<IOrder, OrderModel>(
       type: Number,
       required: true,
     },
+    deliveryDate: {
+      type: String,
+      required: true,
+    },
     transactionId: {
       type: String,
     },
     paymentMethod: {
       type: String,
-      enum: ["online", "cash on delivery"],
+      enum: ["online", "cashOnDelivery"],
       required: true,
     },
     status: {

@@ -5,6 +5,7 @@ export type IOrder = {
   user: Types.ObjectId;
   totalItem: number;
   price: number;
+  deliveryDate: string;
   transactionId?: string;
   paymentMethod: "online" | "cashOnDelivery";
   status: "pending" | "packing" | "processing" | "shipping" | "shipped";

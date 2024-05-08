@@ -14,7 +14,6 @@ const getAllOrderToDB = async (): Promise<IOrder[]> => {
 const getSingleUserOrderHistoryFromDB = async (
   id: string
 ): Promise<IOrder[]> => {
-  console.log(id);
   const result = await Order.find({ user: id });
   return result;
 };
