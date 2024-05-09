@@ -15,14 +15,14 @@ import { TempUser } from "../tempUser/tempUser.model";
 import { IUser } from "./user.interface";
 import { User } from "./user.model";
 
-//create user and verify
+//create user and verify resend otp
 const createUserToDB = async (payload: IUser): Promise<void> => {
   //set role
   payload.role = "user";
 
   //generate otp
   const otp = generateOTP();
-  payload.oneTimeCode = otp;
+  payload.oneTimeCode = otp.toString();
 
   const createUser = await TempUser.create(payload);
   if (!createUser) {
@@ -84,6 +84,41 @@ const verifyEmailToDB = async (payload: IVerifyEmail): Promise<void> => {
 
   // Create a new user to save in User collection
   await User.create(userForCreation);
+};
+
+const resendOtpToDB = async (email: string): Promise<void> => {
+  //check user
+  const isUserExist = await TempUser.isUserExist(email);
+  if (!isUserExist) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist");
+  }
+
+  //generate otp
+  const otp = generateOTP();
+
+  //save otp to db
+  await TempUser.findOneAndUpdate(
+    { _id: isUserExist._id },
+    { oneTimeCode: otp.toString() },
+    { new: true }
+  );
+
+  //send email
+  const data = {
+    name: isUserExist?.name,
+    email,
+    otp,
+  };
+  const mailData = accountActivationTemplate(data);
+  sendMail(mailData);
+
+  //after 3minute null this code
+  setTimeout(async () => {
+    await TempUser.updateOne(
+      { _id: isUserExist._id },
+      { $set: { oneTimeCode: null } }
+    );
+  }, 3 * 60 * 1000); // 3minute
 };
 
 //create admin and delete
@@ -273,4 +308,5 @@ export const UserService = {
   activeDeactiveUserToDB,
   getSingleUserFromDB,
   editAddressToDB,
+  resendOtpToDB,
 };

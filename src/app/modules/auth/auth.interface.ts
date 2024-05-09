@@ -5,7 +5,7 @@ export type IAuth = {
 
 export type IVerifyEmail = {
   email: string;
-  code: number;
+  code: string;
 };
 
 export type IChangePassword = {

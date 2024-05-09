@@ -2,6 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import nodemailer from "nodemailer";
 import config from "../config";
 import ApiError from "../errors/ApiErrors";
+import { logger } from "../shared/logger";
 import { ISendMail } from "../types/emailHelper";
 
 const transporter = nodemailer.createTransport({
@@ -24,6 +25,7 @@ const sendMail = async (values: ISendMail) => {
     });
 
     console.log("Mail", info.response);
+    logger.info("MAIL SEND SUCCESSFULLY", info.accepted);
   } catch (error) {
     throw new ApiError(StatusCodes.FAILED_DEPENDENCY, error as string);
   }

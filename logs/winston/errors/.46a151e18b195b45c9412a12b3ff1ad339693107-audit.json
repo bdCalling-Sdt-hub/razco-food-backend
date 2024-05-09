@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Bungee\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\.46a151e18b195b45c9412a12b3ff1ad339693107-audit.json",
+    "files": [
+        {
+            "date": 1715251236364,
+            "name": "D:\\Bungee\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\09-05-2024-16-error.log",
+            "hash": "af19d0ec7184dd82b401e640d2b2c19f19e1ad4765d4ce7bbbb16f940bdc5e47"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -175,6 +175,19 @@ const editAddress = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//resend otp
+const resendOtp = catchAsync(async (req: Request, res: Response) => {
+  const email = req.body.email;
+  const result = await UserService.resendOtpToDB(email);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Address updated successfully!",
+    data: result,
+  });
+});
+
 export const UserController = {
   createUser,
   verifyEmail,
@@ -189,4 +202,5 @@ export const UserController = {
   getAllUsers,
   getSingleUser,
   editAddress,
+  resendOtp,
 };

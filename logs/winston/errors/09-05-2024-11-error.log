@@ -1,0 +1,17 @@
+Thu May 09 2024 11:14:43 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/forget-password 400 - 9.772 ms
+Thu May 09 2024 11:29:41 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 15.286 ms
+Thu May 09 2024 11:31:3 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 6.320 ms
+Thu May 09 2024 11:32:0 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 7.183 ms
+Thu May 09 2024 11:34:58 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 9.437 ms
+Thu May 09 2024 11:35:26 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 8.125 ms
+Thu May 09 2024 11:43:16 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 14.806 ms
+Thu May 09 2024 11:44:11 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 7.658 ms
+Thu May 09 2024 11:48:37 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 7.835 ms
+Thu May 09 2024 11:49:2 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 7.723 ms
+Thu May 09 2024 11:49:41 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 6.124 ms
+Thu May 09 2024 11:54:22 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 7.224 ms
+Thu May 09 2024 11:55:8 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 6.153 ms
+Thu May 09 2024 11:55:41 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 6.523 ms
+Thu May 09 2024 11:56:38 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 10.399 ms
+Thu May 09 2024 11:59:49 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 24.141 ms
+Thu May 09 2024 11:59:58 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 400 - 6.874 ms

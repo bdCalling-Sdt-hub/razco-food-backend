@@ -41,7 +41,7 @@ const tempUserSchema = new Schema<ITempUser, TempUserModel>(
       default: false,
     },
     oneTimeCode: {
-      type: Number,
+      type: String,
       default: null,
     },
     gender: {

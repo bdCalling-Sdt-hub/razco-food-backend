@@ -40,7 +40,7 @@ const userSchema = new Schema<IUser, UserModel>(
       default: false,
     },
     oneTimeCode: {
-      type: Number,
+      type: String,
       default: null,
     },
     gender: {

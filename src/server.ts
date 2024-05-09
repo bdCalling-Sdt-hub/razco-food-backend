@@ -1,8 +1,9 @@
 import colors from "colors";
-import { Server } from "http";
 import mongoose from "mongoose";
+import { Server } from "socket.io";
 import app from "./app";
 import config from "./config";
+import { SocketHelper } from "./helpers/socketHelper";
 import { errorLogger, logger } from "./shared/logger";
 
 //uncaught exception
@@ -11,7 +12,7 @@ process.on("uncaughtException", (error) => {
   process.exit(1);
 });
 
-let server: Server;
+let server: any;
 async function main() {
   try {
     await mongoose.connect(config.database_url as string);
@@ -23,6 +24,15 @@ async function main() {
     server = app.listen(port, config.ip_address as string, () => {
       logger.info(colors.bold.yellow(`📢 Application Running on port:${port}`));
     });
+
+    //socket operation here
+    const io = new Server(server, {
+      pingTimeout: 60000,
+      cors: {
+        origin: "*",
+      },
+    });
+    SocketHelper.socket(io);
   } catch (error) {
     errorLogger.error(error);
   }
@@ -40,3 +50,11 @@ async function main() {
 }
 
 main();
+
+//sigterm
+process.on("SIGTERM", () => {
+  logger.info("SIGTERM IS RECEIVED!");
+  if (server) {
+    server.close();
+  }
+});

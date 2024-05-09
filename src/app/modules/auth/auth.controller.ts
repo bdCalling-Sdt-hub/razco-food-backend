@@ -30,6 +30,7 @@ const forgetPassword = catchAsync(async (req: Request, res: Response) => {
 
 const otpVerify = catchAsync(async (req: Request, res: Response) => {
   const { ...otpData } = req.body;
+  console.log(otpData);
   const result = await AuthService.otpVerifyToDB(otpData);
 
   sendResponse(res, {

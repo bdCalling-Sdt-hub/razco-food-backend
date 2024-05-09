@@ -9,7 +9,7 @@ export type IUser = {
   passwordChangeAt: Date;
   resetPasswordToken: boolean;
   verified: boolean;
-  oneTimeCode: number;
+  oneTimeCode: string;
   gender?: "male" | "female";
   address?: string;
   status: "active" | "deActive";

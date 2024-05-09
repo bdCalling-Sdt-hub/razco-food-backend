@@ -50,7 +50,7 @@ const forgetPasswordToDB = async (email: string): Promise<void> => {
   //save otp to db
   await User.findOneAndUpdate(
     { _id: isUserExist._id },
-    { oneTimeCode: otp },
+    { oneTimeCode: otp.toString() },
     { new: true }
   );
 
@@ -75,6 +75,7 @@ const otpVerifyToDB = async (payload: IVerifyEmail) => {
   const { email, code } = payload;
   //check user
   const isUserExist = await User.isUserExist(email);
+  console.log(isUserExist);
   if (!isUserExist) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist");
   }

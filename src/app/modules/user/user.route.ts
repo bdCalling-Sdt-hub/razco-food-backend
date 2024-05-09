@@ -20,6 +20,12 @@ router.post(
   UserController.verifyEmail
 );
 
+router.post(
+  "/resend-otp",
+  validateRequest(UserValidation.resendOtpZodSchema),
+  UserController.resendOtp
+);
+
 //admin account create and delete here
 router.post(
   "/create-admin",

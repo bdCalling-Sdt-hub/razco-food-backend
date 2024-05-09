@@ -1,0 +1,46 @@
+Thu May 09 2024 14:14:49 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/forget-password 200 - 6.846 ms
+Thu May 09 2024 14:15:22 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:16:9 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/otp-verify 200 - 7.415 ms
+Thu May 09 2024 14:16:30 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/reset-password 200 - 208.873 ms
+Thu May 09 2024 14:16:56 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/login 200 - 208.316 ms
+Thu May 09 2024 14:17:40 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/login 200 - 203.480 ms
+Thu May 09 2024 14:19:46 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/create-user 200 - 207.132 ms
+Thu May 09 2024 14:19:49 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:26:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/forget-password 200 - 3.491 ms
+Thu May 09 2024 14:26:56 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/forget-password 200 - 8.978 ms
+Thu May 09 2024 14:27:28 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:27:30 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:28:49 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/create-user 200 - 207.545 ms
+Thu May 09 2024 14:28:52 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:29:13 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 200 - 6.380 ms
+Thu May 09 2024 14:30:5 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/create-user 200 - 206.619 ms
+Thu May 09 2024 14:30:8 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:38:51 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/forget-password 200 - 3.593 ms
+Thu May 09 2024 14:39:24 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:40:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/create-user 200 - 201.917 ms
+Thu May 09 2024 14:40:23 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:43:39 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/create-user 200 - 212.305 ms
+Thu May 09 2024 14:43:41 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:44:31 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Thu May 09 2024 14:44:31 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Thu May 09 2024 14:44:44 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Thu May 09 2024 14:44:44 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Thu May 09 2024 14:44:57 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/verify-email 200 - 33.074 ms
+Thu May 09 2024 14:45:6 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/forget-password 200 - 11.718 ms
+Thu May 09 2024 14:45:51 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Thu May 09 2024 14:45:51 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Thu May 09 2024 14:48:12 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/login 200 - 233.838 ms
+Thu May 09 2024 14:48:27 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/profile 200 - 6.344 ms
+Thu May 09 2024 14:50:45 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Thu May 09 2024 14:50:45 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Thu May 09 2024 14:50:59 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Thu May 09 2024 14:50:59 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Thu May 09 2024 14:51:19 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Thu May 09 2024 14:51:19 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Thu May 09 2024 14:55:32 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/create-user 200 - 221.467 ms
+Thu May 09 2024 14:56:5 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Thu May 09 2024 14:56:35 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/login 200 - 209.579 ms
+Thu May 09 2024 14:57:45 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/login 200 - 207.297 ms
+Thu May 09 2024 14:58:45 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/login 200 - 203.895 ms
+Thu May 09 2024 14:59:36 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/user/create-user 200 - 206.595 ms
+Thu May 09 2024 14:59:39 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
