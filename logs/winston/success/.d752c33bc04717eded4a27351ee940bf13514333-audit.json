@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\.d752c33bc04717eded4a27351ee940bf13514333-audit.json",
+    "files": [
+        {
+            "date": 1715251658396,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\09-05-2024-16-success.log",
+            "hash": "216fde2eaefe0166ade54ae0fce7ef4c2d1af9850f32dc7d9b161c9842d9a55b"
+        },
+        {
+            "date": 1715255380445,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\09-05-2024-17-success.log",
+            "hash": "111650d57dbb07d8b48cb5eafb296f6ac012473f7e95041c5156cc12925e3b66"
+        },
+        {
+            "date": 1715258340679,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\09-05-2024-18-success.log",
+            "hash": "167fb206efdba5cc5738e8afa49d7b0e513dd31133fd1c9342368785fc8645fb"
+        }
+    ],
+    "hashType": "sha256"
+}
