@@ -1,6 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import ApiError from "../../../errors/ApiErrors";
 import unlinkFile from "../../../util/unlinkFile";
+import { ISubcategory } from "../subcategory/subcategory.interface";
+import { Subcategory } from "../subcategory/subcategory.model";
 import { ICategory } from "./category.interface";
 import { Category } from "./category.model";
 
@@ -39,6 +41,17 @@ const updateCategoryToDB = async (
   return category;
 };
 
+const getAllSubcategoriesFromDB = async (
+  id: string
+): Promise<ISubcategory[]> => {
+  const result = await Subcategory.find({ category: id });
+  if (!result) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Category doesn't exist");
+  }
+
+  return result;
+};
+
 const deleteCategoryToDB = async (id: string): Promise<ICategory | null> => {
   const isExistCategory = await Category.findByIdAndDelete(id);
   if (!isExistCategory) {
@@ -55,4 +68,5 @@ export const CategoryService = {
   getAllCategoryToDB,
   updateCategoryToDB,
   deleteCategoryToDB,
+  getAllSubcategoriesFromDB,
 };

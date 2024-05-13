@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
+import { ISubcategory } from "../subcategory/subcategory.interface";
 import { ICategory } from "./category.interface";
 import { CategoryService } from "./category.service";
 
@@ -63,6 +64,19 @@ const updateCategory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllSubcategories = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await CategoryService.getAllSubcategoriesFromDB(id);
+
+  sendResponse<ISubcategory[]>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Subcategories retrieved successfully",
+    data: result,
+  });
+});
+
 const deleteCategory = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await CategoryService.deleteCategoryToDB(id);
@@ -80,4 +94,5 @@ export const CategoryController = {
   getAllCategory,
   updateCategory,
   deleteCategory,
+  getAllSubcategories,
 };

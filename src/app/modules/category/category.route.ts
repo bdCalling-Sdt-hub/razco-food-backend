@@ -25,6 +25,12 @@ router
   );
 
 router.get(
+  "/all-subcategories/:id",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  CategoryController.getAllSubcategories
+);
+
+router.get(
   "/",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
   CategoryController.getAllCategory
