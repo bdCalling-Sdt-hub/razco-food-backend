@@ -6,49 +6,34 @@
     "auditLog": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\.e7c8c0b34c87b29d2933042e5415ba1d5015bbe4-audit.json",
     "files": [
         {
-            "date": 1715510752658,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\12-05-2024-16-error.log",
-            "hash": "3bcbaa7257735c66cc7b26515251b335932175746fa34e0a0d9bc4c7bff94c15"
+            "date": 1715657306483,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\14-05-2024-09-error.log",
+            "hash": "21b263a971dcecdd637407b4a572cbc412586347a7d963f13a03d6506ca8d237"
         },
         {
-            "date": 1715513562499,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\12-05-2024-17-error.log",
-            "hash": "9382063da057f1fbcf88acba7ba1fef7b0b240aa7a282d95cb4e49e3b214e8c1"
+            "date": 1715659897368,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\14-05-2024-10-error.log",
+            "hash": "71f167e283588b9234cdf8549e7ee14cf7f6ccee320b8b8cb9f1a8e04be25bdb"
         },
         {
-            "date": 1715516035907,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\12-05-2024-18-error.log",
-            "hash": "8f2ef360fd9fdeac4a3b16ee11f41803440991dacf2fcb60d01e42d13141114e"
+            "date": 1715667902254,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\14-05-2024-12-error.log",
+            "hash": "4ac2cbc53b067c743e92c1588be01d7785a60fb3425efdf1f4e841adb6156618"
         },
         {
-            "date": 1715570408402,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\13-05-2024-09-error.log",
-            "hash": "a252fe1ce619322e68cd6783d02002e307d20016b2f7099ae211504ab8692f7d"
+            "date": 1715680231710,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\14-05-2024-15-error.log",
+            "hash": "3c66afdfefbe8a7a113a54c8400fbd5968c7119d0a1f7d7f6c11398d904d57d4"
         },
         {
-            "date": 1715573307001,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\13-05-2024-10-error.log",
-            "hash": "4ad3f0552b6bb0213dfc39d9642b87229e6d7106b5be764d9f5962ef64a55b9c"
+            "date": 1715680822577,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\14-05-2024-16-error.log",
+            "hash": "8f25a0a097e0e23a4a043c6cc4125e416f7672a8b8e2cce8dfb3fd8e9581e309"
         },
         {
-            "date": 1715576575231,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\13-05-2024-11-error.log",
-            "hash": "99eed94f2e5255cf35713cb523b9922485ef47738ad67231fb991276ecedccbb"
-        },
-        {
-            "date": 1715580098791,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\13-05-2024-12-error.log",
-            "hash": "f423c5c3384882e0661759e564a789f910a9c66b04e8bed839365d33190b1103"
-        },
-        {
-            "date": 1715588114884,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\13-05-2024-14-error.log",
-            "hash": "08d37088b287e7f22e7b4fc58b075cdd9ab44f5e008eb434bb1fbb4ea29e9bd3"
-        },
-        {
-            "date": 1715595939925,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\13-05-2024-16-error.log",
-            "hash": "a9667e36058eec0eec13f9b675be19f94ce3b3b7a06d537edcdf94126399d820"
+            "date": 1715684649193,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\14-05-2024-17-error.log",
+            "hash": "efe9d59d10a56162dc7ea13a04a9b617af94d18593f58a8f4c84f6a47802d1d2"
         }
     ],
     "hashType": "sha256"

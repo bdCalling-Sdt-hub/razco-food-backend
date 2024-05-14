@@ -37,7 +37,7 @@ const addToWishlistToDB = async (
 };
 
 const getProductsFromWishlistDB = async (user: JwtPayload) => {
-  const result = await Wishlist.find({ user: user.id });
+  const result = await Wishlist.find({ user: user.id }).populate("product");
   return result;
 };
 

@@ -1,4 +1,4 @@
-import { Model } from "mongoose";
+import { Model, Types } from "mongoose";
 
 export type IProduct = {
   productId: string;
@@ -6,7 +6,7 @@ export type IProduct = {
   productImage: string[];
   barcode: string;
   price: string | number;
-  offer: string;
+  offer: Types.ObjectId;
   discount?: string;
   discountPrice?: string | number;
   category: string;
@@ -30,4 +30,5 @@ export type IProductFilters = {
   maxPrice?: number;
   category?: string;
   subcategory?: string;
+  offer?: string;
 };

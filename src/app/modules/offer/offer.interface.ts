@@ -2,7 +2,7 @@ import { Model } from "mongoose";
 
 export type IOffer = {
   offerName: string;
-  setPercentage: number;
+  percentage: number;
   offerImage: string;
 };
 

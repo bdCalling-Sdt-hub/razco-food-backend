@@ -24,7 +24,9 @@ const productSchema = new Schema<IProduct, ProductModel>(
       required: true,
     },
     offer: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "Offer",
+      required: true,
     },
     discount: { type: String },
     discountPrice: {

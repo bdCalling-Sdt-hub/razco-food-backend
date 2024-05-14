@@ -29,6 +29,12 @@ router
   );
 
 router.get(
+  "/related-product/:id",
+  auth(USER_TYPE.USER),
+  ProductController.getRelatedProduct
+);
+
+router.get(
   "/barcode/:id",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
   ProductController.getBarcodeProduct

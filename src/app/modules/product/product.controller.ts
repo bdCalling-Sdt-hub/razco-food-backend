@@ -24,7 +24,6 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
     productImage,
   };
 
-  console.log(payload);
   const result = await ProductService.createProductToDB(payload);
 
   sendResponse<IProduct>(res, {
@@ -42,10 +41,30 @@ const getAllProduct = catchAsync(async (req: Request, res: Response) => {
     "maxPrice",
     "category",
     "subcategory",
+    "offer",
   ]);
+
   const paginationOptions = pick(req.query, paginationField);
   const result = await ProductService.getAllProductFromDB(
     filters,
+    paginationOptions
+  );
+
+  sendResponse<IProduct[]>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Product retrieved successfully",
+    meta: result.meta,
+    data: result.data,
+  });
+});
+
+const getRelatedProduct = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const paginationOptions = pick(req.query, paginationField);
+
+  const result = await ProductService.getRelatedProductFromDB(
+    id,
     paginationOptions
   );
 
@@ -129,4 +148,5 @@ export const ProductController = {
   updateProduct,
   getSingleProduct,
   getBarcodeProduct,
+  getRelatedProduct,
 };

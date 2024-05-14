@@ -28,7 +28,7 @@ const getAllProductFromDB = async (
   //product search here
   if (search) {
     anyConditions.push({
-      $or: ["productName", "category", "brand"].map((field) => ({
+      $or: ["productName", "category", "brand", "offer"].map((field) => ({
         [field]: {
           $regex: search,
           $options: "i",
@@ -66,11 +66,50 @@ const getAllProductFromDB = async (
     anyConditions.length > 0 ? { $and: anyConditions } : {};
 
   const result = await Product.find(whereConditions)
+    .populate([{ path: "offer", select: "_id percentage offerName" }])
     .sort(sortCondition)
     .skip(skip)
     .limit(limit);
 
   const total = await Product.countDocuments(whereConditions);
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
+};
+
+const getRelatedProductFromDB = async (
+  id: string,
+  pagination: IPaginationOptions
+): Promise<IGenericResponse<IProduct[]>> => {
+  const { skip, limit, page, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(pagination);
+
+  //product sort here
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+
+  const isExistProduct = await Product.isProductExist(id);
+
+  const result = await Product.find({
+    _id: { $ne: id },
+    subcategory: isExistProduct.subcategory,
+  })
+    .populate([{ path: "offer", select: "_id percentage offerName" }])
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit);
+
+  const total = await Product.countDocuments({
+    _id: { $ne: id },
+    subcategory: isExistProduct.subcategory,
+  });
   return {
     meta: {
       page,
@@ -149,4 +188,5 @@ export const ProductService = {
   updateProductToDB,
   getSingleProductFromDB,
   getBarcodeProductFromDB,
+  getRelatedProductFromDB,
 };

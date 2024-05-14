@@ -1,5 +1,0 @@
-Mon May 13 2024 16:25:39 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/product/662b767a67f9376785660d1d 500 - 2.752 ms
-Mon May 13 2024 16:25:54 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/product 500 - 2.414 ms
-Mon May 13 2024 16:31:20 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/offer 500 - 3.717 ms
-Mon May 13 2024 16:52:8 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/rules/about 500 - 2.628 ms
-Mon May 13 2024 16:53:10 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/rules/about 500 - 2.394 ms
