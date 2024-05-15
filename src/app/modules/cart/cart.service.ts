@@ -27,7 +27,11 @@ const addToCartToDB = async (user: JwtPayload, payload: any) => {
 };
 
 const getCartProducts = async (user: JwtPayload) => {
-  const isExistUser = await Cart.findOne({ user: user.id });
+  const isExistUser = await Cart.findOne({ user: user.id }).populate({
+    path: "products.product",
+    select: "",
+  });
+
   return isExistUser;
 };
 

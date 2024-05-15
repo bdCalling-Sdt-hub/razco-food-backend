@@ -1,0 +1,5 @@
+Wed May 15 2024 18:1:28 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/product/barcode/ 500 - 3.116 ms
+Wed May 15 2024 18:2:3 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/product/barcode/ 500 - 3.208 ms
+Wed May 15 2024 18:3:18 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/product/barcode/ 500 - 3.010 ms
+Wed May 15 2024 18:4:9 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/product/barcode/ 500 - 15.657 ms
+Wed May 15 2024 18:4:46 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/product/barcode/ 500 - 3.096 ms
