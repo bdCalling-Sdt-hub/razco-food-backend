@@ -1,0 +1,2 @@
+Thu May 16 2024 14:26:40 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - POST /api/v1/order 400 - 17.833 ms
+Thu May 16 2024 14:43:39 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/order/create-payment-intent 401 - 15.916 ms

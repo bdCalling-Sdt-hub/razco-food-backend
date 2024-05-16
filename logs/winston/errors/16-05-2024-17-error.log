@@ -1,0 +1,6 @@
+Thu May 16 2024 17:2:52 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - DELETE /api/v1/cart/ 404 - 1.117 ms
+Thu May 16 2024 17:2:55 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - DELETE /api/v1/cart/ 404 - 0.183 ms
+Thu May 16 2024 17:15:15 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - POST /api/v1/cart/add-to-cart 400 - 16.770 ms
+Thu May 16 2024 17:25:26 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/cart/add-to-cart 400 - 9.630 ms
+Thu May 16 2024 17:41:59 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/cart/add-to-cart 400 - 7.527 ms
+Thu May 16 2024 17:45:22 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/cart/add-to-cart 400 - 6.596 ms

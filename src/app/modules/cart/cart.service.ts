@@ -1,20 +1,23 @@
 import { StatusCodes } from "http-status-codes";
 import { JwtPayload } from "jsonwebtoken";
 import ApiError from "../../../errors/ApiErrors";
+import { Product } from "./../product/product.model";
 import { Cart } from "./cart.model";
 
 const addToCartToDB = async (user: JwtPayload, payload: any) => {
   const isExistUser = await Cart.findOne({ user: user.id });
-
-  console.log(user);
-  console.log(isExistUser);
+  const isExistProduct = await Product.isProductExist(payload.product);
+  if (!isExistProduct) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Product doesn't exist!");
+  }
 
   if (isExistUser) {
     const foundProduct = isExistUser!.products.find((item) =>
       item.product.equals(payload.product)
     );
     if (foundProduct) {
-      foundProduct!.quantity = foundProduct?.quantity + payload.quantity;
+      //foundProduct!.quantity = foundProduct?.quantity + payload.quantity;
+      foundProduct!.quantity = payload.quantity;
       await isExistUser.save();
     } else {
       isExistUser.products.push(payload);
