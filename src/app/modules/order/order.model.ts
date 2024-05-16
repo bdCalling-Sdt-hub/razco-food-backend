@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import { orderStatus } from "../../../shared/constant";
 import { IOrder, OrderModel } from "./order.interface";
 
 const orderSchema = new Schema<IOrder, OrderModel>(
@@ -35,6 +36,10 @@ const orderSchema = new Schema<IOrder, OrderModel>(
     transactionId: {
       type: String,
     },
+    points: {
+      type: String,
+      required: true,
+    },
     paymentMethod: {
       type: String,
       enum: ["online", "cashOnDelivery"],
@@ -42,7 +47,7 @@ const orderSchema = new Schema<IOrder, OrderModel>(
     },
     status: {
       type: String,
-      enum: ["pending", "packing", "processing", "shipping", "shipped"],
+      enum: orderStatus,
       default: "pending",
     },
   },

@@ -33,6 +33,10 @@ router
     auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
     OrderController.getAllOrders
   )
-  .post(auth(USER_TYPE.USER), OrderController.createOrder);
+  .post(
+    auth(USER_TYPE.USER),
+    validateRequest(OrderValidation.createOrderZodSchema),
+    OrderController.createOrder
+  );
 
 export const OrderRoutes = router;

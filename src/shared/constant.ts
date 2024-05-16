@@ -13,3 +13,12 @@ export const userFiledShow = [
 
 //pagination field
 export const paginationField = ["page", "limit", "sortBy", "sortOrder"];
+
+//
+export const orderStatus = [
+  "pending",
+  "packing",
+  "processing",
+  "shipping",
+  "shipped",
+];
