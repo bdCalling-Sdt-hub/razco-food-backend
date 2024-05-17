@@ -1,5 +1,12 @@
 import { Model } from "mongoose";
 
+export type IUserCoupon = {
+  couponCode: string;
+  couponDiscount: number;
+  expireDate: string;
+  points: number;
+};
+
 export type IUser = {
   name: string;
   role: "super_admin" | "admin" | "user";
@@ -17,6 +24,7 @@ export type IUser = {
     available: number;
     used: number;
   };
+  coupons: IUserCoupon[];
   profileImage?: string;
 };
 

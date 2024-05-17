@@ -148,7 +148,7 @@ const deleteAccount = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-//my points
+//my points and my claim coupon
 const getMyPoints = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
   const result = await UserService.getMyPointsFromDB(user);
@@ -157,6 +157,18 @@ const getMyPoints = catchAsync(async (req: Request, res: Response) => {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Points retrieved successfully!",
+    data: result,
+  });
+});
+
+const getMyCoupons = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const result = await UserService.getMyCouponsFromDB(user);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Coupons retrieved successfully!",
     data: result,
   });
 });
@@ -203,4 +215,5 @@ export const UserController = {
   getSingleUser,
   editAddress,
   resendOtp,
+  getMyCoupons,
 };

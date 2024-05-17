@@ -1,0 +1,40 @@
+Fri May 17 2024 18:0:18 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/faq 200 - 7.056 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/profile 200 - 7.613 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/banner 200 - 7.964 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/category 200 - 12.920 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/offer 200 - 15.698 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/product?search= 200 - 22.555 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/subcategory 200 - 3.437 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/product 200 - 6.414 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /images/meat-banner-1715574373101.png 200 - 3.508 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /images/banner-1715574325178.png 200 - 1.601 ms
+Fri May 17 2024 18:0:21 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /images/shrimp-banner-1715574354485.png 200 - 1.848 ms
+Fri May 17 2024 18:0:30 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/my-coupons 200 - 8.783 ms
+Fri May 17 2024 18:0:30 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/coupon 200 - 9.722 ms
+Fri May 17 2024 18:0:30 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/my-points 200 - 10.595 ms
+Fri May 17 2024 18:7:51 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/coupon 200 - 3.082 ms
+Fri May 17 2024 18:7:51 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/my-points 200 - 4.951 ms
+Fri May 17 2024 18:7:51 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/my-coupons 200 - 5.718 ms
+Fri May 17 2024 18:11:15 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/coupon/claim-coupon 200 - 7.467 ms
+Fri May 17 2024 18:16:10 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Fri May 17 2024 18:16:10 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Fri May 17 2024 18:16:29 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Fri May 17 2024 18:16:29 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Fri May 17 2024 18:16:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/coupon/claim-coupon 200 - 28.349 ms
+Fri May 17 2024 18:17:22 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - POST /api/v1/coupon/claim-coupon 200 - 5.275 ms
+Fri May 17 2024 18:17:37 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/coupon/claim-coupon 200 - 6.080 ms
+Fri May 17 2024 18:17:52 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/faq 200 - 8.834 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/profile 200 - 5.666 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/banner 200 - 5.579 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/category 200 - 10.982 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/offer 200 - 11.342 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/product?search= 200 - 18.092 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/subcategory 200 - 6.075 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/product 200 - 5.519 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /images/meat-banner-1715574373101.png 200 - 5.934 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /images/banner-1715574325178.png 200 - 5.748 ms
+Fri May 17 2024 18:17:55 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /images/shrimp-banner-1715574354485.png 200 - 5.739 ms
+Fri May 17 2024 18:18:0 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/coupon 200 - 6.589 ms
+Fri May 17 2024 18:18:0 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/my-points 200 - 7.013 ms
+Fri May 17 2024 18:18:0 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/my-coupons 200 - 7.276 ms
+Fri May 17 2024 18:18:30 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/user/my-coupons 200 - 5.939 ms

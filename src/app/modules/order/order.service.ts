@@ -58,11 +58,16 @@ const updateOrderStatusToDB = async (
     throw new ApiError(StatusCodes.BAD_REQUEST, "Order not found");
   }
 
+  const findUser = await User.findById(order.user);
+  if (!findUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
   //If order status is 'shipped', delete the associated cart
   if (order?.status === "shipped") {
     await User.findOneAndUpdate(
       { _id: order.user },
-      { "points.available": order.points },
+      { "points.available": findUser.points?.available! + order.points },
       { new: true }
     );
     await Cart.findByIdAndDelete(order.cart);

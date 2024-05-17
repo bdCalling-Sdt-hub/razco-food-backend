@@ -18,7 +18,17 @@ const updateCouponZodSchema = z.object({
   }),
 });
 
+const claimCouponZodSchema = z.object({
+  body: z.object({
+    couponCode: z.string({ required_error: "Coupon code is required" }),
+    couponDiscount: z.number({ required_error: "Coupon code is required" }),
+    expireDate: z.string({ required_error: "Coupon expire date is required" }),
+    points: z.number({ required_error: "Points is required" }),
+  }),
+});
+
 export const CouponValidation = {
   createCouponZodSchema,
   updateCouponZodSchema,
+  claimCouponZodSchema,
 };

@@ -13,6 +13,13 @@ router.post(
   CouponController.createCoupon
 );
 
+router.post(
+  "/claim-coupon",
+  auth(USER_TYPE.USER),
+  validateRequest(CouponValidation.claimCouponZodSchema),
+  CouponController.claimCouponCode
+);
+
 router.patch(
   "/:id",
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),

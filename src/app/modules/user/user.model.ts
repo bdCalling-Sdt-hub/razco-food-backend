@@ -68,6 +68,22 @@ const userSchema = new Schema<IUser, UserModel>(
         default: 0,
       },
     },
+    coupons: [
+      {
+        couponCode: {
+          type: String,
+        },
+        couponDiscount: {
+          type: Number,
+        },
+        expireDate: {
+          type: String,
+        },
+        points: {
+          type: Number,
+        },
+      },
+    ],
     profileImage: {
       type: String,
       default: "https://i.ibb.co/sgvmVjj/icons8-customer-80.png",

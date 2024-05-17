@@ -52,9 +52,24 @@ const deleteCoupon = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//claim coupon
+const claimCouponCode = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const { ...claimData } = req.body;
+  const result = await CouponService.claimCouponCodeFromDB(user, claimData);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Coupon claim successfully",
+    data: result,
+  });
+});
+
 export const CouponController = {
   createCoupon,
   getAllCoupon,
   deleteCoupon,
   updateCoupon,
+  claimCouponCode,
 };

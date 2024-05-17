@@ -67,8 +67,9 @@ router.delete(
   UserController.deleteAccount
 );
 
-//my points
+//my points and my claim coupon
 router.get("/my-points", auth(USER_TYPE.USER), UserController.getMyPoints);
+router.get("/my-coupons", auth(USER_TYPE.USER), UserController.getMyCoupons);
 
 //get all user and active, deActive user
 router.get(

@@ -269,7 +269,7 @@ const deleteAccountToDB = async (
   await User.findByIdAndDelete(user.id);
 };
 
-//my points
+//my points and my claim coupon
 const getMyPointsFromDB = async (user: JwtPayload) => {
   const getUser = await User.isUserExist(user.email);
   if (!getUser) {
@@ -278,6 +278,16 @@ const getMyPointsFromDB = async (user: JwtPayload) => {
   const { points } = getUser;
 
   return points;
+};
+
+const getMyCouponsFromDB = async (user: JwtPayload) => {
+  const getUser = await User.isUserExist(user.email);
+  if (!getUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+  const { coupons } = getUser;
+
+  return coupons;
 };
 
 //Edit address
@@ -309,4 +319,5 @@ export const UserService = {
   getSingleUserFromDB,
   editAddressToDB,
   resendOtpToDB,
+  getMyCouponsFromDB,
 };
