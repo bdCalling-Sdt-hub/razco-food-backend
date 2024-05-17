@@ -1,0 +1,7 @@
+Fri May 17 2024 9:22:13 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/faq 401 - 10.720 ms
+Fri May 17 2024 9:27:9 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/order 400 - 16.330 ms
+Fri May 17 2024 9:28:28 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/order 400 - 15.756 ms
+Fri May 17 2024 9:30:0 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/product/barcode/ 500 - 62.276 ms
+Fri May 17 2024 9:30:31 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/product/barcode/ 500 - 10.862 ms
+Fri May 17 2024 9:31:49 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/product/barcode/ 500 - 8.732 ms
+Fri May 17 2024 9:41:43 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/product/barcode/ 500 - 8.672 ms

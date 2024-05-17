@@ -10,6 +10,7 @@ import { OfferRoutes } from "../app/modules/offer/offer.route";
 import { OrderRoutes } from "../app/modules/order/order.route";
 import { ProductRoutes } from "../app/modules/product/product.route";
 import { RuleRoutes } from "../app/modules/rule/rule.route";
+import { ScanHistoryRoutes } from "../app/modules/scanHistory/ScanHistory.route";
 import { SubcategoryRoutes } from "../app/modules/subcategory/subcategory.route";
 import { UserRoutes } from "../app/modules/user/user.route";
 import { WishlistRoutes } from "../app/modules/wishlist/wishlist.route";
@@ -71,6 +72,10 @@ const appRouteList = [
   {
     path: "/order",
     route: OrderRoutes,
+  },
+  {
+    path: "/scan-history",
+    route: ScanHistoryRoutes,
   },
 ];
 

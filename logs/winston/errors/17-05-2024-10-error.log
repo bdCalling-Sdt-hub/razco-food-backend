@@ -1,0 +1,6 @@
+Fri May 17 2024 10:50:42 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/order/history 401 - 11.659 ms
+Fri May 17 2024 10:51:21 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/faq 500 - 6.130 ms
+Fri May 17 2024 10:51:49 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/scan-history/products 400 - 11.400 ms
+Fri May 17 2024 10:53:4 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/scan-history/products 400 - 6.804 ms
+Fri May 17 2024 10:54:2 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/scan-history/products 400 - 8.029 ms
+Fri May 17 2024 10:54:20 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/scan-history/products 400 - 3.972 ms

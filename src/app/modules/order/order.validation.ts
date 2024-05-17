@@ -2,19 +2,20 @@ import { z } from "zod";
 import { orderStatus } from "../../../shared/constant";
 
 const createOrderZodSchema = z.object({
-  orderId: z.string({ required_error: "Order Id is required" }),
-  user: z.string({ required_error: "User Id is required" }),
-  cart: z.string({ required_error: "Cart Id is required" }),
-  totalItem: z.number({ required_error: "Total item is required" }),
-  price: z.number({ required_error: "Price is required" }),
-  deliveryDate: z.string({ required_error: "Delivery date is required" }),
-  deliveryFee: z.number({ required_error: "Deliver fee is required" }),
-  transactionId: z.string().optional(),
-  points: z.string({ required_error: "Points is required" }),
-  paymentMethod: z.enum(["online", "cashOnDelivery"], {
-    required_error: "Payment method select is required",
+  body: z.object({
+    orderId: z.string({ required_error: "Order Id is required" }),
+    cart: z.string({ required_error: "Cart Id is required" }),
+    totalItem: z.number({ required_error: "Total item is required" }),
+    price: z.number({ required_error: "Price is required" }),
+    deliveryDate: z.string({ required_error: "Delivery date is required" }),
+    deliveryFee: z.number({ required_error: "Deliver fee is required" }),
+    transactionId: z.string().optional(),
+    points: z.number({ required_error: "Points is required" }),
+    paymentMethod: z.enum(["online", "cashOnDelivery"], {
+      required_error: "Payment method select is required",
+    }),
+    status: z.enum([...orderStatus] as [string, ...string[]]).optional(),
   }),
-  status: z.enum([...orderStatus] as [string, ...string[]]).optional(),
 });
 
 const createPaymentIntentZodSchema = z.object({

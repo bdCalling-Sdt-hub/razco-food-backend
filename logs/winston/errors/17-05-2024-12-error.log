@@ -1,0 +1,5 @@
+Fri May 17 2024 12:2:0 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/forget-password 400 - 23.104 ms
+Fri May 17 2024 12:3:48 [RAZCO-FOOD] error: Error: Invalid login: 534-5.7.9 Please log in with your web browser and then try again. For more
+534-5.7.9 information, go to
+534 5.7.9  https://support.google.com/mail/?p=WebLoginRequired d9443c01a7336-1ef0b9d40besm152320825ad.42 - gsmtp
+Fri May 17 2024 12:10:59 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/order 400 - 11.650 ms

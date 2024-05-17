@@ -131,7 +131,8 @@ const deleteProduct = catchAsync(async (req: Request, res: Response) => {
 //barcode product
 const getBarcodeProduct = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = await ProductService.getBarcodeProductFromDB(id);
+  const user = req.user;
+  const result = await ProductService.getBarcodeProductFromDB(id, user);
 
   sendResponse<IProduct[]>(res, {
     statusCode: StatusCodes.OK,

@@ -1,4 +1,7 @@
+import { StatusCodes } from "http-status-codes";
+import ApiError from "../../../errors/ApiErrors";
 import { Cart } from "../cart/cart.model";
+import { User } from "../user/user.model";
 import { IOrder } from "./order.interface";
 import { Order } from "./order.model";
 
@@ -34,7 +37,10 @@ const getSingleUserOrderHistoryFromDB = async (
     {
       path: "cart",
       populate: [
-        { path: "products.product", select: "productName productImage price" },
+        {
+          path: "products.product",
+          select: "productName productImage price weight",
+        },
       ],
     },
   ]);
@@ -48,11 +54,19 @@ const updateOrderStatusToDB = async (
   const order = await Order.findByIdAndUpdate(id, payload, {
     new: true,
   });
+  if (!order) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Order not found");
+  }
 
   //If order status is 'shipped', delete the associated cart
   if (order?.status === "shipped") {
-    const result = await Cart.findByIdAndDelete(order.cart);
-    console.log("dele", result);
+    await User.findOneAndUpdate(
+      { _id: order.user },
+      { "points.available": order.points },
+      { new: true }
+    );
+    await Cart.findByIdAndDelete(order.cart);
+    await Order.findByIdAndDelete(order._id);
   }
 
   return order;

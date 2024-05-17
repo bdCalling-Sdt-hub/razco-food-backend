@@ -9,7 +9,7 @@ export type IOrder = {
   deliveryDate: string;
   deliveryFee: number;
   transactionId?: string;
-  points: string;
+  points: number;
   paymentMethod: "online" | "cashOnDelivery";
   status: "pending" | "packing" | "processing" | "shipping" | "shipped";
 };

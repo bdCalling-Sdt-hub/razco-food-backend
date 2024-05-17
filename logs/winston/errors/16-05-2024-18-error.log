@@ -29,3 +29,5 @@ Thu May 16 2024 18:29:30 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1
 Thu May 16 2024 18:29:30 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/offer 500 - 9.963 ms
 Thu May 16 2024 18:29:30 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/subcategory 500 - 2.880 ms
 Thu May 16 2024 18:29:30 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/product 500 - 1.339 ms
+Thu May 16 2024 18:30:24 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/faq 500 - 8.340 ms
+Thu May 16 2024 18:39:9 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/product/barcode/ 500 - 50.957 ms

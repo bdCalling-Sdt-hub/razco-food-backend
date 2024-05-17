@@ -1,10 +1,12 @@
 import { StatusCodes } from "http-status-codes";
+import { JwtPayload } from "jsonwebtoken";
 import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { IGenericResponse } from "../../../types/common";
 import { IPaginationOptions } from "../../../types/pagination";
 import unlinkFile from "../../../util/unlinkFile";
+import { ScanHistory } from "../scanHistory/scanHistory.model";
 import { IProduct, IProductFilters } from "./product.interface";
 import { Product } from "./product.model";
 
@@ -172,9 +174,17 @@ const deleteProductToDB = async (id: string): Promise<IProduct | null> => {
 };
 
 //barcode product
-const getBarcodeProductFromDB = async (id: string): Promise<IProduct[]> => {
+const getBarcodeProductFromDB = async (
+  id: string,
+  user: JwtPayload
+): Promise<IProduct[]> => {
+  //save scan history
+  const scanHistory = new ScanHistory({ user: user.id, barcode: id });
+  await scanHistory.save();
+
+  //find product by id
   const result = await Product.find({ barcode: id });
-  if (!result) {
+  if (!result || result.length === 0) {
     throw new ApiError(StatusCodes.OK, "Product doesn't exist!");
   }
 

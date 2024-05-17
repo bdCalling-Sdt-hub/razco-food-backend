@@ -37,7 +37,7 @@ const orderSchema = new Schema<IOrder, OrderModel>(
       type: String,
     },
     points: {
-      type: String,
+      type: Number,
       required: true,
     },
     paymentMethod: {
