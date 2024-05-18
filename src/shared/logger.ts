@@ -25,7 +25,6 @@ const logger = winston.createLogger({
         "%DATE%-success.log"
       ),
       datePattern: "DD-MM-YYYY-HH",
-      zippedArchive: true,
       maxSize: "20m",
       maxFiles: "1d",
     }),
@@ -46,7 +45,6 @@ const errorLogger = winston.createLogger({
         "%DATE%-error.log"
       ),
       datePattern: "DD-MM-YYYY-HH",
-      zippedArchive: true,
       maxSize: "20m",
       maxFiles: "1d",
     }),

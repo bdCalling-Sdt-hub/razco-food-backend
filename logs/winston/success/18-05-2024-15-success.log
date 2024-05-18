@@ -164,3 +164,23 @@ Sat May 18 2024 15:55:41 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/n
 Sat May 18 2024 15:55:57 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - PATCH /api/v1/notifications/read 200 - 5.264 ms
 Sat May 18 2024 15:56:9 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
 Sat May 18 2024 15:56:9 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 15:56:45 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 15:56:45 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 15:56:47 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/notifications 200 - 14.653 ms
+Sat May 18 2024 15:56:57 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/faq 200 - 7.122 ms
+Sat May 18 2024 15:57:1 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/user/profile 200 - 7.209 ms
+Sat May 18 2024 15:57:1 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/banner 200 - 9.338 ms
+Sat May 18 2024 15:57:1 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/offer 200 - 11.665 ms
+Sat May 18 2024 15:57:1 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/category 200 - 12.447 ms
+Sat May 18 2024 15:57:1 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product?search= 200 - 16.698 ms
+Sat May 18 2024 15:57:1 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/subcategory 200 - 3.962 ms
+Sat May 18 2024 15:57:1 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product 200 - 5.345 ms
+Sat May 18 2024 15:57:3 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/banner-1715574325178.png 200 - 5.160 ms
+Sat May 18 2024 15:57:3 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/shrimp-banner-1715574354485.png 200 - 1.654 ms
+Sat May 18 2024 15:57:3 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/meat-banner-1715574373101.png 200 - 2.046 ms
+Sat May 18 2024 15:57:26 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - POST /api/v1/auth/login 200 - 207.475 ms
+Sat May 18 2024 15:57:39 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - POST /api/v1/order/create-payment-intent 200 - 663.784 ms
+Sat May 18 2024 15:58:26 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/cart/products 200 - 6.408 ms
+Sat May 18 2024 15:58:28 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 15:58:28 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 15:58:29 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/cart/products 200 - 19.120 ms

@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\.9ef619cc59caf46b0159c9ece91a67dfb5c8a392-audit.json",
+    "files": [
+        {
+            "date": 1716026308255,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\18-05-2024-15-error.log",
+            "hash": "c605d536d224866285216eea6819a38ccb85e49c35fd3310f4d523f167e62c79"
+        },
+        {
+            "date": 1716026439511,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\18-05-2024-16-error.log",
+            "hash": "38299ad34cf480b391c37512c1e5bde6dca52c053a4563513dca7f12fd6397e6"
+        }
+    ],
+    "hashType": "sha256"
+}
