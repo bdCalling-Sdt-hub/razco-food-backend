@@ -1,0 +1,34 @@
+Sat May 18 2024 16:0:39 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 16:0:39 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 16:3:12 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 16:3:12 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 16:3:14 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/cart/products 200 - 24.328 ms
+Sat May 18 2024 16:3:32 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 16:3:32 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 16:3:36 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/cart/products 200 - 23.549 ms
+Sat May 18 2024 16:5:5 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 16:5:5 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 16:5:8 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/cart/products 200 - 23.951 ms
+Sat May 18 2024 16:5:34 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 10.281 ms
+Sat May 18 2024 16:5:38 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/cart/products 200 - 10.723 ms
+Sat May 18 2024 16:5:49 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - POST /api/v1/auth/login 200 - 216.471 ms
+Sat May 18 2024 16:6:5 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/user/profile 200 - 6.978 ms
+Sat May 18 2024 16:6:38 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 10.141 ms
+Sat May 18 2024 16:6:46 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/user/profile 200 - 5.160 ms
+Sat May 18 2024 16:7:15 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 10.760 ms
+Sat May 18 2024 16:7:25 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 4.990 ms
+Sat May 18 2024 16:7:42 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/user/profile 200 - 7.273 ms
+Sat May 18 2024 16:8:0 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 8.375 ms
+Sat May 18 2024 16:8:59 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 16:8:59 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 16:9:9 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 25.429 ms
+Sat May 18 2024 16:9:46 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - GET /api/v1/cart/products 200 - 12.545 ms
+Sat May 18 2024 16:11:13 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 6.650 ms
+Sat May 18 2024 16:15:34 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 9.666 ms
+Sat May 18 2024 16:16:14 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 7.706 ms
+Sat May 18 2024 16:18:49 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 7.357 ms
+Sat May 18 2024 16:19:9 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 16:19:9 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Sat May 18 2024 16:20:3 [RAZCO-FOOD] info: ::ffff:192.168.10.63 - PATCH /api/v1/user/edit-address 200 - 25.679 ms
+Sat May 18 2024 16:25:9 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Sat May 18 2024 16:25:9 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m

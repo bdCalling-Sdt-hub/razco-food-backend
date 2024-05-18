@@ -296,7 +296,6 @@ const editAddressToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
   if (!getUser) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
   }
-
   const result = await User.findOneAndUpdate({ _id: user.id }, payload, {
     new: true,
   }).select(userFiledShow);
