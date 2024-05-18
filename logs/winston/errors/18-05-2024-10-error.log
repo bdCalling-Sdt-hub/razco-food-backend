@@ -1,0 +1,10 @@
+Sat May 18 2024 10:2:34 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/cart/apply-promo-code 500 - 8.585 ms
+Sat May 18 2024 10:9:53 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/cart/apply-promo-code 400 - 22.626 ms
+Sat May 18 2024 10:37:49 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 11.828 ms
+Sat May 18 2024 10:37:50 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 9.115 ms
+Sat May 18 2024 10:37:51 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 9.231 ms
+Sat May 18 2024 10:49:19 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/cart/apply-promo-code 400 - 10.187 ms
+Sat May 18 2024 10:52:23 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/faq 500 - 5.567 ms
+Sat May 18 2024 10:52:24 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/cart/apply-promo-code 400 - 4.647 ms
+Sat May 18 2024 10:53:30 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/cart/apply-promo-code 400 - 3.705 ms
+Sat May 18 2024 10:56:57 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/cart/apply-promo-code 400 - 4.153 ms

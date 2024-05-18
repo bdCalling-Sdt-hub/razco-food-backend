@@ -74,10 +74,12 @@ const getAllProductFromDB = async (
     .limit(limit);
 
   const total = await Product.countDocuments(whereConditions);
+  const totalPage = Math.ceil(total / page);
   return {
     meta: {
       page,
       limit,
+      totalPage,
       total,
     },
     data: result,
@@ -112,10 +114,12 @@ const getRelatedProductFromDB = async (
     _id: { $ne: id },
     subcategory: isExistProduct.subcategory,
   });
+  const totalPage = Math.ceil(total / limit);
   return {
     meta: {
       page,
       limit,
+      totalPage,
       total,
     },
     data: result,

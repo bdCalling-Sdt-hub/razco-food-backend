@@ -5,6 +5,7 @@ export type IUserCoupon = {
   couponDiscount: number;
   expireDate: string;
   points: number;
+  isCouponUsed?: boolean;
 };
 
 export type IUser = {

@@ -14,6 +14,7 @@ router.post(
   OrderController.createPaymentIntent
 );
 
+//user order history retrieved
 router.get(
   "/history",
   auth(USER_TYPE.USER),

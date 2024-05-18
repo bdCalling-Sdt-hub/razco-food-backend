@@ -6,6 +6,7 @@ import { CategoryRoutes } from "../app/modules/category/category.route";
 import { CouponRoutes } from "../app/modules/coupon/coupon.route";
 import { FaqRoutes } from "../app/modules/faq/faq.route";
 import { FeedbackRoutes } from "../app/modules/feedback/feedback.route";
+import { NotificationRoutes } from "../app/modules/notifications/notification.route";
 import { OfferRoutes } from "../app/modules/offer/offer.route";
 import { OrderRoutes } from "../app/modules/order/order.route";
 import { ProductRoutes } from "../app/modules/product/product.route";
@@ -76,6 +77,10 @@ const appRouteList = [
   {
     path: "/scan-history",
     route: ScanHistoryRoutes,
+  },
+  {
+    path: "/notifications",
+    route: NotificationRoutes,
   },
 ];
 

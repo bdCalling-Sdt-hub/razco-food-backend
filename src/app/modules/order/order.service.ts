@@ -1,12 +1,26 @@
 import { StatusCodes } from "http-status-codes";
 import ApiError from "../../../errors/ApiErrors";
 import { Cart } from "../cart/cart.model";
+import { Notification } from "../notifications/notifications.model";
 import { User } from "../user/user.model";
 import { IOrder } from "./order.interface";
 import { Order } from "./order.model";
 
 const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   const result = await Order.create(payload);
+
+  //notification
+  //@ts-ignore
+  const socketIo = global.io;
+  const notification = await Notification.create({
+    recipient: payload.user,
+    message: `Your order is now pending`,
+    type: "order",
+  });
+  if (socketIo) {
+    socketIo.emit(`notification::${payload.user}`, notification);
+  }
+
   return result;
 };
 
@@ -61,6 +75,18 @@ const updateOrderStatusToDB = async (
   const findUser = await User.findById(order.user);
   if (!findUser) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+  }
+
+  //notification
+  //@ts-ignore
+  const socketIo = global.io;
+  const notification = await Notification.create({
+    recipient: order.user,
+    message: `Your order status has been updated to ${order.status}`,
+    type: "order",
+  });
+  if (socketIo) {
+    socketIo.emit(`notification::${order.user}`, notification);
   }
 
   //If order status is 'shipped', delete the associated cart

@@ -4,12 +4,14 @@ type IApiResponse<T> = {
   statusCode: number;
   success: boolean;
   message?: string | null | undefined;
-  meta?: {
+  pagination?: {
     page: number;
     limit: number;
+    totalPage: number;
     total: number;
   };
-  data?: T | null;
+  unreadNotifications?: number | 0;
+  data?: T;
 };
 
 const sendResponse = <T>(res: Response, data: IApiResponse<T>) => {
@@ -17,8 +19,9 @@ const sendResponse = <T>(res: Response, data: IApiResponse<T>) => {
     statusCode: data.statusCode,
     success: data.success,
     message: data.message || null || undefined,
-    meta: data.meta || null || undefined,
-    data: data.data || null,
+    unreadNotifications: data.unreadNotifications || 0,
+    pagination: data.pagination || null || undefined,
+    data: data.data,
   };
   res.status(data.statusCode).json(resData);
 };

@@ -82,6 +82,10 @@ const userSchema = new Schema<IUser, UserModel>(
         points: {
           type: Number,
         },
+        isCouponUsed: {
+          type: Boolean,
+          default: false,
+        },
       },
     ],
     profileImage: {

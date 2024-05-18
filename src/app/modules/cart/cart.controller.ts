@@ -42,8 +42,22 @@ const deleteCartProduct = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const applyPromoCode = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const promoCode = req.body.promoCode;
+  const result = await CartService.applyPromoCodeToDB(user, promoCode);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Coupon applied successfully",
+    data: result,
+  });
+});
+
 export const CartController = {
   addToCart,
   getCartProducts,
   deleteCartProduct,
+  applyPromoCode,
 };

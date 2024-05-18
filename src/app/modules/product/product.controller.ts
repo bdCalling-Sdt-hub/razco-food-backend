@@ -54,7 +54,7 @@ const getAllProduct = catchAsync(async (req: Request, res: Response) => {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Product retrieved successfully",
-    meta: result.meta,
+    pagination: result.meta,
     data: result.data,
   });
 });
@@ -72,7 +72,7 @@ const getRelatedProduct = catchAsync(async (req: Request, res: Response) => {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Product retrieved successfully",
-    meta: result.meta,
+    pagination: result.meta,
     data: result.data,
   });
 });

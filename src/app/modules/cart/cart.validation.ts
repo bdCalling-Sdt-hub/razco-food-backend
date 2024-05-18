@@ -13,6 +13,13 @@ const createCartZodSchema = z.object({
   }),
 });
 
+const createApplyPromoCodeZodSchema = z.object({
+  body: z.object({
+    promoCode: z.string({ required_error: "Promo code is required" }),
+  }),
+});
+
 export const CartValidation = {
   createCartZodSchema,
+  createApplyPromoCodeZodSchema,
 };

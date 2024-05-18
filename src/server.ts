@@ -33,6 +33,9 @@ async function main() {
       },
     });
     SocketHelper.socket(io);
+
+    //@ts-ignore
+    global.io = io;
   } catch (error) {
     errorLogger.error(error);
   }
