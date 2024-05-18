@@ -1,0 +1,2 @@
+Sat May 18 2024 17:31:31 [RAZCO-FOOD] error: ::ffff:192.168.10.63 - POST /api/v1/cart/apply-promo-code 400 - 11.553 ms
+Sat May 18 2024 17:31:44 [RAZCO-FOOD] error: ::ffff:192.168.10.63 - POST /api/v1/cart/apply-promo-code 400 - 6.366 ms
