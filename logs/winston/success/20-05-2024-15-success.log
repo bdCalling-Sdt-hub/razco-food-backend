@@ -1,0 +1,63 @@
+Mon May 20 2024 15:1:59 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - POST /api/v1/auth/login 200 - 203.569 ms
+Mon May 20 2024 15:2:10 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - GET /api/v1/notifications 200 - 8.279 ms
+Mon May 20 2024 15:7:50 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - GET / 200 - 2.177 ms
+Mon May 20 2024 15:10:12 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/banner-1715574325178.png 200 - 1.474 ms
+Mon May 20 2024 15:10:26 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - GET / 304 - 0.759 ms
+Mon May 20 2024 15:16:32 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Mon May 20 2024 15:16:32 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Mon May 20 2024 15:18:43 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/faq 200 - 12.196 ms
+Mon May 20 2024 15:18:47 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/user/profile 200 - 4.280 ms
+Mon May 20 2024 15:18:47 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/offer 200 - 12.416 ms
+Mon May 20 2024 15:18:47 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/banner 200 - 12.804 ms
+Mon May 20 2024 15:18:47 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/category 200 - 13.136 ms
+Mon May 20 2024 15:18:47 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product?search= 200 - 20.468 ms
+Mon May 20 2024 15:18:47 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/subcategory 200 - 3.580 ms
+Mon May 20 2024 15:18:48 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product 200 - 5.348 ms
+Mon May 20 2024 15:18:48 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/meat-banner-1715574373101.png 200 - 2.431 ms
+Mon May 20 2024 15:18:48 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/banner-1715574325178.png 200 - 3.105 ms
+Mon May 20 2024 15:18:48 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/shrimp-banner-1715574354485.png 200 - 3.235 ms
+Mon May 20 2024 15:18:54 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/order/history 200 - 19.781 ms
+Mon May 20 2024 15:18:54 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/scan-history/products 200 - 17.633 ms
+Mon May 20 2024 15:19:15 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/cart/products 200 - 5.659 ms
+Mon May 20 2024 15:20:15 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Mon May 20 2024 15:20:15 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Mon May 20 2024 15:20:35 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
+Mon May 20 2024 15:20:35 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
+Mon May 20 2024 15:21:57 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - POST /api/v1/auth/login 200 - 223.259 ms
+Mon May 20 2024 15:22:25 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/user/profile 200 - 4.930 ms
+Mon May 20 2024 15:23:5 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/faq 200 - 3.259 ms
+Mon May 20 2024 15:23:8 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/user/profile 200 - 2.725 ms
+Mon May 20 2024 15:23:9 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/category 200 - 8.972 ms
+Mon May 20 2024 15:23:9 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/offer 200 - 9.888 ms
+Mon May 20 2024 15:23:9 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/banner 200 - 14.227 ms
+Mon May 20 2024 15:23:9 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product?search= 200 - 19.926 ms
+Mon May 20 2024 15:23:9 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/subcategory 200 - 3.408 ms
+Mon May 20 2024 15:23:9 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product 200 - 9.018 ms
+Mon May 20 2024 15:23:10 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/banner-1715574325178.png 200 - 5.062 ms
+Mon May 20 2024 15:23:10 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/shrimp-banner-1715574354485.png 200 - 5.375 ms
+Mon May 20 2024 15:23:10 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/meat-banner-1715574373101.png 200 - 2.876 ms
+Mon May 20 2024 15:23:12 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/notifications 200 - 8.818 ms
+Mon May 20 2024 15:24:3 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/order 200 - 12.548 ms
+Mon May 20 2024 15:25:15 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/order?limit=5 200 - 8.652 ms
+Mon May 20 2024 15:25:25 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/order?limit=5&page=2 200 - 5.958 ms
+Mon May 20 2024 15:25:34 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/order 200 - 9.521 ms
+Mon May 20 2024 15:29:24 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - POST /api/v1/auth/login 200 - 205.888 ms
+Mon May 20 2024 15:29:30 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - POST /api/v1/auth/login 200 - 208.243 ms
+Mon May 20 2024 15:34:18 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/faq 200 - 5.845 ms
+Mon May 20 2024 15:34:22 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/user/profile 200 - 5.336 ms
+Mon May 20 2024 15:34:22 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/category 200 - 9.195 ms
+Mon May 20 2024 15:34:22 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/banner 200 - 11.896 ms
+Mon May 20 2024 15:34:22 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/offer 200 - 12.986 ms
+Mon May 20 2024 15:34:22 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product?search= 200 - 17.056 ms
+Mon May 20 2024 15:34:22 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/subcategory 200 - 5.790 ms
+Mon May 20 2024 15:34:22 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/product 200 - 6.461 ms
+Mon May 20 2024 15:34:23 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/banner-1715574325178.png 200 - 2.816 ms
+Mon May 20 2024 15:34:23 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/meat-banner-1715574373101.png 200 - 2.362 ms
+Mon May 20 2024 15:34:23 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /images/shrimp-banner-1715574354485.png 200 - 2.424 ms
+Mon May 20 2024 15:34:44 [RAZCO-FOOD] info: ::ffff:103.43.151.212 - GET /api/v1/notifications 200 - 8.394 ms
+Mon May 20 2024 15:51:54 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - OPTIONS /api/v1/auth/login 204 - 1.629 ms
+Mon May 20 2024 15:51:54 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - POST /api/v1/auth/login 200 - 218.256 ms
+Mon May 20 2024 15:54:12 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - OPTIONS /api/v1/auth/login 204 - 0.356 ms
+Mon May 20 2024 15:54:12 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - POST /api/v1/auth/login 200 - 209.725 ms
+Mon May 20 2024 15:56:20 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - OPTIONS /api/v1/auth/login 204 - 0.317 ms
+Mon May 20 2024 15:56:21 [RAZCO-FOOD] info: ::ffff:192.168.10.116 - POST /api/v1/auth/login 200 - 212.146 ms

@@ -1,5 +1,9 @@
 import { StatusCodes } from "http-status-codes";
+import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
+import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IGenericResponse } from "../../../types/common";
+import { IPaginationOptions } from "../../../types/pagination";
 import unlinkFile from "../../../util/unlinkFile";
 import { ISubcategory } from "../subcategory/subcategory.interface";
 import { Subcategory } from "../subcategory/subcategory.model";
@@ -15,9 +19,33 @@ const createCategoryToDB = async (payload: ICategory): Promise<ICategory> => {
   return category;
 };
 
-const getAllCategoryToDB = async (): Promise<ICategory[]> => {
-  const result = await Category.find();
-  return result;
+const getAllCategoryToDB = async (
+  paginationOptions: IPaginationOptions
+): Promise<IGenericResponse<ICategory[]>> => {
+  const { skip, page, limit, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+  const result = await Category.find()
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit);
+
+  const total = await Category.countDocuments();
+  const totalPage = Math.ceil(total / limit);
+
+  return {
+    meta: {
+      page,
+      limit,
+      totalPage,
+      total,
+    },
+    data: result,
+  };
 };
 
 const updateCategoryToDB = async (

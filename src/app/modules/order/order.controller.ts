@@ -4,6 +4,8 @@ import Stripe from "stripe";
 import config from "../../../config";
 import ApiError from "../../../errors/ApiErrors";
 import catchAsync from "../../../shared/catchAsync";
+import { paginationField } from "../../../shared/constant";
+import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
 import { OrderService } from "./order.service";
 
@@ -32,13 +34,15 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllOrders = catchAsync(async (req: Request, res: Response) => {
-  const result = await OrderService.getAllOrderToDB();
+  const paginationOptions = pick(req.query, paginationField);
+  const result = await OrderService.getAllOrderToDB(paginationOptions);
 
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
     message: "All user orders retrieved successfully",
-    data: result,
+    pagination: result.meta,
+    data: result.data,
   });
 });
 

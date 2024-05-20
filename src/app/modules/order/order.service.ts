@@ -1,5 +1,9 @@
 import { StatusCodes } from "http-status-codes";
+import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
+import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IGenericResponse } from "../../../types/common";
+import { IPaginationOptions } from "../../../types/pagination";
 import { Cart } from "../cart/cart.model";
 import { Notification } from "../notifications/notifications.model";
 import { User } from "../user/user.model";
@@ -24,20 +28,49 @@ const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   return result;
 };
 
-const getAllOrderToDB = async (): Promise<IOrder[]> => {
-  const result = await Order.find().populate([
-    {
-      path: "user",
-      select: "_id name phone email address",
+const getAllOrderToDB = async (
+  paginationOptions: IPaginationOptions
+): Promise<IGenericResponse<IOrder[]>> => {
+  const { skip, page, limit, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+
+  const sortCondition: { [key: string]: SortOrder } = {};
+
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+  const result = await Order.find()
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit)
+    .populate([
+      {
+        path: "user",
+        select: "_id name phone email address",
+      },
+      {
+        path: "cart",
+        populate: [
+          {
+            path: "products.product",
+            select: "productName productImage price",
+          },
+        ],
+      },
+    ]);
+
+  const total = await Order.countDocuments();
+  const totalPage = Math.ceil(total / limit);
+
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+      totalPage,
     },
-    {
-      path: "cart",
-      populate: [
-        { path: "products.product", select: "productName productImage price" },
-      ],
-    },
-  ]);
-  return result;
+    data: result,
+  };
 };
 
 const getSingleUserOrderHistoryFromDB = async (

@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
+import { paginationField } from "../../../shared/constant";
+import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
 import { ISubcategory } from "./subcategory.interface";
 import { SubcategoryService } from "./subcategory.service";
@@ -32,13 +34,17 @@ const createSubcategory = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllSubcategory = catchAsync(async (req: Request, res: Response) => {
-  const result = await SubcategoryService.getAllSubcategoryToDB();
+  const paginationOptions = pick(req.query, paginationField);
+  const result = await SubcategoryService.getAllSubcategoryToDB(
+    paginationOptions
+  );
 
   sendResponse<ISubcategory[]>(res, {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Subcategory retrieved successfully",
-    data: result,
+    pagination: result.meta,
+    data: result.data,
   });
 });
 

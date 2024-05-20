@@ -4,10 +4,14 @@ import ApiError from "../../../errors/ApiErrors";
 import sendMail from "../../../helpers/emailHelper";
 
 import { JwtPayload } from "jsonwebtoken";
+import { SortOrder } from "mongoose";
 import config from "../../../config";
 import { USER_TYPE } from "../../../enums/user";
+import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { userFiledShow } from "../../../shared/constant";
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
+import { IGenericResponse } from "../../../types/common";
+import { IPaginationOptions } from "../../../types/pagination";
 import generateOTP from "../../../util/generateOtp";
 import unlinkFile from "../../../util/unlinkFile";
 import { IVerifyEmail } from "../auth/auth.interface";
@@ -137,11 +141,32 @@ const createAdminToDB = async (payload: IUser): Promise<void> => {
   }
 };
 
-const getAllAdminFromDB = async (): Promise<IUser[]> => {
-  const result = await User.find({ role: USER_TYPE.ADMIN }).select(
-    userFiledShow
-  );
-  return result;
+const getAllAdminFromDB = async (
+  paginationOptions: IPaginationOptions
+): Promise<IGenericResponse<IUser[]>> => {
+  const { page, skip, limit, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+  const result = await User.find({ role: USER_TYPE.ADMIN })
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit)
+    .select(userFiledShow);
+  const total = await User.countDocuments({ role: USER_TYPE.ADMIN });
+  const totalPage = Math.ceil(total / limit);
+
+  return {
+    meta: {
+      page,
+      limit,
+      totalPage,
+      total,
+    },
+    data: result,
+  };
 };
 
 const deleteAdminToDB = async (id: string): Promise<void> => {
@@ -161,11 +186,35 @@ const deleteAdminToDB = async (id: string): Promise<void> => {
 };
 
 //users and active, deActive user
-const getAllUsersFromDB = async (): Promise<IUser[]> => {
-  const result = await User.find({ role: USER_TYPE.USER }).select(
-    userFiledShow
-  );
-  return result;
+const getAllUsersFromDB = async (
+  paginationOptions: IPaginationOptions
+): Promise<IGenericResponse<IUser[]>> => {
+  const { skip, limit, page, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+
+  const result = await User.find({ role: USER_TYPE.USER })
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit)
+    .select(userFiledShow);
+
+  const total = await User.countDocuments({ role: USER_TYPE.USER });
+  const totalPage = Math.ceil(total / limit);
+
+  return {
+    meta: {
+      page,
+      limit,
+      totalPage,
+      total,
+    },
+    data: result,
+  };
 };
 
 const getSingleUserFromDB = async (id: string): Promise<IUser | null> => {
