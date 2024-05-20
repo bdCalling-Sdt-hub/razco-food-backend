@@ -39,6 +39,11 @@
             "date": 1716202897331,
             "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\20-05-2024-17-error.log",
             "hash": "d32dbe51acde1791b46e8591095807178f80a53cd54fe8d32eabf657e73206a6"
+        },
+        {
+            "date": 1716208539162,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\20-05-2024-18-error.log",
+            "hash": "ae04ea1c864d714c7c8b6eda70028782b85926865329430504f806832e6cc2ec"
         }
     ],
     "hashType": "sha256"

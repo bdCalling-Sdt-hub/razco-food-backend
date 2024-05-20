@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
+import { paginationField } from "../../../shared/constant";
+import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
 import { IOffer } from "./offer.interface";
 import { OfferService } from "./offer.service";
@@ -28,13 +30,15 @@ const createOffer = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllOffer = catchAsync(async (req: Request, res: Response) => {
-  const result = await OfferService.getAllOfferFromDB();
+  const paginationOptions = pick(req.query, paginationField);
+  const result = await OfferService.getAllOfferFromDB(paginationOptions);
 
   sendResponse<IOffer[]>(res, {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Offer retrieved successfully",
-    data: result,
+    pagination: result.meta,
+    data: result.data,
   });
 });
 

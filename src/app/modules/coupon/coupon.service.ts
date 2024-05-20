@@ -1,6 +1,10 @@
 import { StatusCodes } from "http-status-codes";
 import { JwtPayload } from "jsonwebtoken";
+import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
+import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IGenericResponse } from "../../../types/common";
+import { IPaginationOptions } from "../../../types/pagination";
 import { IUserCoupon } from "../user/user.interface";
 import { User } from "../user/user.model";
 import { ICoupon } from "./coupon.interface";
@@ -16,9 +20,31 @@ const createCouponToDB = async (payload: ICoupon): Promise<ICoupon> => {
   return createCoupon;
 };
 
-const getAllCouponFromDB = async (): Promise<ICoupon[]> => {
-  const result = await Coupon.find();
-  return result;
+const getAllCouponFromDB = async (
+  paginationOptions: IPaginationOptions
+): Promise<IGenericResponse<ICoupon[]>> => {
+  const { skip, page, limit, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+  const result = await Coupon.find()
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit);
+  const total = await Coupon.countDocuments();
+  const totalPage = Math.ceil(total / limit);
+
+  return {
+    meta: {
+      page,
+      limit,
+      totalPage,
+      total,
+    },
+    data: result,
+  };
 };
 
 const updateCouponToDB = async (

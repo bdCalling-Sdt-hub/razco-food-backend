@@ -1,5 +1,9 @@
 import { StatusCodes } from "http-status-codes";
+import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
+import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IGenericResponse } from "../../../types/common";
+import { IPaginationOptions } from "../../../types/pagination";
 import unlinkFile from "../../../util/unlinkFile";
 import { IBanner } from "./banner.interface";
 import { Banner } from "./banner.model";
@@ -13,9 +17,32 @@ const createBannerToDB = async (payload: IBanner): Promise<IBanner> => {
   return createBanner;
 };
 
-const getAllBannerFromDB = async (): Promise<IBanner[]> => {
-  const result = await Banner.find();
-  return result;
+const getAllBannerFromDB = async (
+  paginationOptions: IPaginationOptions
+): Promise<IGenericResponse<IBanner[]>> => {
+  const { skip, limit, page, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortCondition[sortBy] = sortOrder;
+  }
+  const result = await Banner.find()
+    .sort(sortCondition)
+    .skip(skip)
+    .limit(limit);
+
+  const total = await Banner.countDocuments();
+  const totalPage = Math.ceil(total / limit);
+
+  return {
+    meta: {
+      page,
+      limit,
+      totalPage,
+      total,
+    },
+    data: result,
+  };
 };
 
 const updateBannerToDB = async (
