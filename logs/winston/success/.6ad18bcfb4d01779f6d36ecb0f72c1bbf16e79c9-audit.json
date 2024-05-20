@@ -6,19 +6,24 @@
     "auditLog": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\.6ad18bcfb4d01779f6d36ecb0f72c1bbf16e79c9-audit.json",
     "files": [
         {
-            "date": 1716026308253,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\18-05-2024-15-success.log",
-            "hash": "0c70d602b551c6de452607b6ab00ec143676e2e6219ace456200be7ae8f920c0"
+            "date": 1716177314324,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\20-05-2024-09-success.log",
+            "hash": "8c8e660b075789df776e6a2d603b5b104099603aa1b9d90a305d59f04b4152e2"
         },
         {
-            "date": 1716026439507,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\18-05-2024-16-success.log",
-            "hash": "adfbd07484400c027b8ad9f8d0ffbcf241284c1e874cb8e2b613d98a29f5aaea"
+            "date": 1716178042586,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\20-05-2024-10-success.log",
+            "hash": "012ad52c6c0ecc66ef80f921811b52c283cfeede208b3b154dff48095f9a1376"
         },
         {
-            "date": 1716031087723,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\18-05-2024-17-success.log",
-            "hash": "27dd35dd483764be8a8ec33be02f698370c6a3b6ce14c54f9f8b0a6b33ef786f"
+            "date": 1716181723688,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\20-05-2024-11-success.log",
+            "hash": "138159558a8cb3160392c07b057b71f95f9f75cd63064365308467be1b2e9f04"
+        },
+        {
+            "date": 1716184805772,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\20-05-2024-12-success.log",
+            "hash": "fd34d0866798ae9b5f471c30e873c16aae9c62b30b660d3b36d656eb1e8eef71"
         }
     ],
     "hashType": "sha256"

@@ -12,7 +12,7 @@ import generateOTP from "../../../util/generateOtp";
 import unlinkFile from "../../../util/unlinkFile";
 import { IVerifyEmail } from "../auth/auth.interface";
 import { TempUser } from "../tempUser/tempUser.model";
-import { IUser } from "./user.interface";
+import { IUser, IUserCoupon } from "./user.interface";
 import { User } from "./user.model";
 
 //create user and verify resend otp
@@ -287,7 +287,11 @@ const getMyCouponsFromDB = async (user: JwtPayload) => {
   }
   const { coupons } = getUser;
 
-  return coupons;
+  const filterCoupons = coupons.filter(
+    (coupon: IUserCoupon) => coupon.isCouponUsed !== true
+  );
+
+  return filterCoupons;
 };
 
 //Edit address
