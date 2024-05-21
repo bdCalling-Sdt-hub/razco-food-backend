@@ -91,7 +91,10 @@ const createPaymentIntent = catchAsync(async (req: Request, res: Response) => {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Payment intent created successfully",
-    data: paymentIntent.client_secret,
+    data: {
+      client_secret: paymentIntent.client_secret,
+      transactionId: paymentIntent.id,
+    },
   });
 });
 

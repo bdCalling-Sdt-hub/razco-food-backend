@@ -6,21 +6,6 @@
     "auditLog": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\.9ef619cc59caf46b0159c9ece91a67dfb5c8a392-audit.json",
     "files": [
         {
-            "date": 1716196071711,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\20-05-2024-15-error.log",
-            "hash": "1792ad5dec87a3b4207ed0fdf67f6f9e8b7e4b510e2610495518f1c58ff4c181"
-        },
-        {
-            "date": 1716199455604,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\20-05-2024-16-error.log",
-            "hash": "aee1dbc54744d46c3398f87d32d3fe4764e353cf45466a54386b585265ecc7a7"
-        },
-        {
-            "date": 1716202897331,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\20-05-2024-17-error.log",
-            "hash": "d32dbe51acde1791b46e8591095807178f80a53cd54fe8d32eabf657e73206a6"
-        },
-        {
             "date": 1716208539162,
             "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\20-05-2024-18-error.log",
             "hash": "ae04ea1c864d714c7c8b6eda70028782b85926865329430504f806832e6cc2ec"
@@ -54,6 +39,21 @@
             "date": 1716282170226,
             "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\21-05-2024-15-error.log",
             "hash": "395b2a4a3ad179d11f4c2501d1484490b91a36af3a1a6bf6c85228be24bc9a6e"
+        },
+        {
+            "date": 1716285711814,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\21-05-2024-16-error.log",
+            "hash": "354c739be074a2118275bcb715673cb102e040dd35223f3e842685d7c3395283"
+        },
+        {
+            "date": 1716290061373,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\21-05-2024-17-error.log",
+            "hash": "3ea03c69a080321a5cfc5693c1567068047c55d5d9a9c47f30e0e8119750bc21"
+        },
+        {
+            "date": 1716292814254,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\21-05-2024-18-error.log",
+            "hash": "a936514c2ec99f6a9736a5219870d3908df3d4ca136a449b0271c48691c9f442"
         }
     ],
     "hashType": "sha256"
