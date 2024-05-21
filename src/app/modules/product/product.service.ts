@@ -25,12 +25,11 @@ const getAllProductFromDB = async (
   const { skip, limit, page, sortBy, sortOrder } =
     paginationHelpers.calculatePagination(pagination);
   const { search, minPrice, maxPrice, ...filterData } = filters;
-
   const anyConditions = [];
   //product search here
   if (search) {
     anyConditions.push({
-      $or: ["productName", "category", "brand", "offer"].map((field) => ({
+      $or: ["productName", "category", "brand"].map((field) => ({
         [field]: {
           $regex: search,
           $options: "i",

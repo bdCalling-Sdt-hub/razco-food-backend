@@ -1,5 +1,0 @@
-Mon May 20 2024 9:55:15 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
-Mon May 20 2024 9:55:15 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
-Mon May 20 2024 9:55:21 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - POST /api/v1/auth/login 200 - 229.203 ms
-Mon May 20 2024 9:58:49 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - POST /api/v1/auth/login 200 - 209.985 ms
-Mon May 20 2024 9:59:45 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - GET /api/v1/product 200 - 24.539 ms
