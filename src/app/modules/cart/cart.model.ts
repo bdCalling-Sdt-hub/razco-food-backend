@@ -31,9 +31,4 @@ cartSchema.statics.isUserExistOnCart = async function (id) {
   return await Cart.findOne({ user: id });
 };
 
-//match user
-cartSchema.statics.isProductOnCart = async function (id) {
-  return await Cart.findOne();
-};
-
 export const Cart = model<ICart, CartModel>("Cart", cartSchema);

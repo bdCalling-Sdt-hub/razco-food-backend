@@ -124,13 +124,18 @@ const updateOrderStatusToDB = async (
 
   //If order status is 'shipped', delete the associated cart
   if (order?.status === "shipped") {
+    //user point update
     await User.findOneAndUpdate(
       { _id: order.user },
       { "points.available": findUser.points?.available! + order.points },
       { new: true }
     );
-    await Cart.findByIdAndDelete(order.cart);
-    await Order.findByIdAndDelete(order._id);
+    //cart product clear
+    await Cart.findByIdAndUpdate(
+      order.cart,
+      { $set: { products: [] } },
+      { new: true }
+    );
   }
 
   return order;
