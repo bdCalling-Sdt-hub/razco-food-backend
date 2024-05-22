@@ -124,6 +124,7 @@ const getProfile = catchAsync(async (req: Request, res: Response) => {
 const updateProfile = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
   const updateData = req.body;
+
   let profileImage;
   if (req.files && "profileImage" in req.files && req.files.profileImage[0]) {
     profileImage = `/images/${req.files.profileImage[0].filename}`;

@@ -1,0 +1,7 @@
+Wed May 22 2024 11:23:57 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/coupon/create-coupon 400 - 9.938 ms
+Wed May 22 2024 11:24:7 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/coupon/create-coupon 400 - 6.861 ms
+Wed May 22 2024 11:25:54 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/coupon/create-coupon 400 - 8.131 ms
+Wed May 22 2024 11:26:3 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/coupon/create-coupon 400 - 7.019 ms
+Wed May 22 2024 11:27:21 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/coupon/create-coupon 400 - 3.672 ms
+Wed May 22 2024 11:37:13 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/user/create-user 500 - 230.611 ms
+Wed May 22 2024 11:38:8 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/user/create-user 500 - 202.324 ms

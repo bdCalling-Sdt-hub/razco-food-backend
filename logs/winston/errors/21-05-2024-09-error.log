@@ -1,5 +1,0 @@
-Tue May 21 2024 9:37:29 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/rules/privacy-policy 400 - 6.260 ms
-Tue May 21 2024 9:37:43 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/rules/privacy-policy 400 - 7.290 ms
-Tue May 21 2024 9:38:8 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/rules/privacy-policy 400 - 25.588 ms
-Tue May 21 2024 9:46:41 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/rules/terms-and-conditions 400 - 9.602 ms
-Tue May 21 2024 9:48:27 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/rules/about 400 - 3.781 ms

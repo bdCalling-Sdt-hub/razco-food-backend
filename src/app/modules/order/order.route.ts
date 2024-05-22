@@ -14,6 +14,13 @@ router.post(
   OrderController.createPaymentIntent
 );
 
+//call for pickup
+router.get(
+  "/call-for-pickup",
+  auth(USER_TYPE.USER),
+  OrderController.callForPickup
+);
+
 //user order history retrieved
 router.get(
   "/history",

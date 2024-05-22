@@ -1,0 +1,13 @@
+Wed May 22 2024 12:21:14 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - PATCH /api/v1/user/profile-update 500 - 15.579 ms
+Wed May 22 2024 12:22:53 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - PATCH /api/v1/user/profile-update 500 - 40.400 ms
+Wed May 22 2024 12:23:2 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - PATCH /api/v1/user/profile-update 500 - 3.716 ms
+Wed May 22 2024 12:49:20 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/undefined 500 - 56.901 ms
+Wed May 22 2024 12:50:11 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/66433803431f0203548bab7c 500 - 13.938 ms
+Wed May 22 2024 12:50:37 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/66433803431f0203548bab7c 500 - 7.620 ms
+Wed May 22 2024 12:52:31 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /api/v1/scan-history/products 401 - 4.906 ms
+Wed May 22 2024 12:52:32 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /favicon.ico 404 - 1.299 ms
+Wed May 22 2024 12:55:38 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/66433803431f0203548bab7c 500 - 7.001 ms
+Wed May 22 2024 12:56:2 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/66433803431f0203548bab7c 500 - 6.615 ms
+Wed May 22 2024 12:56:10 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/66433803431f0203548bab7c 500 - 13.981 ms
+Wed May 22 2024 12:58:3 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/66433803431f0203548bab7c 500 - 8.500 ms
+Wed May 22 2024 12:58:11 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/product/66433803431f0203548bab7c 500 - 8.095 ms

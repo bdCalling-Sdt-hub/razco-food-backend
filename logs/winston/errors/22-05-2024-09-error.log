@@ -1,0 +1,6 @@
+Wed May 22 2024 9:15:27 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /favicon.ico 404 - 3.462 ms
+Wed May 22 2024 9:16:14 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/product?limit=10&page=1 500 - 5.915 ms
+Wed May 22 2024 9:16:14 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/category? 500 - 8.329 ms
+Wed May 22 2024 9:16:14 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/offer? 500 - 1.793 ms
+Wed May 22 2024 9:33:41 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/coupon? 500 - 2.439 ms
+Wed May 22 2024 9:33:43 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/offer?limit=10&page=1 500 - 3.467 ms

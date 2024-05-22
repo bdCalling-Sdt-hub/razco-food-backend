@@ -1,8 +1,0 @@
-Tue May 21 2024 11:4:19 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/feedback 404 - 0.509 ms
-Tue May 21 2024 11:10:56 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - PATCH /api/v1/feedback 404 - 0.577 ms
-Tue May 21 2024 11:14:27 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - DELETE /api/v1/feedback/undefined 500 - 65.397 ms
-Tue May 21 2024 11:15:35 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/notifications 401 - 2.979 ms
-Tue May 21 2024 11:36:16 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/faq 500 - 1.585 ms
-Tue May 21 2024 11:47:48 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/subcategory/create-subcategory 500 - 298.550 ms
-Tue May 21 2024 11:55:7 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - PATCH /api/v1/order/664824375fe9c228c8bff001 400 - 6.908 ms
-Tue May 21 2024 11:55:19 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - PATCH /api/v1/order/664824375fe9c228c8bff001 400 - 6.213 ms

@@ -7,6 +7,7 @@ import catchAsync from "../../../shared/catchAsync";
 import { paginationField } from "../../../shared/constant";
 import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
+import { Notification } from "../notifications/notifications.model";
 import { OrderService } from "./order.service";
 
 //create stripe instance
@@ -98,10 +99,26 @@ const createPaymentIntent = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//call for pickup
+const callForPickup = catchAsync(async (req: Request, res: Response) => {
+  //notification
+  //@ts-ignore
+  const socketIo = global.io;
+  const notification = await Notification.create({
+    recipient: "",
+    message: `Your order is now pending`,
+    type: "order",
+  });
+  if (socketIo) {
+    socketIo.emit(`notification::${""}`, notification);
+  }
+});
+
 export const OrderController = {
   createOrder,
   getAllOrders,
   getSingleUserOrderHistory,
   updateOrderStatus,
   createPaymentIntent,
+  callForPickup,
 };

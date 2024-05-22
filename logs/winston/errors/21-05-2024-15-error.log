@@ -1,9 +1,0 @@
-Tue May 21 2024 15:2:50 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/product/create-product 400 - 10.007 ms
-Tue May 21 2024 15:2:58 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/product/create-product 400 - 20.069 ms
-Tue May 21 2024 15:34:16 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - PATCH /api/v1/order/664c2d4dae1141482af56c3e 401 - 9.051 ms
-Tue May 21 2024 15:34:26 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - PATCH /api/v1/order/664c2d4dae1141482af56c3e 401 - 6.050 ms
-Tue May 21 2024 15:36:7 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - PATCH /api/v1/order/664c2d4dae1141482af56c3e 400 - 5.589 ms
-Tue May 21 2024 15:40:39 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/order 401 - 1.972 ms
-Tue May 21 2024 15:41:51 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/offer 401 - 2.042 ms
-Tue May 21 2024 15:57:55 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/order?search=fgdsg 401 - 6.017 ms
-Tue May 21 2024 15:58:2 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/product 401 - 1.941 ms
