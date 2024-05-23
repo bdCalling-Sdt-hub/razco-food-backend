@@ -16,7 +16,7 @@ import generateOTP from "../../../util/generateOtp";
 import unlinkFile from "../../../util/unlinkFile";
 import { IVerifyEmail } from "../auth/auth.interface";
 import { TempUser } from "../tempUser/tempUser.model";
-import { IUser, IUserCoupon } from "./user.interface";
+import { IFilters, IUser, IUserCoupon } from "./user.interface";
 import { User } from "./user.model";
 
 //create user and verify resend otp
@@ -187,23 +187,41 @@ const deleteAdminToDB = async (id: string): Promise<void> => {
 
 //users and active, deActive user
 const getAllUsersFromDB = async (
+  filters: IFilters,
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IUser[]>> => {
   const { skip, limit, page, sortBy, sortOrder } =
     paginationHelpers.calculatePagination(paginationOptions);
+  const { search } = filters;
+
+  let searchConditions = {};
+
+  if (search) {
+    searchConditions = {
+      $or: [
+        { name: { $regex: search, $options: "i" } },
+        { email: { $regex: search, $options: "i" } },
+      ],
+    };
+  }
+
+  const queryConditions = {
+    role: USER_TYPE.USER,
+    ...searchConditions, // Merge search conditions
+  };
 
   const sortCondition: { [key: string]: SortOrder } = {};
   if (sortBy && sortOrder) {
     sortCondition[sortBy] = sortOrder;
   }
 
-  const result = await User.find({ role: USER_TYPE.USER })
+  const result = await User.find(queryConditions)
     .sort(sortCondition)
     .skip(skip)
     .limit(limit)
     .select(userFiledShow);
 
-  const total = await User.countDocuments({ role: USER_TYPE.USER });
+  const total = await User.countDocuments(queryConditions);
   const totalPage = Math.ceil(total / limit);
 
   return {

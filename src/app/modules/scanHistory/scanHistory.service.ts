@@ -21,16 +21,19 @@ const getScanHistoryProductFromDB = async (user: JwtPayload) => {
   return products;
 };
 
-const deleteScanHistoryProductToDB = async (id: string) => {
-  const isExist = await ScanHistory.findOne({ barcode: id });
+const deleteScanHistoryProductToDB = async (id: string, user: JwtPayload) => {
+  const isExist = await ScanHistory.findOne({ user: user.id });
   if (!isExist) {
-    throw new ApiError(StatusCodes.BAD_REQUEST, "Product doesn't exist!");
+    throw new ApiError(
+      StatusCodes.BAD_REQUEST,
+      "User scan product doesn't exist!"
+    );
   }
 
   //delete scan history product
-  const result = await ScanHistory.findOneAndDelete({ barcode: id });
+  const result = await ScanHistory.deleteMany({ user: user.id, barcode: id });
 
-  if (!result) {
+  if (!result.deletedCount) {
     throw new ApiError(
       StatusCodes.BAD_REQUEST,
       "No scan history found for the user."

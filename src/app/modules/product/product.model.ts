@@ -59,10 +59,6 @@ const productSchema = new Schema<IProduct, ProductModel>(
       type: String,
       required: true,
     },
-    favorite: {
-      type: Boolean,
-      default: false,
-    },
     status: {
       type: String,
       required: true,

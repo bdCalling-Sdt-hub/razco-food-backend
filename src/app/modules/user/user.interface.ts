@@ -33,3 +33,7 @@ export type UserModel = {
   isUserExist(email: string): any;
   isMatchPassword(password: string, hashPassword: string): Promise<boolean>;
 } & Model<IUser>;
+
+export type IFilters = {
+  search: string;
+};

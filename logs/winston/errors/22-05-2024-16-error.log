@@ -1,3 +1,0 @@
-Wed May 22 2024 16:52:46 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/feedback 500 - 7.555 ms
-Wed May 22 2024 16:52:46 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/notifications 500 - 2.523 ms
-Wed May 22 2024 16:55:5 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /api/v1/notifications 500 - 6.698 ms

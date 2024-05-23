@@ -35,6 +35,9 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllProduct = catchAsync(async (req: Request, res: Response) => {
+  const tokenWithBearer = req.headers.authorization;
+  const token = tokenWithBearer?.split(" ")[1];
+
   const filters = pick(req.query, [
     "search",
     "minPrice",
@@ -46,6 +49,7 @@ const getAllProduct = catchAsync(async (req: Request, res: Response) => {
 
   const paginationOptions = pick(req.query, paginationField);
   const result = await ProductService.getAllProductFromDB(
+    token!,
     filters,
     paginationOptions
   );

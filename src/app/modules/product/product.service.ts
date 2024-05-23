@@ -1,12 +1,15 @@
 import { StatusCodes } from "http-status-codes";
-import { JwtPayload } from "jsonwebtoken";
+import { JwtPayload, Secret } from "jsonwebtoken";
 import { SortOrder } from "mongoose";
+import config from "../../../config";
 import ApiError from "../../../errors/ApiErrors";
+import { jwtHelper } from "../../../helpers/jwtHelper";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { IGenericResponse } from "../../../types/common";
 import { IPaginationOptions } from "../../../types/pagination";
 import unlinkFile from "../../../util/unlinkFile";
 import { ScanHistory } from "../scanHistory/scanHistory.model";
+import { Wishlist } from "../wishlist/wishlist.model";
 import { IProduct, IProductFilters } from "./product.interface";
 import { Product } from "./product.model";
 
@@ -19,6 +22,7 @@ const createProductToDB = async (payload: IProduct): Promise<IProduct> => {
 };
 
 const getAllProductFromDB = async (
+  token: string,
   filters: IProductFilters,
   pagination: IPaginationOptions
 ): Promise<IGenericResponse<IProduct[]>> => {
@@ -66,11 +70,27 @@ const getAllProductFromDB = async (
   const whereConditions =
     anyConditions.length > 0 ? { $and: anyConditions } : {};
 
-  const result = await Product.find(whereConditions)
+  let result = await Product.find(whereConditions)
     .populate([{ path: "offer", select: "_id percentage offerName" }])
     .sort(sortCondition)
     .skip(skip)
     .limit(limit);
+
+  if (token) {
+    const verifyUser = jwtHelper.verifyToken(
+      token,
+      config.jwt.secret as Secret
+    );
+    const { id, email } = verifyUser;
+    const useWishList = await Wishlist.find({ user: id });
+    const productIds: any = useWishList.map((item) => item.product.toString());
+
+    // Add favorite property to each product if it matches a product in the wishlist
+    result = result.map((product) => {
+      const isFavorite = productIds.includes(product._id.toString());
+      return { ...product.toObject(), favorite: isFavorite };
+    });
+  }
 
   const total = await Product.countDocuments(whereConditions);
   const totalPage = Math.ceil(total / page);

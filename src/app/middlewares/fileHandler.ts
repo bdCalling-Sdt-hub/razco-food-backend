@@ -67,7 +67,7 @@ const fileHandler = () => {
     //dest: "./uploads/",
     storage: storage,
     limits: {
-      fileSize: 3000000, //3MB
+      fileSize: 5000000, //5MB
     },
     fileFilter: fileFilter,
   }).fields([

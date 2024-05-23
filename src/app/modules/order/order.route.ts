@@ -14,6 +14,12 @@ router.post(
   OrderController.createPaymentIntent
 );
 
+router.get(
+  "/sales-overview",
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+  OrderController.salesOverview
+);
+
 //call for pickup
 router.get(
   "/call-for-pickup",

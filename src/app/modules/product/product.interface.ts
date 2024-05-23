@@ -16,7 +16,6 @@ export type IProduct = {
   weight: string;
   brand?: string;
   description: string;
-  favorite: boolean;
   status: "available" | "unavailable" | "short stock";
 };
 

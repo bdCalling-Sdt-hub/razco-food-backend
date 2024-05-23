@@ -9,19 +9,21 @@ const addToWishlistToDB = async (
   user: JwtPayload,
   payload: Partial<IWishlist>
 ) => {
+  console.log(user);
   const isExistProduct = await Product.findById(payload.product);
-
   if (!isExistProduct) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "Product doesn't exist");
   }
 
   //wishlist
-  let addToWish;
+  let message;
   const productId = await Wishlist.findOne({ product: payload.product });
   if (productId) {
-    await Wishlist.findOneAndDelete({ product: payload.product });
-    addToWish = false;
-    isExistProduct.favorite = false;
+    await Wishlist.findOneAndDelete({
+      user: user.id,
+      product: payload.product,
+    });
+    message = "Remove from wishlist";
     isExistProduct.save();
   } else {
     const data = {
@@ -29,11 +31,10 @@ const addToWishlistToDB = async (
       product: payload.product,
     };
     await Wishlist.create(data);
-    addToWish = true;
-    isExistProduct.favorite = true;
+    message = "Add to wishlist";
     isExistProduct.save();
   }
-  return addToWish;
+  return message;
 };
 
 const getProductsFromWishlistDB = async (user: JwtPayload) => {

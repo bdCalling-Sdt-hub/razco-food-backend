@@ -13,7 +13,7 @@ const addToWishlist = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: result ? "Add to wishlist" : "Remove from wishlist",
+    message: result,
   });
 });
 

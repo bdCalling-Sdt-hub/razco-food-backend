@@ -16,6 +16,11 @@ const notificationSchema = new Schema<INotification>(
       type: Boolean,
       default: false,
     },
+    role: {
+      type: String,
+      enum: ["user", "admin", "super_admin"],
+      required: true,
+    },
     type: {
       type: String,
       enum: ["order"],

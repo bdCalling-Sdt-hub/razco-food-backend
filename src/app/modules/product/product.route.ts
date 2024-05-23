@@ -40,10 +40,6 @@ router.get(
   ProductController.getBarcodeProduct
 );
 
-router.get(
-  "/",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
-  ProductController.getAllProduct
-);
+router.get("/", ProductController.getAllProduct);
 
 export const ProductRoutes = router;

@@ -70,7 +70,11 @@ const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
 //retrieved user and active, deActive action
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   const paginationOptions = pick(req.query, paginationField);
-  const result = await UserService.getAllUsersFromDB(paginationOptions);
+  const filters = pick(req.query, ["search"]);
+  const result = await UserService.getAllUsersFromDB(
+    filters,
+    paginationOptions
+  );
 
   sendResponse<IUser[] | null>(res, {
     statusCode: StatusCodes.OK,

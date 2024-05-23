@@ -21,7 +21,8 @@ const getScanHistoryProducts = catchAsync(
 const deleteScanHistoryProduct = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    await ScanHistoryService.deleteScanHistoryProductToDB(id);
+    const user = req.user;
+    await ScanHistoryService.deleteScanHistoryProductToDB(id, user);
 
     sendResponse(res, {
       statusCode: StatusCodes.OK,

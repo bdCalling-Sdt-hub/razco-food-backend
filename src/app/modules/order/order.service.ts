@@ -1,4 +1,5 @@
 import { StatusCodes } from "http-status-codes";
+import { JwtPayload } from "jsonwebtoken";
 import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
@@ -19,6 +20,7 @@ const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   const notification = await Notification.create({
     recipient: payload.user,
     message: `Your order is now pending`,
+    role: "user",
     type: "order",
   });
   if (socketIo) {
@@ -116,6 +118,7 @@ const updateOrderStatusToDB = async (
   const notification = await Notification.create({
     recipient: order.user,
     message: `Your order status has been updated to ${order.status}`,
+    role: "user",
     type: "order",
   });
   if (socketIo) {
@@ -141,9 +144,104 @@ const updateOrderStatusToDB = async (
   return order;
 };
 
+//pick up
+const callForPickupToDB = async (user: JwtPayload) => {
+  const isExistUser = await User.isUserExist(user.email);
+
+  //temporary
+  const admin = await User.findOne({ _id: "66239bf61ab72ba3080c454f" });
+
+  //@ts-ignore
+  const socketIo = global.io;
+  const notification = await Notification.create({
+    recipient: admin?._id,
+    message: `${isExistUser.name} is calling for pickup.`,
+    role: "super_admin",
+    type: "order",
+  });
+  if (socketIo) {
+    socketIo.emit(`notification::${admin?._id}`, notification);
+  }
+};
+
+//sales overview
+const salesOverviewFromDB = async () => {
+  const totalPendingOrders = await Order.countDocuments({ status: "pending" });
+  const totalCompleteOrders = await Order.countDocuments({ status: "shipped" });
+
+  const totalIncomeAggregate = await Order.aggregate([
+    { $match: { status: "shipped" } },
+    { $group: { _id: null, totalIncomes: { $sum: "$price" } } },
+  ]);
+
+  const totalSalesAggregate = await Order.aggregate([
+    { $match: { status: "shipped" } },
+    { $group: { _id: null, totalSales: { $sum: "$totalItem" } } },
+  ]);
+
+  const totalIncome =
+    totalIncomeAggregate.length > 0 ? totalIncomeAggregate[0].totalIncomes : 0;
+  const totalSales =
+    totalIncomeAggregate.length > 0 ? totalSalesAggregate[0].totalSales : 0;
+
+  //monthly sales calculate
+  const currentYear = new Date().getFullYear();
+  const months = [
+    { name: "Jan", totalSale: 0 },
+    { name: "Feb", totalSale: 0 },
+    { name: "Mar", totalSale: 0 },
+    { name: "Apr", totalSale: 0 },
+    { name: "May", totalSale: 0 },
+    { name: "Jun", totalSale: 0 },
+    { name: "Jul", totalSale: 0 },
+    { name: "Aug", totalSale: 0 },
+    { name: "Sep", totalSale: 0 },
+    { name: "Oct", totalSale: 0 },
+    { name: "Nov", totalSale: 0 },
+    { name: "Dec", totalSale: 0 },
+  ];
+
+  const monthlySales = await Order.aggregate([
+    { $match: { status: "shipped" } }, // Filter for shipped orders
+    {
+      $project: {
+        year: { $year: "$createdAt" },
+        month: { $month: "$createdAt" },
+        price: 1,
+      },
+    },
+    { $match: { year: currentYear } }, // Filter by the current year
+    {
+      $group: {
+        _id: { year: "$year", month: "$month" },
+        totalSales: { $sum: "$price" },
+      },
+    },
+    { $sort: { "_id.year": 1, "_id.month": 1 } }, // Sort by year and month
+  ]);
+
+  // Update the months array with the total sales for each month
+  monthlySales.forEach((sale) => {
+    const monthIndex = sale._id.month - 1; // Month is 1-based in MongoDB
+    months[monthIndex].totalSale = sale.totalSales;
+  });
+
+  return {
+    salesOverview: {
+      totalIncome,
+      totalSales,
+      totalPendingOrders,
+      totalCompleteOrders,
+    },
+    yearlySalesOverview: months,
+  };
+};
+
 export const OrderService = {
   createOrderToDB,
   getAllOrderToDB,
   getSingleUserOrderHistoryFromDB,
   updateOrderStatusToDB,
+  callForPickupToDB,
+  salesOverviewFromDB,
 };
