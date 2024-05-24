@@ -102,8 +102,6 @@ const activeDeactiveUser = catchAsync(async (req: Request, res: Response) => {
   const data = req.body.status;
   const result = await UserService.activeDeactiveUserToDB(id, data);
 
-  console.log("result", result);
-
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,

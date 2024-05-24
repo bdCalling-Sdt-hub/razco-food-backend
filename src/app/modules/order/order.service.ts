@@ -144,23 +144,18 @@ const updateOrderStatusToDB = async (
   return order;
 };
 
-//pick up
+//call for pickup
 const callForPickupToDB = async (user: JwtPayload) => {
   const isExistUser = await User.isUserExist(user.email);
-
-  //temporary
-  const admin = await User.findOne({ _id: "66239bf61ab72ba3080c454f" });
-
   //@ts-ignore
   const socketIo = global.io;
   const notification = await Notification.create({
-    recipient: admin?._id,
     message: `${isExistUser.name} is calling for pickup.`,
-    role: "super_admin",
+    role: "admin",
     type: "order",
   });
   if (socketIo) {
-    socketIo.emit(`notification::${admin?._id}`, notification);
+    socketIo.emit(`admin-notifications`, notification);
   }
 };
 

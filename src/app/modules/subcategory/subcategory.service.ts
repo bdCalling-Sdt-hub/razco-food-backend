@@ -10,7 +10,6 @@ import { ISubcategory } from "./subcategory.interface";
 import { Subcategory } from "./subcategory.model";
 
 const createSubcategoryToDB = async (payload: any): Promise<ISubcategory> => {
-  console.log(payload);
   const isExistCategory = await Category.findById(payload.category);
   if (!isExistCategory) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "Category doesn't exist!");

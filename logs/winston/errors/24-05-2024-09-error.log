@@ -1,0 +1,2 @@
+Fri May 24 2024 9:47:54 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /api/v1/product/66419888316d3e8154ff92ed 401 - 9.311 ms
+Fri May 24 2024 9:50:20 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - DELETE /api/v1/cart/ 404 - 1.014 ms

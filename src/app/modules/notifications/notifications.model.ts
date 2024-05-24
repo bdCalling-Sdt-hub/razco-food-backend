@@ -6,7 +6,6 @@ const notificationSchema = new Schema<INotification>(
     recipient: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
     },
     message: {
       type: String,

@@ -20,18 +20,37 @@ const getNotificationsFromDB = async (
   if (sortBy && sortOrder) {
     sortCondition[sortBy] = sortOrder;
   }
-  const result = await Notification.find({ recipient: user.id })
-    .sort(sortCondition)
-    .skip(skip)
-    .limit(limit);
 
-  const total = await Notification.countDocuments({ recipient: user.id });
+  let result;
+  let total;
+  let unreadNotifications;
+  if (user.role === "user") {
+    result = await Notification.find({ recipient: user.id })
+      .sort(sortCondition)
+      .skip(skip)
+      .limit(limit);
+    total = await Notification.countDocuments({ recipient: user.id });
+    unreadNotifications = await Notification.countDocuments({
+      recipient: user.id,
+      read: false,
+    });
+  } else {
+    result = await Notification.find({
+      role: { $in: ["admin", "super_admin"] },
+    })
+      .sort(sortCondition)
+      .skip(skip)
+      .limit(limit);
+    total = await Notification.countDocuments({
+      role: { $in: ["admin", "super_admin"] },
+    });
+    unreadNotifications = await Notification.countDocuments({
+      role: { $in: ["admin", "super_admin"] },
+      read: false,
+    });
+  }
+
   const totalPage = Math.ceil(total / limit);
-
-  const unreadNotifications = await Notification.countDocuments({
-    recipient: user.id,
-    read: false,
-  });
 
   return {
     meta: {

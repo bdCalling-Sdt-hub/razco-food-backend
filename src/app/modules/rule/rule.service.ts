@@ -86,7 +86,6 @@ const createPrivacyPolicyToDB = async (payload: IRule): Promise<IRule> => {
 
 const getPrivacyPolicyFromDB = async () => {
   const result = await Rule.findOne({ type: "privacy-policy" });
-  console.log(result);
   return result;
 };
 

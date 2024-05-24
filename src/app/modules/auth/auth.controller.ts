@@ -30,7 +30,6 @@ const forgetPassword = catchAsync(async (req: Request, res: Response) => {
 
 const otpVerify = catchAsync(async (req: Request, res: Response) => {
   const { ...otpData } = req.body;
-  console.log(otpData);
   const result = await AuthService.otpVerifyToDB(otpData);
 
   sendResponse(res, {
@@ -44,7 +43,6 @@ const otpVerify = catchAsync(async (req: Request, res: Response) => {
 
 const resetPassword = catchAsync(async (req: Request, res: Response) => {
   const token = req.headers.authorization;
-  console.log(token);
   const { ...passwordData } = req.body;
   await AuthService.resetPasswordToDB(token!, passwordData);
 

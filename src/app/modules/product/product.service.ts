@@ -76,6 +76,7 @@ const getAllProductFromDB = async (
     .skip(skip)
     .limit(limit);
 
+  //if user have
   if (token) {
     const verifyUser = jwtHelper.verifyToken(
       token,

@@ -75,7 +75,7 @@ const otpVerifyToDB = async (payload: IVerifyEmail) => {
   const { email, code } = payload;
   //check user
   const isUserExist = await User.isUserExist(email);
-  console.log(isUserExist);
+
   if (!isUserExist) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist");
   }

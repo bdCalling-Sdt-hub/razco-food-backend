@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 
 export type INotification = {
-  recipient: Types.ObjectId;
+  recipient?: Types.ObjectId;
   message: string;
   read: boolean;
   role: "user" | "admin" | "super_admin";

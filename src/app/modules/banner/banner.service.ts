@@ -53,7 +53,7 @@ const updateBannerToDB = async (
   if (payload.bannerImage) {
     unlinkFile(isBannerExist?.bannerImage);
   }
-  console.log(payload);
+
   const result = await Banner.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });

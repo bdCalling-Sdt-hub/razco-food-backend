@@ -23,7 +23,6 @@ const tempUserSchema = new Schema<ITempUser, TempUserModel>(
     phone: {
       type: String,
       required: true,
-      unique: true,
     },
     password: {
       type: String,
@@ -71,7 +70,7 @@ const tempUserSchema = new Schema<ITempUser, TempUserModel>(
     },
     profileImage: {
       type: String,
-      default: "https://i.ibb.co/sgvmVjj/icons8-customer-80.png",
+      default: "https://i.ibb.co/z5YHLV9/profile.png",
     },
   },
   { timestamps: true }

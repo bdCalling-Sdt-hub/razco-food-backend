@@ -28,7 +28,7 @@ router
 
 router.get(
   "/",
-  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+  //auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
   FaqController.getAllFaq
 );
 

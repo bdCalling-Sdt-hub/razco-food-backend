@@ -15,7 +15,7 @@ router.post(
 router
   .route("/:id")
   .get(
-    auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
+    //auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN, USER_TYPE.USER),
     ProductController.getSingleProduct
   )
   .patch(
@@ -30,7 +30,7 @@ router
 
 router.get(
   "/related-product/:id",
-  auth(USER_TYPE.USER),
+  //auth(USER_TYPE.USER),
   ProductController.getRelatedProduct
 );
 
