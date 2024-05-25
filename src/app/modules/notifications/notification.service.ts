@@ -65,15 +65,28 @@ const getNotificationsFromDB = async (
 };
 
 const readNotificationsToDB = async (user: JwtPayload) => {
-  await Notification.updateMany(
-    { recipient: user.id, read: false },
-    { read: true }
-  );
+  let unreadNotifications;
+  if (user.role === "user") {
+    await Notification.updateMany(
+      { recipient: user.id, read: false },
+      { read: true }
+    );
 
-  const unreadNotifications = await Notification.countDocuments({
-    recipient: user.id,
-    read: false,
-  });
+    unreadNotifications = await Notification.countDocuments({
+      recipient: user.id,
+      read: false,
+    });
+  } else {
+    await Notification.updateMany(
+      { role: { $in: ["admin", "super_admin"] }, read: false },
+      { read: true }
+    );
+
+    unreadNotifications = await Notification.countDocuments({
+      role: { $in: ["admin", "super_admin"] },
+      read: false,
+    });
+  }
 
   return unreadNotifications;
 };

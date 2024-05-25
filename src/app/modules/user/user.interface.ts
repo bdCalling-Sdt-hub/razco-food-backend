@@ -18,7 +18,7 @@ export type IUser = {
   resetPasswordToken: boolean;
   verified: boolean;
   oneTimeCode: string;
-  gender?: "male" | "female";
+  gender?: "Male" | "Female" | "Others";
   address?: string;
   status: "active" | "deActive";
   points?: {

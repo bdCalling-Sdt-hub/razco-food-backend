@@ -1,0 +1,12 @@
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - OPTIONS /api/v1/order?limit=10&page=1 204 - 0.053 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - OPTIONS /api/v1/notifications 204 - 0.041 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - OPTIONS /api/v1/user/profile 204 - 0.037 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - GET /api/v1/user/profile 304 - 7.806 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - GET /api/v1/order?limit=10&page=1 304 - 18.121 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.7 - GET /api/v1/notifications 304 - 15.194 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - OPTIONS /api/v1/order?limit=10&page=1 204 - 0.059 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - OPTIONS /api/v1/notifications 204 - 0.075 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - OPTIONS /api/v1/user/profile 204 - 0.058 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/user/profile 304 - 10.089 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/notifications 304 - 14.080 ms
+Fri May 24 2024 19:0:54 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - GET /api/v1/order?limit=10&page=1 200 - 17.711 ms

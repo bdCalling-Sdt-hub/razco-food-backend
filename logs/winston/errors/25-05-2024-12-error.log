@@ -1,0 +1,16 @@
+Sat May 25 2024 12:6:35 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - POST /api/v1/user/create-admin 400 - 212.034 ms
+Sat May 25 2024 12:6:47 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - POST /api/v1/user/create-admin 400 - 210.778 ms
+Sat May 25 2024 12:6:59 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - POST /api/v1/user/create-admin 400 - 208.608 ms
+Sat May 25 2024 12:8:1 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/user/create-admin 400 - 212.145 ms
+Sat May 25 2024 12:8:7 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - POST /api/v1/user/create-admin 400 - 208.292 ms
+Sat May 25 2024 12:8:20 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /undefined 404 - 0.715 ms
+Sat May 25 2024 12:9:27 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - POST /api/v1/subcategory/create-subcategory 400 - 19.541 ms
+Sat May 25 2024 12:9:44 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - POST /api/v1/subcategory/create-subcategory 400 - 7.389 ms
+Sat May 25 2024 12:16:18 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /undefined 404 - 2.762 ms
+Sat May 25 2024 12:36:33 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 24.615 ms
+Sat May 25 2024 12:44:12 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 10.354 ms
+Sat May 25 2024 12:44:13 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 7.707 ms
+Sat May 25 2024 12:44:14 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 5.919 ms
+Sat May 25 2024 12:44:14 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 7.086 ms
+Sat May 25 2024 12:44:15 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 6.616 ms
+Sat May 25 2024 12:44:15 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 6.118 ms
