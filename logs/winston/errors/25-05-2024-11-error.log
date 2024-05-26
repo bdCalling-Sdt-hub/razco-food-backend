@@ -1,9 +1,0 @@
-Sat May 25 2024 11:28:32 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /undefined 404 - 1.569 ms
-Sat May 25 2024 11:29:11 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /undefined 404 - 1.345 ms
-Sat May 25 2024 11:29:21 [RAZCO-FOOD] error: ::ffff:192.168.10.116 - GET /undefined 404 - 2.716 ms
-Sat May 25 2024 11:32:56 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - GET /api/v1/user/profile 500 - 3.189 ms
-Sat May 25 2024 11:36:8 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /undefined 404 - 0.586 ms
-Sat May 25 2024 11:38:13 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /undefined 404 - 1.922 ms
-Sat May 25 2024 11:40:10 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /undefined 404 - 1.444 ms
-Sat May 25 2024 11:51:4 [RAZCO-FOOD] error: ::ffff:192.168.10.7 - GET /undefined 404 - 0.562 ms
-Sat May 25 2024 11:57:30 [RAZCO-FOOD] error: ::ffff:103.43.151.212 - POST /api/v1/coupon/claim-coupon 400 - 10.880 ms
