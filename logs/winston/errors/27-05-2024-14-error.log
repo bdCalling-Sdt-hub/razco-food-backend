@@ -1,0 +1,15 @@
+Mon May 27 2024 14:32:7 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - PATCH /api/v1/subcategory/66419573316d3e8154ff92cd 500 - 78.097 ms
+Mon May 27 2024 14:32:21 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - PATCH /api/v1/subcategory/66419573316d3e8154ff92cd 500 - 7.089 ms
+Mon May 27 2024 14:46:5 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/order/sales-overview 500 - 4.388 ms
+Mon May 27 2024 14:46:5 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/user/profile 500 - 3.933 ms
+Mon May 27 2024 14:46:5 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/notifications 500 - 12.668 ms
+Mon May 27 2024 14:46:5 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/product? 500 - 31.490 ms
+Mon May 27 2024 14:46:15 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 215.848 ms
+Mon May 27 2024 14:46:21 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 207.364 ms
+Mon May 27 2024 14:47:6 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 221.781 ms
+Mon May 27 2024 14:47:14 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 213.448 ms
+Mon May 27 2024 14:47:18 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 203.539 ms
+Mon May 27 2024 14:55:16 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 230.250 ms
+Mon May 27 2024 14:55:41 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 208.252 ms
+Mon May 27 2024 14:56:31 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 217.494 ms
+Mon May 27 2024 14:59:5 [RAZCO-FOOD] error: User validation failed: gender: `male` is not a valid enum value for path `gender`.

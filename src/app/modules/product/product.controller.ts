@@ -9,6 +9,7 @@ import { ProductService } from "./product.service";
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const productData = req.body;
+
   let productImage = [];
   if (
     req.files &&
@@ -96,6 +97,9 @@ const getSingleProduct = catchAsync(async (req: Request, res: Response) => {
 const updateProduct = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const productData = req.body;
+  const imagesToDelete = req.body.imagesToDelete || [];
+
+  console.log(imagesToDelete);
   let productImage = [];
   if (
     req.files &&
@@ -109,7 +113,11 @@ const updateProduct = catchAsync(async (req: Request, res: Response) => {
   const payload = {
     ...productData,
     productImage,
+    imagesToDelete,
   };
+
+  console.log("payload", payload);
+
   const result = await ProductService.updateProductToDB(id, payload);
 
   sendResponse<IProduct>(res, {

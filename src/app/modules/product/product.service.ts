@@ -14,6 +14,9 @@ import { IProduct, IProductFilters } from "./product.interface";
 import { Product } from "./product.model";
 
 const createProductToDB = async (payload: IProduct): Promise<IProduct> => {
+  if (payload.productImage.length <= 0) {
+    throw new ApiError(StatusCodes.OK, "Please must be upload image");
+  }
   const createProduct = await Product.create(payload);
   if (!createProduct) {
     throw new ApiError(StatusCodes.OK, "Failed to created product");
@@ -153,25 +156,30 @@ const getSingleProductFromDB = async (id: string): Promise<IProduct> => {
 
 const updateProductToDB = async (
   id: string,
-  payload: IProduct
+  payload: any
 ): Promise<IProduct | null> => {
   const isExistProduct = await Product.isProductExist(id);
   if (!isExistProduct) {
     throw new ApiError(StatusCodes.OK, "Product doesn't exist!");
   }
+
+  //filter file
+  const updatedImages = isExistProduct.productImage.filter(
+    (image) => !payload.imagesToDelete.includes(image)
+  );
+
+  //remove file
+  for (let image of payload.imagesToDelete) {
+    unlinkFile(image);
+  }
+
+  if (payload.productImage.length > 0) {
+    updatedImages.push(...payload.productImage);
+  }
   const updateData = {
     ...payload,
-    productImage:
-      payload.productImage.length > 0
-        ? payload.productImage
-        : isExistProduct.productImage,
+    productImage: updatedImages,
   };
-  //remove file
-  if (payload.productImage.length) {
-    for (let image of isExistProduct?.productImage) {
-      unlinkFile(image);
-    }
-  }
 
   //update product
   const result = await Product.findOneAndUpdate({ _id: id }, updateData, {

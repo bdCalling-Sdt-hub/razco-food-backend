@@ -37,6 +37,7 @@ const getAllSubcategoryToDB = async (
     sortCondition[sortBy] = sortOrder;
   }
   const result = await Subcategory.find()
+    .populate("category")
     .sort(sortCondition)
     .skip(skip)
     .limit(limit);
