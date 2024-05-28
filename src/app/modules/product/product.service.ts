@@ -178,7 +178,8 @@ const updateProductToDB = async (
   }
   const updateData = {
     ...payload,
-    productImage: updatedImages,
+    productImage:
+      updatedImages.length > 0 ? updatedImages : isExistProduct.productImage,
   };
 
   //update product

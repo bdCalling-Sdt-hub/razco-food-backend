@@ -99,7 +99,6 @@ const updateProduct = catchAsync(async (req: Request, res: Response) => {
   const productData = req.body;
   const imagesToDelete = req.body.imagesToDelete || [];
 
-  console.log(imagesToDelete);
   let productImage = [];
   if (
     req.files &&

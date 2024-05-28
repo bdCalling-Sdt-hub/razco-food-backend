@@ -1,5 +1,0 @@
-Mon May 27 2024 12:24:55 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - POST /api/v1/product/create-product 400 - 35.750 ms
-Mon May 27 2024 12:29:23 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - POST /api/v1/product/create-product 500 - 5.613 ms
-Mon May 27 2024 12:31:43 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - POST /api/v1/product/create-product 500 - 3.151 ms
-Mon May 27 2024 12:37:14 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - POST /api/v1/product/create-product 400 - 25.087 ms
-Mon May 27 2024 12:48:47 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - POST /api/v1/product/create-product 400 - 28.604 ms

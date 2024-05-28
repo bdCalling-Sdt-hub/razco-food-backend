@@ -11,7 +11,7 @@ export type IProduct = {
   discountPrice?: string | number;
   category: string;
   subcategory: string;
-  expireDate: Date;
+  expireDate: string;
   store: number;
   weight: string;
   brand?: string;
