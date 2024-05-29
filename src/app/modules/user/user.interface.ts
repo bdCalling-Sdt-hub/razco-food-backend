@@ -35,5 +35,5 @@ export type UserModel = {
 } & Model<IUser>;
 
 export type IFilters = {
-  search: string;
+  search?: string;
 };

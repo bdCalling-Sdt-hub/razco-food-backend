@@ -26,6 +26,13 @@ router.post(
   UserController.resendOtp
 );
 
+//create super admin
+router.post(
+  "/create-super-admin",
+  validateRequest(UserValidation.createUserZodSchema),
+  UserController.createSuperAdmin
+);
+
 //admin account create and delete here
 router.post(
   "/create-admin",

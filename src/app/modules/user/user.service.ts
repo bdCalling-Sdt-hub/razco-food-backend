@@ -126,6 +126,22 @@ const resendOtpToDB = async (email: string): Promise<void> => {
 };
 
 //create admin and delete
+const createSuperAdminToDB = async (payload: IUser): Promise<void> => {
+  //set role
+  payload.role = "super_admin";
+  payload.verified = true;
+  payload.password = await bcrypt.hash(
+    payload.password,
+    Number(config.bcrypt_salt_rounds)
+  );
+
+  const createUser = await User.create(payload);
+  if (!createUser) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Failed to create admin");
+  }
+};
+
+//create admin and delete
 const createAdminToDB = async (payload: IUser): Promise<void> => {
   //set role
   payload.role = "admin";
@@ -390,4 +406,5 @@ export const UserService = {
   editAddressToDB,
   resendOtpToDB,
   getMyCouponsFromDB,
+  createSuperAdminToDB,
 };

@@ -6,14 +6,14 @@ export type IProduct = {
   productImage: string[];
   barcode: string;
   price: string | number;
-  offer: Types.ObjectId;
+  offer?: Types.ObjectId;
   discount?: string;
   discountPrice?: string | number;
   category: string;
   subcategory: string;
-  expireDate: string;
-  store: number;
-  weight: string;
+  expireDate?: string;
+  store?: number;
+  weight?: string;
   brand?: string;
   description: string;
   favorite: boolean;

@@ -26,7 +26,6 @@ const productSchema = new Schema<IProduct, ProductModel>(
     offer: {
       type: Schema.Types.ObjectId,
       ref: "Offer",
-      required: true,
     },
     discount: { type: String },
     discountPrice: {
@@ -42,15 +41,12 @@ const productSchema = new Schema<IProduct, ProductModel>(
     },
     expireDate: {
       type: String,
-      required: true,
     },
     store: {
       type: Number,
-      required: true,
     },
     weight: {
       type: String,
-      required: true,
     },
     brand: {
       type: String,

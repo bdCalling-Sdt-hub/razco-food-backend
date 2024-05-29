@@ -32,6 +32,18 @@ const verifyEmail = catchAsync(async (req: Request, res: Response) => {
 });
 
 //create admin and delete
+const createSuperAdmin = catchAsync(async (req: Request, res: Response) => {
+  const { ...userData } = req.body;
+  await UserService.createSuperAdminToDB(userData);
+
+  sendResponse<null>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Super Admin account created successfully",
+  });
+});
+
+//create admin and delete
 const createAdmin = catchAsync(async (req: Request, res: Response) => {
   const { ...userData } = req.body;
   await UserService.createAdminToDB(userData);
@@ -225,4 +237,5 @@ export const UserController = {
   editAddress,
   resendOtp,
   getMyCoupons,
+  createSuperAdmin,
 };
