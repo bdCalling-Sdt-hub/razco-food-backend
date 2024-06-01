@@ -10,7 +10,7 @@ type IApiResponse<T> = {
     totalPage: number;
     total: number;
   };
-  unreadNotifications?: number | 0;
+  unreadNotifications?: number;
   data?: T;
 };
 
@@ -19,7 +19,7 @@ const sendResponse = <T>(res: Response, data: IApiResponse<T>) => {
     statusCode: data.statusCode,
     success: data.success,
     message: data.message || null || undefined,
-    unreadNotifications: data.unreadNotifications || 0,
+    unreadNotifications: data.unreadNotifications,
     pagination: data.pagination || null || undefined,
     data: data.data,
   };

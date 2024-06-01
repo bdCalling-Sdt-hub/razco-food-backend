@@ -1,0 +1,7 @@
+Fri May 31 2024 11:4:24 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /undefined 404 - 1.965 ms
+Fri May 31 2024 11:4:24 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 6.130 ms
+Fri May 31 2024 11:4:29 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 0.777 ms
+Fri May 31 2024 11:4:45 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 1.454 ms
+Fri May 31 2024 11:6:29 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 5.360 ms
+Fri May 31 2024 11:17:25 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 0.642 ms
+Fri May 31 2024 11:17:26 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /undefined 404 - 0.416 ms

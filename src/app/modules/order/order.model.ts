@@ -40,6 +40,10 @@ const orderSchema = new Schema<IOrder, OrderModel>(
       type: Number,
       required: true,
     },
+    callForPickup: {
+      type: Boolean,
+      default: false,
+    },
     paymentMethod: {
       type: String,
       enum: ["online", "cashOnDelivery"],

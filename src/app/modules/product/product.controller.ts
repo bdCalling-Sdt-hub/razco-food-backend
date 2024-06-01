@@ -50,12 +50,12 @@ const getAllProduct = catchAsync(async (req: Request, res: Response) => {
 
   const paginationOptions = pick(req.query, paginationField);
   const result = await ProductService.getAllProductFromDB(
-    token!,
+    token,
     filters,
     paginationOptions
   );
 
-  sendResponse<IProduct[]>(res, {
+  sendResponse<IProduct[] | null>(res, {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Product retrieved successfully",
@@ -65,10 +65,13 @@ const getAllProduct = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getRelatedProduct = catchAsync(async (req: Request, res: Response) => {
+  const tokenWithBearer = req.headers.authorization;
+  const token = tokenWithBearer?.split(" ")[1];
   const id = req.params.id;
   const paginationOptions = pick(req.query, paginationField);
 
   const result = await ProductService.getRelatedProductFromDB(
+    token,
     id,
     paginationOptions
   );

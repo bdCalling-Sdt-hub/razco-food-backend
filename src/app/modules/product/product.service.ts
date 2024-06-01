@@ -25,7 +25,7 @@ const createProductToDB = async (payload: IProduct): Promise<IProduct> => {
 };
 
 const getAllProductFromDB = async (
-  token: string,
+  token: string | undefined,
   filters: IProductFilters,
   pagination: IPaginationOptions
 ): Promise<IGenericResponse<IProduct[]>> => {
@@ -110,6 +110,7 @@ const getAllProductFromDB = async (
 };
 
 const getRelatedProductFromDB = async (
+  token: string | undefined,
   id: string,
   pagination: IPaginationOptions
 ): Promise<IGenericResponse<IProduct[]>> => {
@@ -124,7 +125,7 @@ const getRelatedProductFromDB = async (
 
   const isExistProduct = await Product.isProductExist(id);
 
-  const result = await Product.find({
+  let result = await Product.find({
     _id: { $ne: id },
     subcategory: isExistProduct.subcategory,
   })
@@ -132,6 +133,23 @@ const getRelatedProductFromDB = async (
     .sort(sortCondition)
     .skip(skip)
     .limit(limit);
+
+  //if user have
+  if (token) {
+    const verifyUser = jwtHelper.verifyToken(
+      token,
+      config.jwt.secret as Secret
+    );
+    const { id, email } = verifyUser;
+    const useWishList = await Wishlist.find({ user: id });
+    const productIds: any = useWishList.map((item) => item.product.toString());
+
+    // Add favorite property to each product if it matches a product in the wishlist
+    result = result.map((product) => {
+      const isFavorite = productIds.includes(product._id.toString());
+      return { ...product.toObject(), favorite: isFavorite };
+    });
+  }
 
   const total = await Product.countDocuments({
     _id: { $ne: id },

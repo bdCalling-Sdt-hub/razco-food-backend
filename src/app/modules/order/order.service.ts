@@ -100,14 +100,25 @@ const updateOrderStatusToDB = async (
   id: string,
   payload: { status: string }
 ): Promise<IOrder | null> => {
+  const isExistOrder = await Order.findById(id);
+  if (!isExistOrder) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, "Order not found");
+  }
+  //check product status shipped
+  if (isExistOrder?.status === "shipped") {
+    throw new ApiError(
+      StatusCodes.BAD_REQUEST,
+      "This order already shipped, you can't change the status"
+    );
+  }
+
+  //update status
   const order = await Order.findByIdAndUpdate(id, payload, {
     new: true,
   });
-  if (!order) {
-    throw new ApiError(StatusCodes.BAD_REQUEST, "Order not found");
-  }
 
-  const findUser = await User.findById(order.user);
+  //user check
+  const findUser = await User.findById(order!.user);
   if (!findUser) {
     throw new ApiError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
   }
@@ -116,13 +127,13 @@ const updateOrderStatusToDB = async (
   //@ts-ignore
   const socketIo = global.io;
   const notification = await Notification.create({
-    recipient: order.user,
-    message: `Your order status has been updated to ${order.status}`,
+    recipient: order!.user,
+    message: `Your order status has been updated to ${order!.status}`,
     role: "user",
     type: "order",
   });
   if (socketIo) {
-    socketIo.emit(`notification::${order.user}`, notification);
+    socketIo.emit(`notification::${order!.user}`, notification);
   }
 
   //If order status is 'shipped', delete the associated cart

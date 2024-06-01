@@ -1,3 +1,0 @@
-Wed May 29 2024 17:55:50 [RAZCO-FOOD] info: [32m♻️  Database connected successfully[39m
-Wed May 29 2024 17:55:50 [RAZCO-FOOD] info: [1m[33m📢 Application Running on port:5000[39m[22m
-Wed May 29 2024 17:56:2 [RAZCO-FOOD] info: ::ffff:192.168.10.16 - POST /api/v1/user/create-super-admin 200 - 246.527 ms
