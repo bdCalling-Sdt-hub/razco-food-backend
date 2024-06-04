@@ -1,0 +1,7 @@
+Mon Jun 03 2024 9:43:14 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 3.513 ms
+Mon Jun 03 2024 9:43:14 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /images/soap-1717050317626.png 404 - 5.407 ms
+Mon Jun 03 2024 9:43:31 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - POST /api/v1/auth/login 401 - 222.757 ms
+Mon Jun 03 2024 9:43:37 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 2.563 ms
+Mon Jun 03 2024 9:44:12 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - PATCH /api/v1/subcategory/664195a4316d3e8154ff92d1 500 - 113.236 ms
+Mon Jun 03 2024 9:44:54 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 2.794 ms
+Mon Jun 03 2024 9:46:25 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /undefined 404 - 0.861 ms

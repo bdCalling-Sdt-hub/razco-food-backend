@@ -6,19 +6,9 @@
     "auditLog": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\.9ef619cc59caf46b0159c9ece91a67dfb5c8a392-audit.json",
     "files": [
         {
-            "date": 1717131864154,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\31-05-2024-11-error.log",
-            "hash": "ac818e2a7cab4c680b638b65422ef66f09326fea5fcabd47ebfc9e9ee906cdb0"
-        },
-        {
-            "date": 1717214126175,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\01-06-2024-09-error.log",
-            "hash": "a37642a80ad057e232d063f64c9ed5afffee1c4e7cf850b797e6dd446c421e94"
-        },
-        {
-            "date": 1717215862989,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\01-06-2024-10-error.log",
-            "hash": "db8a8ce26cb027eb2dd772782113006845bdbcdb998fcbede518d7fad27c39ca"
+            "date": 1717385658834,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\errors\\03-06-2024-09-error.log",
+            "hash": "8595f055a76f4a275f680359cb2232b12fd14244db0abfd45e4418b54953aa66"
         }
     ],
     "hashType": "sha256"

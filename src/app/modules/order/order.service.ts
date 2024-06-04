@@ -14,6 +14,13 @@ import { Order } from "./order.model";
 const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   const result = await Order.create(payload);
 
+  //cart product clear
+  await Cart.findByIdAndUpdate(
+    payload.cart,
+    { $set: { products: [] } },
+    { new: true }
+  );
+
   //notification
   //@ts-ignore
   const socketIo = global.io;
@@ -142,12 +149,6 @@ const updateOrderStatusToDB = async (
     await User.findOneAndUpdate(
       { _id: order.user },
       { "points.available": findUser.points?.available! + order.points },
-      { new: true }
-    );
-    //cart product clear
-    await Cart.findByIdAndUpdate(
-      order.cart,
-      { $set: { products: [] } },
       { new: true }
     );
   }
