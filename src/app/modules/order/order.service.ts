@@ -11,6 +11,7 @@ import { User } from "../user/user.model";
 import { IOrder } from "./order.interface";
 import { Order } from "./order.model";
 
+//create order
 const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   const result = await Order.create(payload);
 
@@ -37,6 +38,7 @@ const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   return result;
 };
 
+//get all order
 const getAllOrderToDB = async (
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IOrder[]>> => {
@@ -82,6 +84,7 @@ const getAllOrderToDB = async (
   };
 };
 
+//get single user order
 const getSingleUserOrderHistoryFromDB = async (
   id: string
 ): Promise<IOrder[]> => {
@@ -103,6 +106,7 @@ const getSingleUserOrderHistoryFromDB = async (
   return result;
 };
 
+//order status change
 const updateOrderStatusToDB = async (
   id: string,
   payload: { status: string }

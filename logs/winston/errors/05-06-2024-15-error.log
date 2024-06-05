@@ -1,0 +1,3 @@
+Wed Jun 05 2024 15:56:17 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /api/v1/wishlist/products 500 - 5.762 ms
+Wed Jun 05 2024 15:56:17 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /api/v1/wishlist/products 500 - 3.471 ms
+Wed Jun 05 2024 15:56:34 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /api/v1/wishlist/products 500 - 2.027 ms
