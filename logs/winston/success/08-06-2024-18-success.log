@@ -1,0 +1,7 @@
+Sat Jun 08 2024 18:43:33 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - OPTIONS /api/v1/category 204 - 0.531 ms
+Sat Jun 08 2024 18:43:33 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - OPTIONS /api/v1/user/profile 204 - 0.042 ms
+Sat Jun 08 2024 18:43:33 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - OPTIONS /api/v1/user/profile 204 - 0.094 ms
+Sat Jun 08 2024 18:43:33 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - GET /api/v1/category 304 - 17.127 ms
+Sat Jun 08 2024 18:43:33 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - GET /api/v1/user/profile 304 - 5.558 ms
+Sat Jun 08 2024 18:43:33 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - GET /api/v1/user/profile 304 - 3.014 ms
+Sat Jun 08 2024 18:43:33 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - GET //images/1707057522255-1717827678715.jpg 200 - 0.747 ms

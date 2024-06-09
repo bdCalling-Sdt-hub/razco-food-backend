@@ -1,4 +1,0 @@
-Wed Jun 05 2024 18:17:26 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /api/v1/user/profile 500 - 2.008 ms
-Wed Jun 05 2024 18:17:26 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /api/v1/user/profile 500 - 2.466 ms
-Wed Jun 05 2024 18:17:56 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /api/v1/user/profile 500 - 4.534 ms
-Wed Jun 05 2024 18:17:56 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - GET /api/v1/user/profile 500 - 1.201 ms
