@@ -66,9 +66,9 @@ const fileHandler = () => {
   const upload = multer({
     //dest: "./uploads/",
     storage: storage,
-    // limits: {
-    //   fileSize: 500000000, //5MB
-    // },
+    limits: {
+      fileSize: 50 * 1024 * 1024, //5MB
+    },
     fileFilter: fileFilter,
   }).fields([
     { name: "categoryImage", maxCount: 1 },
