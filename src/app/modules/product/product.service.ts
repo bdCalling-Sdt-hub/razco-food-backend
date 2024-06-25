@@ -224,6 +224,15 @@ const deleteProductToDB = async (id: string): Promise<IProduct | null> => {
   return result;
 };
 
+//highest price
+const highestPriceRangeFromDB = async () => {
+  const result = await Product.aggregate([
+    { $group: { _id: null, maxPrice: { $max: "$price" } } },
+  ]);
+  const price = result[0].maxPrice;
+  return price;
+};
+
 //barcode product
 const getBarcodeProductFromDB = async (
   id: string,
@@ -250,4 +259,5 @@ export const ProductService = {
   getSingleProductFromDB,
   getBarcodeProductFromDB,
   getRelatedProductFromDB,
+  highestPriceRangeFromDB,
 };

@@ -5,6 +5,17 @@ const createOrderZodSchema = z.object({
   body: z.object({
     orderId: z.string({ required_error: "Order Id is required" }),
     cart: z.string({ required_error: "Cart Id is required" }),
+    products: z
+      .array(
+        z.object(
+          {
+            product: z.string({ required_error: "Product is required" }),
+            quantity: z.number({ required_error: "Quantity is required" }),
+          },
+          { required_error: "Products must be array an objects" }
+        )
+      )
+      .nonempty({ message: "Products can't be a empty" }),
     totalItem: z.number({ required_error: "Total item is required" }),
     price: z.number({ required_error: "Price is required" }),
     deliveryDate: z.string({ required_error: "Delivery date is required" }),

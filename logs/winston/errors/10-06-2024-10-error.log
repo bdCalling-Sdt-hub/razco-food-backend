@@ -1,0 +1,11 @@
+Mon Jun 10 2024 10:14:31 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/product/highest-price 401 - 10.220 ms
+Mon Jun 10 2024 10:14:39 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 252.596 ms
+Mon Jun 10 2024 10:15:29 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 216.965 ms
+Mon Jun 10 2024 10:15:34 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 220.940 ms
+Mon Jun 10 2024 10:15:37 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 224.991 ms
+Mon Jun 10 2024 10:15:40 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/auth/login 401 - 225.415 ms
+Mon Jun 10 2024 10:16:1 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/product/highest-price 500 - 36.382 ms
+Mon Jun 10 2024 10:29:10 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/product/highest-price 500 - 46.195 ms
+Mon Jun 10 2024 10:31:2 [RAZCO-FOOD] error: ::ffff:192.168.10.102 - POST /api/v1/auth/login 401 - 252.894 ms
+Mon Jun 10 2024 10:39:46 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/rules/contact 404 - 3.383 ms
+Mon Jun 10 2024 10:54:24 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/rules/contact 500 - 19.034 ms

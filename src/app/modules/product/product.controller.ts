@@ -142,6 +142,18 @@ const deleteProduct = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//highest price
+const highestPriceRange = catchAsync(async (req: Request, res: Response) => {
+  const result = await ProductService.highestPriceRangeFromDB();
+
+  sendResponse<IProduct[] | null | undefined>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Highest price retrieved successfully",
+    data: { price: result },
+  });
+});
+
 //barcode product
 const getBarcodeProduct = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
@@ -164,4 +176,5 @@ export const ProductController = {
   getSingleProduct,
   getBarcodeProduct,
   getRelatedProduct,
+  highestPriceRange,
 };

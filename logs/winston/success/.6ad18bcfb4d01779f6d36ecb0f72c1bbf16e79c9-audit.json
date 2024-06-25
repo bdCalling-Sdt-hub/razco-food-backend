@@ -6,54 +6,29 @@
     "auditLog": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\.6ad18bcfb4d01779f6d36ecb0f72c1bbf16e79c9-audit.json",
     "files": [
         {
-            "date": 1717815212266,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-08-success.log",
-            "hash": "5454b13d4e76f1ad1ad06672669224a238a5cea07a380d623f441201d933b29e"
+            "date": 1717992864987,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\10-06-2024-10-success.log",
+            "hash": "82e3b39443766591e95c419cc6bafbcb2e62cf355091f1c84ba286ad2cbd6adb"
         },
         {
-            "date": 1717815615787,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-09-success.log",
-            "hash": "5ddbad1622b7d34e26500f802260deb064044a4606fd4de8425ccd75fd88154e"
+            "date": 1717995655735,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\10-06-2024-11-success.log",
+            "hash": "9aad4050872e22dffe5269d17d14398cfbd51ae734d65561a779353c091ac85e"
         },
         {
-            "date": 1717819470040,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-10-success.log",
-            "hash": "144d6f620bbd7217f7e9b8b5b5210898474a96a7c5b042b74f13c39d81eba5f5"
+            "date": 1718002242017,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\10-06-2024-12-success.log",
+            "hash": "d4ad8c19c3f9c0f057ff47bf3c7af98f28c4368acc75eec2751fc892aa319ffb"
         },
         {
-            "date": 1717823364535,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-11-success.log",
-            "hash": "d80024f2bb5ff391eec3857e7afbd999dd8d3316d7ee64721105b460bf6c975b"
+            "date": 1718010725055,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\10-06-2024-15-success.log",
+            "hash": "1db73f825761e7688f8f547fb5880588ef51f67ae575fa8ac8dea3bb339bf8f5"
         },
         {
-            "date": 1717826460606,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-12-success.log",
-            "hash": "e61711945170415fba35ba308bb5506511e6046a6a3c0ad59d83b64b4419cedc"
-        },
-        {
-            "date": 1717830043184,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-13-success.log",
-            "hash": "96e1f571e364e041619348c53f3da00a2e1b5e696bba3ce9eb2348edafb1bc70"
-        },
-        {
-            "date": 1717833660013,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-14-success.log",
-            "hash": "2a0367d2b96c8fc561d7a74684a44ed136885a4b5b6d9e89e742518af8cb44c7"
-        },
-        {
-            "date": 1717839541456,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-15-success.log",
-            "hash": "be6bb9e8b0f153a8b7e693442a162cfba8b6b28e95bc5b14245f0876ac0d0ab4"
-        },
-        {
-            "date": 1717845296146,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-17-success.log",
-            "hash": "6dee7e059d1e8b7a95ea9233180013f1795dcfb02bd9cb1ab3d2bd8edc05e949"
-        },
-        {
-            "date": 1717850613052,
-            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\08-06-2024-18-success.log",
-            "hash": "5bead27494b8fb113db8265449a6f73e6e9d9724dacf8981066d007a14ea97b3"
+            "date": 1718013631365,
+            "name": "D:\\Fahim\\bdCalling\\Backend\\razco-food-backend\\logs\\winston\\success\\10-06-2024-16-success.log",
+            "hash": "aedb3cdcfeff53675005fa77eea58e82eb4a02295b9b2b7bfb75e9da2e0b91fb"
         }
     ],
     "hashType": "sha256"

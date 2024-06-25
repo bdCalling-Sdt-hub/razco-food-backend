@@ -1,5 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import ApiError from "../../../errors/ApiErrors";
+import { emailHelper } from "../../../helpers/emailHelper";
 import { IRule } from "./rule.interface";
 import { Rule } from "./rule.model";
 
@@ -102,6 +103,11 @@ const updatePrivacyPolicyToDB = async (
   return result;
 };
 
+//contact------------it's poo💩 code.. for delivery time
+const contactToAdminFromDB = async (payload: any) => {
+  emailHelper.supportEmail(payload);
+};
+
 export const RuleService = {
   createAboutToDB,
   getAboutFromDB,
@@ -112,4 +118,5 @@ export const RuleService = {
   createPrivacyPolicyToDB,
   getPrivacyPolicyFromDB,
   updatePrivacyPolicyToDB,
+  contactToAdminFromDB,
 };

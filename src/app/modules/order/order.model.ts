@@ -18,6 +18,22 @@ const orderSchema = new Schema<IOrder, OrderModel>(
       ref: "Cart",
       required: true,
     },
+    products: {
+      type: [
+        {
+          product: {
+            type: Schema.Types.ObjectId,
+            ref: "Product",
+          },
+          quantity: {
+            type: Number,
+            required: true,
+            default: 1,
+          },
+        },
+      ],
+      required: true,
+    },
     totalItem: {
       type: Number,
     },

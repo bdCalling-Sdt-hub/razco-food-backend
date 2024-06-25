@@ -13,14 +13,8 @@ import { Order } from "./order.model";
 
 //create order
 const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
+  console.log("order", payload);
   const result = await Order.create(payload);
-
-  //cart product clear
-  await Cart.findByIdAndUpdate(
-    payload.cart,
-    { $set: { products: [] } },
-    { new: true }
-  );
 
   //notification
   //@ts-ignore
@@ -34,6 +28,13 @@ const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   if (socketIo) {
     socketIo.emit(`notification::${payload.user}`, notification);
   }
+
+  //cart product clear
+  await Cart.findByIdAndUpdate(
+    payload.cart,
+    { $set: { products: [] } },
+    { new: true }
+  );
 
   return result;
 };
@@ -88,21 +89,18 @@ const getAllOrderToDB = async (
 const getSingleUserOrderHistoryFromDB = async (
   id: string
 ): Promise<IOrder[]> => {
-  const result = await Order.find({ user: id }).populate([
-    {
-      path: "user",
-      select: "_id name phone email address",
-    },
-    {
-      path: "cart",
-      populate: [
-        {
-          path: "products.product",
-          select: "productName productImage price weight",
-        },
-      ],
-    },
-  ]);
+  const result = await Order.find({ user: id })
+    .sort({ createdAt: -1 })
+    .populate([
+      {
+        path: "user",
+        select: "_id name phone email address",
+      },
+      {
+        path: "products.product",
+        select: "_id productName productImage price discountPrice weight",
+      },
+    ]);
   return result;
 };
 

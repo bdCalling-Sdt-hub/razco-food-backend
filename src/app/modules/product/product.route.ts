@@ -12,6 +12,12 @@ router.post(
   ProductController.createProduct
 );
 
+router.get(
+  "/highest-price",
+  //auth(USER_TYPE.USER),
+  ProductController.highestPriceRange
+);
+
 router
   .route("/:id")
   .get(

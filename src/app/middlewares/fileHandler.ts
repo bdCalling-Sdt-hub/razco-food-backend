@@ -67,7 +67,7 @@ const fileHandler = () => {
     //dest: "./uploads/",
     storage: storage,
     limits: {
-      fileSize: 50 * 1024 * 1024, //5MB
+      fileSize: 50 * 1024 * 1024, //50MB
     },
     fileFilter: fileFilter,
   }).fields([

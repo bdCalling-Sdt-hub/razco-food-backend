@@ -1,0 +1,14 @@
+Tue Jun 25 2024 10:0:23 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/product 401 - 29.348 ms
+Tue Jun 25 2024 10:0:59 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/cart/add-to-cart 401 - 9.558 ms
+Tue Jun 25 2024 10:2:39 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/order 400 - 9.423 ms
+Tue Jun 25 2024 10:6:44 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/order 400 - 9.886 ms
+Tue Jun 25 2024 10:7:56 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/order 401 - 5.332 ms
+Tue Jun 25 2024 10:8:8 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/order 400 - 3.890 ms
+Tue Jun 25 2024 10:9:15 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/order/history 500 - 15.492 ms
+Tue Jun 25 2024 10:16:33 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/user/profile 500 - 5.725 ms
+Tue Jun 25 2024 10:16:33 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/notifications 500 - 2.663 ms
+Tue Jun 25 2024 10:17:32 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/notifications 500 - 5.681 ms
+Tue Jun 25 2024 10:22:16 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/user/profile 500 - 6.297 ms
+Tue Jun 25 2024 10:22:17 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/notifications 500 - 3.121 ms
+Tue Jun 25 2024 10:25:34 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 14.562 ms
+Tue Jun 25 2024 10:25:44 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 9.424 ms

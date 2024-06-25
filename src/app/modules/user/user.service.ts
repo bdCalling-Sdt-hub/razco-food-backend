@@ -1,12 +1,12 @@
 import bcrypt from "bcrypt";
 import { StatusCodes } from "http-status-codes";
 import ApiError from "../../../errors/ApiErrors";
-import sendMail from "../../../helpers/emailHelper";
 
 import { JwtPayload } from "jsonwebtoken";
 import { SortOrder } from "mongoose";
 import config from "../../../config";
 import { USER_TYPE } from "../../../enums/user";
+import { emailHelper } from "../../../helpers/emailHelper";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { userFiledShow } from "../../../shared/constant";
 import { accountActivationTemplate } from "../../../shared/emailTemplate";
@@ -40,7 +40,7 @@ const createUserToDB = async (payload: IUser): Promise<void> => {
     name: payload.name,
   };
   const mailData = accountActivationTemplate(data);
-  sendMail(mailData);
+  emailHelper.sendMail(mailData);
 
   // Schedule the task to set oneTimeCode to null after 3 minutes
   setTimeout(async () => {
@@ -114,7 +114,7 @@ const resendOtpToDB = async (email: string): Promise<void> => {
     otp,
   };
   const mailData = accountActivationTemplate(data);
-  sendMail(mailData);
+  emailHelper.sendMail(mailData);
 
   //after 3minute null this code
   setTimeout(async () => {

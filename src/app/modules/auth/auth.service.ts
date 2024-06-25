@@ -3,7 +3,7 @@ import { StatusCodes } from "http-status-codes";
 import { JwtPayload, Secret } from "jsonwebtoken";
 import config from "../../../config";
 import ApiError from "../../../errors/ApiErrors";
-import sendMail from "../../../helpers/emailHelper";
+import { emailHelper } from "../../../helpers/emailHelper";
 import { jwtHelper } from "../../../helpers/jwtHelper";
 import { forgetPasswordTemplate } from "../../../shared/emailTemplate";
 import cryptoHexToken from "../../../util/cryptoToken";
@@ -60,7 +60,7 @@ const forgetPasswordToDB = async (email: string): Promise<void> => {
     otp,
   };
   const mailData = forgetPasswordTemplate(data);
-  sendMail(mailData);
+  emailHelper.sendMail(mailData);
 
   //after 3minute null this code
   setTimeout(async () => {

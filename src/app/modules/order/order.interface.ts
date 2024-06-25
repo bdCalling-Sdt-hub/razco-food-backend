@@ -4,6 +4,7 @@ export type IOrder = {
   orderId: string;
   user: Types.ObjectId;
   cart: Types.ObjectId;
+  products: { product: Types.ObjectId; quantity: number }[];
   totalItem: number;
   price: number;
   deliveryDate: string;

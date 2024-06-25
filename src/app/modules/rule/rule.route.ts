@@ -60,4 +60,11 @@ router
     RuleController.updatePrivacyPolicy
   );
 
+router.post(
+  "/contact",
+  //auth(USER_TYPE.USER),
+  validateRequest(RuleValidation.contactZodSchema),
+  RuleController.contactToAdmin
+);
+
 export const RuleRoutes = router;

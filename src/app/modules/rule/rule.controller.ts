@@ -118,6 +118,18 @@ const updatePrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//contact
+const contactToAdmin = catchAsync(async (req: Request, res: Response) => {
+  const content = req.body;
+  await RuleService.contactToAdminFromDB(content);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Mail Send successfully",
+  });
+});
+
 export const RuleController = {
   createAbout,
   getAbout,
@@ -128,4 +140,5 @@ export const RuleController = {
   createPrivacyPolicy,
   getPrivacyPolicy,
   updatePrivacyPolicy,
+  contactToAdmin,
 };

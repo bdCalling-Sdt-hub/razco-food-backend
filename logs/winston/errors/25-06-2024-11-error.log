@@ -1,0 +1,2 @@
+Tue Jun 25 2024 11:35:32 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/order 400 - 8.896 ms
+Tue Jun 25 2024 11:54:7 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - GET /api/v1/notifications 500 - 6.855 ms
