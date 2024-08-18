@@ -1,0 +1,36 @@
+Sun Aug 18 2024 15:0:17 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/user/verify-email 200 - 8.076 ms
+Sun Aug 18 2024 15:6:31 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.073 ms
+Sun Aug 18 2024 15:6:41 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.096 ms
+Sun Aug 18 2024 15:8:21 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/create-user 204 - 0.070 ms
+Sun Aug 18 2024 15:8:21 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/user/create-user 200 - 232.428 ms
+Sun Aug 18 2024 15:8:24 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Sun Aug 18 2024 15:8:55 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.266 ms
+Sun Aug 18 2024 15:9:38 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.233 ms
+Sun Aug 18 2024 15:10:45 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.224 ms
+Sun Aug 18 2024 15:12:15 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.500 ms
+Sun Aug 18 2024 15:12:57 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.301 ms
+Sun Aug 18 2024 15:14:35 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.133 ms
+Sun Aug 18 2024 15:15:14 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.196 ms
+Sun Aug 18 2024 15:15:53 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.275 ms
+Sun Aug 18 2024 15:18:59 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.295 ms
+Sun Aug 18 2024 15:22:35 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.072 ms
+Sun Aug 18 2024 15:23:51 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/create-user 204 - 0.187 ms
+Sun Aug 18 2024 15:23:51 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/user/create-user 200 - 232.910 ms
+Sun Aug 18 2024 15:23:55 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Sun Aug 18 2024 15:24:24 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.170 ms
+Sun Aug 18 2024 15:25:36 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.228 ms
+Sun Aug 18 2024 15:27:26 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.073 ms
+Sun Aug 18 2024 15:30:57 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/create-user 204 - 0.248 ms
+Sun Aug 18 2024 15:30:57 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/user/create-user 200 - 230.052 ms
+Sun Aug 18 2024 15:31:0 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Sun Aug 18 2024 15:31:30 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/verify-email 204 - 0.459 ms
+Sun Aug 18 2024 15:31:30 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/user/verify-email 200 - 15.642 ms
+Sun Aug 18 2024 15:38:30 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/auth/login 200 - 238.028 ms
+Sun Aug 18 2024 15:41:34 [RAZCO-FOOD] info: 192.168.10.161 - GET /api/v1/product 304 - 11.684 ms
+Sun Aug 18 2024 15:41:54 [RAZCO-FOOD] info: 192.168.10.161 - GET /api/v1/product/66c07161b668fc43b2b2cfa6 304 - 5.485 ms
+Sun Aug 18 2024 15:42:20 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/create-user 204 - 0.483 ms
+Sun Aug 18 2024 15:42:20 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/user/create-user 200 - 242.308 ms
+Sun Aug 18 2024 15:42:24 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY
+Sun Aug 18 2024 15:59:42 [RAZCO-FOOD] info: 192.168.10.161 - OPTIONS /api/v1/user/create-user 204 - 0.476 ms
+Sun Aug 18 2024 15:59:43 [RAZCO-FOOD] info: 192.168.10.161 - POST /api/v1/user/create-user 200 - 238.859 ms
+Sun Aug 18 2024 15:59:46 [RAZCO-FOOD] info: MAIL SEND SUCCESSFULLY

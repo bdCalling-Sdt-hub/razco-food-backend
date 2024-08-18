@@ -11,10 +11,6 @@ const productSchema = new Schema<IProduct, ProductModel>(
       type: [String],
       required: true,
     },
-    productId: {
-      type: String,
-      required: true,
-    },
     barcode: {
       type: String,
       required: true,

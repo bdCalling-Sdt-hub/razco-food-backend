@@ -1,3 +1,4 @@
+import csv from "csvtojson";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
@@ -32,6 +33,21 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
     success: true,
     message: "Product created successfully",
     data: result,
+  });
+});
+
+const uploadProducts = catchAsync(async (req: Request, res: Response) => {
+  let products = [];
+  if (req.files && "csv" in req.files && req.files.csv[0]) {
+    products = await csv().fromFile(req.files.csv[0].path);
+  }
+
+  await ProductService.uploadProductsToDB(products);
+
+  sendResponse<IProduct>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Products Upload successfully",
   });
 });
 
@@ -177,4 +193,5 @@ export const ProductController = {
   getBarcodeProduct,
   getRelatedProduct,
   highestPriceRange,
+  uploadProducts,
 };

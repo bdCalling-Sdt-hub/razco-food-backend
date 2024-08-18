@@ -1,7 +1,6 @@
 import { Model, Types } from "mongoose";
 
 export type IProduct = {
-  productId: string;
   productName: string;
   productImage: string[];
   barcode: string;

@@ -5,11 +5,20 @@ import fileHandler from "../../middlewares/fileHandler";
 import { ProductController } from "./product.controller";
 const router = express();
 
+//create product
 router.post(
   "/create-product",
   fileHandler(),
   auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
   ProductController.createProduct
+);
+
+//upload file
+router.post(
+  "/upload-csv",
+  fileHandler(),
+  auth(USER_TYPE.SUPER_ADMIN, USER_TYPE.ADMIN),
+  ProductController.uploadProducts
 );
 
 router.get(

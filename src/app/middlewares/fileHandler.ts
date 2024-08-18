@@ -51,14 +51,15 @@ const fileHandler = () => {
     if (
       file.mimetype === "image/jpeg" ||
       file.mimetype === "image/jpg" ||
-      file.mimetype === "image/png"
+      file.mimetype === "image/png" ||
+      file.mimetype === "text/csv"
     ) {
       cb(null, true);
     } else {
       cb(
         new ApiError(
           StatusCodes.BAD_REQUEST,
-          "Only .jpg, .jpeg, .png file supported!"
+          "Only .jpg, .jpeg, .png .csv file supported!"
         )
       );
     }
@@ -77,6 +78,7 @@ const fileHandler = () => {
     { name: "bannerImage", maxCount: 1 },
     { name: "profileImage", maxCount: 1 },
     { name: "productImage", maxCount: 3 },
+    { name: "csv", maxCount: 1 },
   ]);
 
   return upload;

@@ -24,6 +24,14 @@ const createProductToDB = async (payload: IProduct): Promise<IProduct> => {
   return createProduct;
 };
 
+const uploadProductsToDB = async (payload: IProduct[]): Promise<IProduct[]> => {
+  const createProduct = await Product.insertMany(payload);
+  if (!createProduct) {
+    throw new ApiError(StatusCodes.OK, "Failed to upload product file");
+  }
+  return createProduct;
+};
+
 const getAllProductFromDB = async (
   token: string | undefined,
   filters: IProductFilters,
@@ -260,4 +268,5 @@ export const ProductService = {
   getBarcodeProductFromDB,
   getRelatedProductFromDB,
   highestPriceRangeFromDB,
+  uploadProductsToDB,
 };

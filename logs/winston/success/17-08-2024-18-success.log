@@ -1,0 +1,4 @@
+Sat Aug 17 2024 18:0:10 [RAZCO-FOOD] info: 192.168.10.161 - GET /api/v1/product 304 - 6.136 ms
+Sat Aug 17 2024 18:2:52 [RAZCO-FOOD] info: 192.168.10.161 - GET /api/v1/product 200 - 11.521 ms
+Sat Aug 17 2024 18:4:20 [RAZCO-FOOD] info: 192.168.10.161 - GET /api/v1/user?search=voldmort 200 - 30.451 ms
+Sat Aug 17 2024 18:5:56 [RAZCO-FOOD] info: 192.168.10.185 - POST /api/v1/product/upload-csv 200 - 6.907 ms
