@@ -1,5 +1,0 @@
-Fri May 17 2024 16:44:45 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/coupon 401 - 10.111 ms
-Fri May 17 2024 16:47:49 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - GET /api/v1/coupon 401 - 3.059 ms
-Fri May 17 2024 16:48:47 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/coupon/claim-coupon 403 - 2.783 ms
-Fri May 17 2024 16:48:59 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/coupon/claim-coupon 403 - 3.690 ms
-Fri May 17 2024 16:50:51 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/coupon/claim-coupon 403 - 2.586 ms

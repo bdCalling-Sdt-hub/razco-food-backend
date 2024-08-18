@@ -1,6 +1,0 @@
-Sun Aug 18 2024 10:36:35 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/product/[object%20Object] 500 - 86.143 ms
-Sun Aug 18 2024 10:36:59 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/product/[object%20Object] 500 - 13.189 ms
-Sun Aug 18 2024 10:38:18 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/product/[object%20Object] 500 - 25.639 ms
-Sun Aug 18 2024 10:38:40 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/product/[object%20Object] 500 - 17.219 ms
-Sun Aug 18 2024 10:40:8 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/product/[object%20Object] 500 - 3.818 ms
-Sun Aug 18 2024 10:40:10 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/product/[object%20Object] 500 - 4.521 ms

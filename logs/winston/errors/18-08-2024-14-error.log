@@ -1,8 +1,0 @@
-Sun Aug 18 2024 14:0:11 [RAZCO-FOOD] error: 192.168.10.161 - POST /api/v1/user/create-user 400 - 24.739 ms
-Sun Aug 18 2024 14:51:54 [RAZCO-FOOD] error: 192.168.10.161 - POST /api/v1/user/verify-email 500 - 20.076 ms
-Sun Aug 18 2024 14:52:29 [RAZCO-FOOD] error: 192.168.10.161 - POST /api/v1/user/verify-email 500 - 4.131 ms
-Sun Aug 18 2024 14:54:21 [RAZCO-FOOD] error: 192.168.10.161 - POST /api/v1/user/verify-email 500 - 2.474 ms
-Sun Aug 18 2024 14:55:55 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/user?search=voldmort 401 - 10.900 ms
-Sun Aug 18 2024 14:56:17 [RAZCO-FOOD] error: 192.168.10.161 - GET /api/v1/user?search=voldmort 401 - 5.485 ms
-Sun Aug 18 2024 14:58:30 [RAZCO-FOOD] error: 192.168.10.161 - POST /api/v1/user/create-user 500 - 255.689 ms
-Sun Aug 18 2024 14:59:57 [RAZCO-FOOD] error: 192.168.10.161 - POST /api/v1/user/verify-email 400 - 7.506 ms

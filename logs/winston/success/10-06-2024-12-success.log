@@ -1,4 +1,0 @@
-Mon Jun 10 2024 12:50:42 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - POST /api/v1/auth/login 200 - 262.514 ms
-Mon Jun 10 2024 12:51:11 [RAZCO-FOOD] info: ::ffff:192.168.10.62 - GET /api/v1/order/history 200 - 25.338 ms
-Mon Jun 10 2024 12:57:46 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - POST /api/v1/auth/login 200 - 220.638 ms
-Mon Jun 10 2024 12:58:27 [RAZCO-FOOD] info: ::ffff:192.168.10.102 - GET /api/v1/order/history 200 - 9.948 ms

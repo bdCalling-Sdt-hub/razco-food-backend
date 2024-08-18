@@ -19,7 +19,6 @@ const logger = winston.createLogger({
     new DailyRotateFile({
       filename: path.join(
         process.cwd(),
-        "logs",
         "winston",
         "success",
         "%DATE%-success.log"
@@ -39,7 +38,6 @@ const errorLogger = winston.createLogger({
     new DailyRotateFile({
       filename: path.join(
         process.cwd(),
-        "logs",
         "winston",
         "errors",
         "%DATE%-error.log"

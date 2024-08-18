@@ -1,6 +1,0 @@
-Mon Jun 10 2024 12:52:26 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 16.795 ms
-Mon Jun 10 2024 12:52:36 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 4.862 ms
-Mon Jun 10 2024 12:53:8 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 2.430 ms
-Mon Jun 10 2024 12:53:55 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 4.059 ms
-Mon Jun 10 2024 12:54:12 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 4.256 ms
-Mon Jun 10 2024 12:54:14 [RAZCO-FOOD] error: ::ffff:192.168.10.62 - POST /api/v1/auth/login 400 - 4.105 ms

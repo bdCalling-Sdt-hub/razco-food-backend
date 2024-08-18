@@ -1,4 +1,0 @@
-Sat May 18 2024 12:27:20 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/order 500 - 27.365 ms
-Sat May 18 2024 12:43:48 [RAZCO-FOOD] error: ::ffff:192.168.10.63 - GET /api/v1/faq 500 - 7.671 ms
-Sat May 18 2024 12:52:22 [RAZCO-FOOD] error: ::ffff:192.168.10.16 - POST /api/v1/order 500 - 30.910 ms
-Sat May 18 2024 12:54:27 [RAZCO-FOOD] error: ::ffff:192.168.10.63 - GET /api/v1/faq 500 - 5.853 ms
