@@ -34,7 +34,6 @@ const getAllCoupon = catchAsync(async (req: Request, res: Response) => {
 const updateCoupon = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const { ...updateData } = req.body;
-  console.log(updateData);
   const result = await CouponService.updateCouponToDB(id, updateData);
 
   sendResponse(res, {
