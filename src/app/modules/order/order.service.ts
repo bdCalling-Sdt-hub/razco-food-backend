@@ -2,9 +2,12 @@ import { StatusCodes } from "http-status-codes";
 import { JwtPayload } from "jsonwebtoken";
 import { SortOrder } from "mongoose";
 import ApiError from "../../../errors/ApiErrors";
+import { emailHelper } from "../../../helpers/emailHelper";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { NewOrderMail } from "../../../shared/emailTemplate";
 import { IGenericResponse } from "../../../types/common";
 import { IPaginationOptions } from "../../../types/pagination";
+import generateOrderId from "../../../util/generateOrderId";
 import { Cart } from "../cart/cart.model";
 import { Notification } from "../notifications/notifications.model";
 import { User } from "../user/user.model";
@@ -13,7 +16,9 @@ import { Order } from "./order.model";
 
 //create order
 const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
-  console.log("order", payload);
+  //set order id;
+  payload.orderId = generateOrderId();
+
   const result = await Order.create(payload);
 
   //notification
@@ -28,6 +33,21 @@ const createOrderToDB = async (payload: IOrder): Promise<IOrder> => {
   if (socketIo) {
     socketIo.emit(`notification::${payload.user}`, notification);
   }
+
+  const isExistUser = await User.findById(result.user);
+  const orderData = {
+    orderId: result.orderId,
+    customerName: isExistUser?.name,
+    customerEmail: isExistUser?.email,
+    customerPhone: isExistUser?.phone,
+    deliveryAddress: isExistUser?.address,
+    totalItems: result.totalItem,
+    price: result.price,
+  };
+
+  //send mail to admin
+  const mailData = NewOrderMail(orderData);
+  emailHelper.sendMail(mailData);
 
   //cart product clear
   await Cart.findByIdAndUpdate(
@@ -61,13 +81,8 @@ const getAllOrderToDB = async (
         select: "_id name phone email address",
       },
       {
-        path: "cart",
-        populate: [
-          {
-            path: "products.product",
-            select: "productName productImage price",
-          },
-        ],
+        path: "products.product",
+        select: "productName productImage price",
       },
     ]);
 

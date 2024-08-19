@@ -3,7 +3,7 @@ import { orderStatus } from "../../../shared/constant";
 
 const createOrderZodSchema = z.object({
   body: z.object({
-    orderId: z.string({ required_error: "Order Id is required" }),
+    orderId: z.string().optional(),
     cart: z.string({ required_error: "Cart Id is required" }),
     products: z
       .array(
