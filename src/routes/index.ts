@@ -1,4 +1,5 @@
 import express from "express";
+import { ApplicationRoutes } from "../app/modules/application/application.route";
 import { AuthRoutes } from "../app/modules/auth/auth.route";
 import { BannerRoutes } from "../app/modules/banner/banner.route";
 import { CartRoutes } from "../app/modules/cart/cart.route";
@@ -81,6 +82,10 @@ const appRouteList = [
   {
     path: "/notifications",
     route: NotificationRoutes,
+  },
+  {
+    path: "/application",
+    route: ApplicationRoutes,
   },
 ];
 
