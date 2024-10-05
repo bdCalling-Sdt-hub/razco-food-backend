@@ -79,6 +79,7 @@ const fileHandler = () => {
     { name: "profileImage", maxCount: 1 },
     { name: "productImage", maxCount: 3 },
     { name: "csv", maxCount: 1 },
+    { name: "image", maxCount: 1 },
   ]);
 
   return upload;

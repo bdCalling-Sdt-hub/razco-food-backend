@@ -15,6 +15,7 @@ import { RuleRoutes } from "../app/modules/rule/rule.route";
 import { ScanHistoryRoutes } from "../app/modules/scanHistory/ScanHistory.route";
 import { SubcategoryRoutes } from "../app/modules/subcategory/subcategory.route";
 import { UserRoutes } from "../app/modules/user/user.route";
+import { WeeklyRoutes } from "../app/modules/weeklyDeal/weeklyDeal.route";
 import { WishlistRoutes } from "../app/modules/wishlist/wishlist.route";
 const router = express.Router();
 
@@ -86,6 +87,10 @@ const appRouteList = [
   {
     path: "/application",
     route: ApplicationRoutes,
+  },
+  {
+    path: "/weekly-deal",
+    route: WeeklyRoutes,
   },
 ];
 
